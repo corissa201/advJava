@@ -1,3 +1,3 @@
 # Utilities for all projects .
 
-This is where we'll save all the lab files for the first project.
+This is where we will have utility type code that can be use in all projects.
