@@ -2,9 +2,9 @@ package java112.analyzer;
 
 /**
  * @author Corissa Engel
- * class Driver
+ * class TokenAnalyzer
  */
-public class Driver {
+public interface TokenAnalyzer {
 
 
 }
