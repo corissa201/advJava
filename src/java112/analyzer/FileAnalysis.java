@@ -8,7 +8,7 @@ public class FileAnalysis {
     /**
     * Constructor for FileAnalyzer
     */
-    public FileAnalyzer() {
+    public FileAnalysis() {
 
     }
 

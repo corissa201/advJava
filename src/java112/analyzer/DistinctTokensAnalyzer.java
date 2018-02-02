@@ -8,7 +8,7 @@ public class DistinctTokensAnalyzer{
     /**
      * Constructor for DistinctTokensAnalyzer,
      */
-    public DistinctTokensAnalyzer,() {
+    public DistinctTokensAnalyzer() {
 
     }
 
