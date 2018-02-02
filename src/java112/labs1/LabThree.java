@@ -12,12 +12,13 @@ public class LabThree {
      * @param arguments The command line arguments.
      */
     public static void main(String[] arguments) {
-        //String test = "test";
 
+       //if argument is not equal to one, output directions
         if (arguments.length != 1) {
             System.out.println("Please enter one argument on the command line");
             return;
         }
+
         LabThree test = new LabThree();
         test.run(arguments[0]);
     }
