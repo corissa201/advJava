@@ -5,11 +5,12 @@ package java112.analyzer;
  * class FileSummaryAnalyzer
  */
 
- //Class will create summary report
+ //Class will create summary report and implement the TokenAnalyzer interface
 public class FileSummaryAnalyzer {
     /**
      * Constructor for FileSummaryAnalyzer
      */
+    //a zero-parameter constructor
     public FileSummaryAnalyzer() {
 
     }
