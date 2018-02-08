@@ -10,32 +10,34 @@ public class FileSummaryAnalyzer {
      */
     public FileSummaryAnalyzer() {
 
-    // Output the name of the application generating the report. Make up a name for your application.
+    // Create the name of the application generating the report. Make up a name for your application.
 
 
-    // Output the name of the author of the application and their section day and time.
+    // Create the name of the author of the application and their section day and time.
 
 
-    // Output the email address of the author.
+    // Create  the email address of the author.
 
 
-    // Output the name of the text file that was analyzed.
+    // Create the name of the text file that was analyzed.
 
 
-    // Output the date and time the file that was analyzed.
+    // Create the date and time the file that was analyzed.
 
 
-    // Output the last modified date of the analyzed file.
+    // Create the last modified date of the analyzed file.
 
 
-    // Output the size of the file in bytes.
+    // Create the size of the file in bytes.
 
 
-    // Output the file URI of the analyzed file.
+    // Create the file URI of the analyzed file.
 
 
-    // Output the total number of individual tokens in the document.
+    // Create the total number of individual tokens in the document.
 
+
+    //Output summary information in a file named summary.txt
 
 
     }
