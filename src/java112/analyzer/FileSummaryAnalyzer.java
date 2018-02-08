@@ -12,8 +12,14 @@ public class FileSummaryAnalyzer {
      */
     public FileSummaryAnalyzer() {
 
-
-
     }
+
+    private int totalTokensCount;
+
+    public int getTotalTokensCount() {
+        return totalTokensCount;
+    }
+
+
 
 }
