@@ -5,6 +5,14 @@ package java112.analyzer;
  * class FileAnalysis
  */
 public class FileAnalysis {
+   //create a constant for the valid number of command-line arguments
+
+   //instantiate an instance of the FileSummaryAnalyzer Analyzer class
+   FileSummaryAnalyzer summaryAnalyzer = new FileSummaryAnalyzer();
+
+   //instantiate an instance of the DistinctTokensAnalyzer Analyzer class
+   DistinctTokensAnalyzer distinctAnalyzer = new DistinctTokensAnalyzer();
+
     /**
     * Constructor for FileAnalyzer
     */
