@@ -1,45 +1,45 @@
-package java112.labs1;
-
+package java112.labs;
 
 import java.io.*;
-
 
 /**
  * @author Corissa Engel
  * class LabFour
  */
-
 public class LabFour {
 
+   private static final int VALID_ARGUMENTS_COUNT = 1;
+
     /**
-     * Run the lab
+     * Run the demo
      */
     public void run(String filePath) {
 
-        BufferedReader input = null;
-        try {
+       BufferedReader input = null;
 
-            input = new BufferedReader(new FileReader(filePath));
+        try{
+           input = new BufferedReader(new FileReader("sample.txt"));
+           while (input.ready()) {
+              System.out.println(input.readLine());
+           }
 
-            while (input.ready()) {
-                System.out.println(input.readLine());
-            }
 
         } catch (FileNotFoundException fileNotFoundException) {
-            fileNotFoundException.printStackTrace();
+           fileNotFoundException.printStackTrace();
         } catch (IOException inputOutputException) {
-            inputOutputException.printStackTrace();
+           inputOutputException.printStackTrace();
         } catch (Exception exception) {
             exception.printStackTrace();
         } finally {
-            try {
-                if (input != null) {
-                    input.close();
-                }
-            } catch (Exception exception) {
-                exception.printStackTrace();
-            }
+           try {
+              if (input != null){
+                 input.close();
+              }
+           } catch (Exception exception) {
+               exception.printStackTrace();
+           }
         }
+
     }
 
     /**
@@ -47,11 +47,14 @@ public class LabFour {
      * @param arguments The command line arguments.
      */
     public static void main(String[] arguments) {
-            if (arguments.length != 1) {
-                System.out.println("Please enter one argument on the command line");
-                return;
-            }
+
+        if (arguments.length != VALID_ARGUMENTS_COUNT) {
+            System.out.println("Nag");
+            return;
+        }
+
         LabFour demo = new LabFour();
         demo.run(arguments[0]);
     }
+
 }

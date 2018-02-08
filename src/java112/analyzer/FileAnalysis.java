@@ -16,7 +16,7 @@ public class FileAnalysis {
 
        //System.out.println("in FileAnalysis.analyze");
 
-       // If 1 argument entered the application will output a message to the
+       // If 1 argument is entered the application will output a message to the
        //command line asking for the right input and then terminate the program
        if (arguments.length != 1) {
           System.out.println("Please enter one argument on the command line");
