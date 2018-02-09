@@ -9,7 +9,6 @@ public class FileAnalysis {
    private static final int VALID_ARGUMENTS_COUNT = 1;
 
 
-
    /**
      * Constructor for FileAnalyzer
     */
@@ -28,7 +27,7 @@ public class FileAnalysis {
       //Call method that will create an instance of each Analyzer class and assign them to their instance variables
       createInstanceAnalyzerClasses();
       //Call method that will open the input file.
-
+      openFile();
       //Call method that will loop through all the lines of the input file and generate individual tokens
 
       //Call method that will pass generated tokens to all Analyzer instances via the processToken() method
@@ -44,7 +43,21 @@ public class FileAnalysis {
 
    //Create method to open the inputfile
    public void openFile(){
+      try (
+         BufferedReader input = new BufferedReader(new FileReader("AgathaChristie.txt"))
+      ){
 
+         while (input.ready()) {
+            System.out.println(input.readLine());
+         }
+
+      } catch (FileNotFoundException fileNotFoundException) {
+         fileNotFoundException.printStackTrace();
+      } catch (IOException inputOutputException) {
+         inputOutputException.printStackTrace();
+      } catch (Exception exception) {
+         exception.printStackTrace();
+      }
    }
 
    //Create method to loop through all the lines of the input file and generate individual tokens
