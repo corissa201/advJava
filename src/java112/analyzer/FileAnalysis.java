@@ -20,36 +20,28 @@ public class FileAnalysis {
    public void analyze(String[] arguments) {
 
       if (arguments.length != VALID_ARGUMENTS_COUNT) {
-         System.out.println("Please enter one argument on the command line");
+         System.out.println("Please enter a file path");
          return;
       }
 
-      //Call method that will create an instance of each Analyzer class and assign them to their instance variables
       createInstanceAnalyzerClasses();
-      //Call method that will open the input file.
-      openFile();
-      //Call method that will loop through all the lines of the input file and generate individual tokens
-      //loopThroughFile();
-      //Call method that will pass generated tokens to all Analyzer instances via the processToken() method
-
-      //Call method that will call the generateOutputFile() method for each Analyzer class in a method named writeOutputFiles()
+      openInputFile(arguments[0]);
+      //readInputFile();
+      callProcessToken();
+      callGenerateOutputFiles();
    }
 
-   //Create method that will create an instance of each Analyzer class and assign them to their instance variables
    public void createInstanceAnalyzerClasses(){
       FileSummaryAnalyzer summaryAnalyzer = new FileSummaryAnalyzer();
       DistinctTokensAnalyzer distinctAnalyzer = new DistinctTokensAnalyzer();
    }
 
-   //Create method to open the inputfile
-   public void openFile(){
+   public void openInputFile(String filePath){
 
         try (
-            BufferedReader input = new BufferedReader(new FileReader("AgathaChristie.txt"));
+            BufferedReader input = new BufferedReader(new FileReader(filePath))
             ) {
-            while (input.ready()) {
-                System.out.println(input.readLine());
-            }
+                readInputFile(input);
 
         } catch (FileNotFoundException fileNotFoundException) {
             fileNotFoundException.printStackTrace();
@@ -60,12 +52,24 @@ public class FileAnalysis {
         }
 
     }
-   //Create method to loop through all the lines of the input file and generate individual tokens
-   public void loopThroughFile(){
+
+   public void readInputFile(BufferedReader input) throws IOException {
+      String inputLine = null;
+      String[] tokenArray = null;
+
+      while (input.ready()) {
+         inputLine = input.readLine();
+         tokenArray = inputLine.split("\\W");
+       }
+    }
+
+
+   public void callProcessToken(){
 
    }
 
-   //Create method to Pass generated tokens to all Analyzer instances via the processToken() method
 
-   //Create method to Call the generateOutputFile() method for each Analyzer class in a method named generateOutputFiles()
+   public void callGenerateOutputFiles(){
+
+   }
 }
