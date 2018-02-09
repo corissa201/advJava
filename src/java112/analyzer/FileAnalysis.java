@@ -5,7 +5,6 @@ package java112.analyzer;
  * class FileAnalysis
  */
 public class FileAnalysis {
-   //create a constant for the valid number of command-line arguments
    private static final int VALID_ARGUMENTS_COUNT = 1;
 
 
@@ -17,9 +16,8 @@ public class FileAnalysis {
    }
 
    public void analyze(String[] arguments) {
-      // If 1 argument is entered the application will output a message to the
-      //command line asking for the right input and then terminate the program
-      if (arguments.length != 1) {
+
+      if (arguments.length != VALID_ARGUMENTS_COUNT) {
          System.out.println("Please enter one argument on the command line");
          return;
       }
@@ -52,6 +50,7 @@ public class FileAnalysis {
       } catch (Exception exception) {
          exception.printStackTrace();
       }
+
    }
 
    //Create method to loop through all the lines of the input file and generate individual tokens
@@ -62,5 +61,7 @@ public class FileAnalysis {
          line = input.readLine();
       }
    }
-   //Create method to Pass generated tokens to all Analyzer instances via the processToken() method    //Create method to Call the generateOutputFile() method for each Analyzer class in a method named generateOutputFiles()
+   //Create method to Pass generated tokens to all Analyzer instances via the processToken() method
+
+   //Create method to Call the generateOutputFile() method for each Analyzer class in a method named generateOutputFiles()
 }
