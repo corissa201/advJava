@@ -1,6 +1,7 @@
 package java112.analyzer;
 
 import java.io.*;
+import java.util.*;
 
 /**
  * @author Corissa Engel
@@ -9,12 +10,17 @@ import java.io.*;
 public class FileAnalysis {
    private static final int VALID_ARGUMENTS_COUNT = 1;
 
+   private Set<String> distinctTokens;
+
+   public Set<String> getDistinctTokens() {
+      return distinctTokens;
+   }
 
    /**
      * Constructor for FileAnalyzer
     */
    public FileAnalysis() {
-
+      distinctTokens = new TreeSet<>();
    }
 
    public void analyze(String[] arguments) {
