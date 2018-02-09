@@ -30,14 +30,24 @@ public class FileAnalysis {
           System.out.println("Please enter one argument on the command line");
           return;
       }
-      //Create an instance of each Analyzer class and assign them to their instance variables
+      //Call method that will create an instance of each Analyzer class and assign them to their instance variables
 
-      //Open the input file.
+      //Call method that will open the input file.
 
-      //Loop through all the lines of the input file and generate individual tokens
+      //Call method that will loop through all the lines of the input file and generate individual tokens
 
-      //Pass generated tokens to all Analyzer instances via the processToken() method
+      //Call method that will pass generated tokens to all Analyzer instances via the processToken() method
 
-      //Call the generateOutputFile() method for each Analyzer class in a method named writeOutputFiles()
+      //Call method that will call the generateOutputFile() method for each Analyzer class in a method named writeOutputFiles()
     }
+
+    //Create method an instance of each Analyzer class and assign them to their instance variables
+
+    //Create method to open the inputfile
+
+    //Create method to loop through all the lines of the input file and generate individual tokens
+
+    //Create method to Pass generated tokens to all Analyzer instances via the processToken() method
+
+    //Create method to Call the generateOutputFile() method for each Analyzer class in a method named generateOutputFiles()
 }
