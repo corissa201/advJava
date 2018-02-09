@@ -70,7 +70,8 @@ public class FileAnalysis {
    }
 
 
-   public void generateOutputFiles()){
+   public void generateOutputFiles(){
+      createInstanceAnalyzerClasses()
       summaryAnalyzer.generateOutputFiles();
       distinctAnalyzer.generateOutputFiles();
    }
