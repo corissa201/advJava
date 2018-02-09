@@ -29,7 +29,7 @@ public class FileAnalysis {
       openInputFile(arguments[0]);
       //readInputFile();
       callProcessToken();
-      callGenerateOutputFiles();
+      generateOutputFiles();
    }
 
    public void createInstanceAnalyzerClasses(){
@@ -70,7 +70,8 @@ public class FileAnalysis {
    }
 
 
-   public void callGenerateOutputFiles(){
-
+   public void generateOutputFiles()){
+      summaryAnalyzer.generateOutputFiles();
+      distinctAnalyzer.generateOutputFiles();
    }
 }
