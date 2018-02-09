@@ -8,11 +8,7 @@ public class FileAnalysis {
    //create a constant for the valid number of command-line arguments
    private static final int VALID_ARGUMENTS_COUNT = 1;
 
-   //instantiate an instance of the FileSummaryAnalyzer Analyzer class
-   FileSummaryAnalyzer summaryAnalyzer = new FileSummaryAnalyzer();
 
-   //instantiate an instance of the DistinctTokensAnalyzer Analyzer class
-   DistinctTokensAnalyzer distinctAnalyzer = new DistinctTokensAnalyzer();
 
    /**
      * Constructor for FileAnalyzer
@@ -30,7 +26,7 @@ public class FileAnalysis {
       }
 
       //Call method that will create an instance of each Analyzer class and assign them to their instance variables
-
+      createInstanceAnalyzerClasses();
       //Call method that will open the input file.
 
       //Call method that will loop through all the lines of the input file and generate individual tokens
@@ -42,7 +38,8 @@ public class FileAnalysis {
 
    //Create method that will create an instance of each Analyzer class and assign them to their instance variables
    public void createInstanceAnalyzerClasses(){
-
+      FileSummaryAnalyzer summaryAnalyzer = new FileSummaryAnalyzer();
+      DistinctTokensAnalyzer distinctAnalyzer = new DistinctTokensAnalyzer();
    }
 
    //Create method to open the inputfile
