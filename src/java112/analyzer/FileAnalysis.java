@@ -29,7 +29,7 @@ public class FileAnalysis {
       //Call method that will open the input file.
       openFile();
       //Call method that will loop through all the lines of the input file and generate individual tokens
-
+      loopThroughFile();
       //Call method that will pass generated tokens to all Analyzer instances via the processToken() method
 
       //Call method that will call the generateOutputFile() method for each Analyzer class in a method named writeOutputFiles()
@@ -56,8 +56,10 @@ public class FileAnalysis {
 
    //Create method to loop through all the lines of the input file and generate individual tokens
    public void loopThroughFile(){
+      String line = null;
+
       while (input.ready()) {
-         System.out.println(input.readLine());
+         line = input.readLine();
       }
    }
    //Create method to Pass generated tokens to all Analyzer instances via the processToken() method    //Create method to Call the generateOutputFile() method for each Analyzer class in a method named generateOutputFiles()
