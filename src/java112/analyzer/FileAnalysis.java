@@ -13,7 +13,7 @@ public class FileAnalysis {
    //instantiate an instance of the DistinctTokensAnalyzer Analyzer class
    DistinctTokensAnalyzer distinctAnalyzer = new DistinctTokensAnalyzer();
 
-    /**
+ /**
     * Constructor for FileAnalyzer
     */
     public FileAnalysis() {
@@ -38,16 +38,18 @@ public class FileAnalysis {
 
       //Call method that will pass generated tokens to all Analyzer instances via the processToken() method
 
-      //Call method that will call the generateOutputFile() method for each Analyzer class in a method named writeOutputFiles()
-    }
+   //Call method that will call the generateOutputFile() method for each Analyzer class in a method named writeOutputFiles()
+   }
 
-    //Create method an instance of each Analyzer class and assign them to their instance variables
+   //Create method an instance of each Analyzer class and assign them to their instance variables
 
-    //Create method to open the inputfile
 
-    //Create method to loop through all the lines of the input file and generate individual tokens
+   //Create method to open the inputfile
+   public void openFile(){
 
-    //Create method to Pass generated tokens to all Analyzer instances via the processToken() method
+   }
 
-    //Create method to Call the generateOutputFile() method for each Analyzer class in a method named generateOutputFiles()
+   //Create method to loop through all the lines of the input file and generate individual tokens
+
+   //Create method to Pass generated tokens to all Analyzer instances via the processToken() method    //Create method to Call the generateOutputFile() method for each Analyzer class in a method named generateOutputFiles()
 }
