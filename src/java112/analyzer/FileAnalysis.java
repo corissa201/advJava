@@ -1,5 +1,7 @@
 package java112.analyzer;
 
+import java.io.*;
+
 /**
  * @author Corissa Engel
  * class FileAnalysis
@@ -27,7 +29,7 @@ public class FileAnalysis {
       //Call method that will open the input file.
       openFile();
       //Call method that will loop through all the lines of the input file and generate individual tokens
-      loopThroughFile();
+      //loopThroughFile();
       //Call method that will pass generated tokens to all Analyzer instances via the processToken() method
 
       //Call method that will call the generateOutputFile() method for each Analyzer class in a method named writeOutputFiles()
@@ -41,26 +43,28 @@ public class FileAnalysis {
 
    //Create method to open the inputfile
    public void openFile(){
-      try (BufferedReader input = new BufferedReader(new FileReader("AgathaChristie.txt")))
 
-      catch (FileNotFoundException fileNotFoundException) {
-         fileNotFoundException.printStackTrace();
-      } catch (IOException inputOutputException) {
-         inputOutputException.printStackTrace();
-      } catch (Exception exception) {
-         exception.printStackTrace();
-      }
+        try (
+            BufferedReader input = new BufferedReader(new FileReader("AgathaChristie.txt"));
+            ) {
+            while (input.ready()) {
+                System.out.println(input.readLine());
+            }
 
-   }
+        } catch (FileNotFoundException fileNotFoundException) {
+            fileNotFoundException.printStackTrace();
+        } catch (IOException inputOutputException) {
+            inputOutputException.printStackTrace();
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
 
+    }
    //Create method to loop through all the lines of the input file and generate individual tokens
    public void loopThroughFile(){
-      String line = null;
 
-      while (input.ready()) {
-         line = input.readLine();
-      }
    }
+
    //Create method to Pass generated tokens to all Analyzer instances via the processToken() method
 
    //Create method to Call the generateOutputFile() method for each Analyzer class in a method named generateOutputFiles()

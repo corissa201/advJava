@@ -6,21 +6,30 @@ package java112.analyzer;
  */
 
  //Class will create summary report and implement the TokenAnalyzer interface
-public class FileSummaryAnalyzer {
+public class FileSummaryAnalyzer implements TokenAnalyzer{
+
+    private int totalTokensCount;
+
     /**
      * Constructor for FileSummaryAnalyzer
      */
-    //a zero-parameter constructor
     public FileSummaryAnalyzer() {
 
     }
 
-    private int totalTokensCount;
-
+    /**
+     *
+     */
     public int getTotalTokensCount() {
         return totalTokensCount;
     }
 
+    public void processToken(String token){
+       totalTokensCount += 1;
+    }
 
+    public void generateOutputFile(String inputFilePath, String outputFilePath){
+
+    }
 
 }
