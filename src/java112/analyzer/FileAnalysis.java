@@ -65,7 +65,6 @@ public class FileAnalysis {
       while (input.ready()) {
          inputLine = input.readLine();
          tokenArray = inputLine.split("\\W");
-       
 
        callProcessToken(tokenArray);
       }
