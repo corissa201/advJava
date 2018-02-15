@@ -11,6 +11,8 @@ public class FileAnalysis {
    private static final int VALID_ARGUMENTS_COUNT = 1;
 
 
+
+
    /**
      * Constructor for FileAnalyzer
     */
@@ -25,11 +27,13 @@ public class FileAnalysis {
          return;
       }
 
-      createInstanceAnalyzerClasses();
-      openInputFile(arguments[0]);
+      FileAnalysis fileAnalysis = new FileAnalysis();
+
+      //fileAnalysis.createInstanceAnalyzerClasses();
+      fileAnalysis.openInputFile(arguments[0]);
       //readInputFile();
-      callProcessToken();
-      writeOutputFiles()
+      //fileAnalysis.callProcessToken();
+      fileAnalysis.writeOutputFiles();
    }
 
    public void createInstanceAnalyzerClasses(){
@@ -62,16 +66,21 @@ public class FileAnalysis {
          inputLine = input.readLine();
          tokenArray = inputLine.split("\\W");
        }
+
+       callProcessToken(tokenArray);
     }
 
 
    public void callProcessToken(){
+      createInstanceAnalyzerClasses();
+      summaryAnalyzer.processTokens();
+      distinctAnalyzer.processTokens();
 
    }
 
 
    public void writeOutputFiles(){
-      createInstanceAnalyzerClasses()
+      createInstanceAnalyzerClasses();
       summaryAnalyzer.generateOutputFiles();
       distinctAnalyzer.generateOutputFiles();
    }

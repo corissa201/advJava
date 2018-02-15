@@ -29,7 +29,20 @@ public class FileSummaryAnalyzer implements TokenAnalyzer{
     }
 
     public void generateOutputFile(String inputFilePath, String outputFilePath){
+      PrintWriter outputWriter = null;
+         try {
+            outputWriter = new PrintWriter(new BufferedWriter(new FileWriter("output.txt")));
 
+            outputWriter.println("Sample output.");
+         } catch (IOException inputOutputException) {
+            inputOutputException.printStackTrace();
+         } catch (Exception exception) {
+            exception.printStackTrace();
+         } finally {
+            if (outputWriter != null) {
+               outputWriter.close();
+            }
+         }
     }
 
 }
