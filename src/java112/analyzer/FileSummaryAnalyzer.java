@@ -1,5 +1,8 @@
 package java112.analyzer;
 
+import java.io.*;
+import java.util.*;
+
 /**
  * @author Corissa Engel
  * class FileSummaryAnalyzer
@@ -31,15 +34,22 @@ public class FileSummaryAnalyzer implements TokenAnalyzer{
     public void generateOutputFile(String inputFilePath, String outputFilePath){
 
          try (
-            Printer outputWriter = new PrintWriter(new BufferedWriter(new FileWriter("output.txt")))
-            ) {
+            PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter(filePath)))
+        ) {
 
-            outputWriter.println("Sample output.");
-         } catch (IOException inputOutputException) {
+            writer.println(message);
+
+        } catch (IOException inputOutputException) {
             inputOutputException.printStackTrace();
-         } catch (Exception exception) {
+        } catch (Exception exception) {
             exception.printStackTrace();
-         }
-    }
+        }
+
+}
+
+   public String writer() {
+      String message = "testing";
+      return message;
+}
 
 }

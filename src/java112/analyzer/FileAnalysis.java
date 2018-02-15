@@ -75,7 +75,6 @@ public class FileAnalysis {
 
    public void callProcessToken(String[] tokenArray){
       for (String token : tokenArray){
-      //createInstanceAnalyzerClasses();
       summaryAnalyzer.processToken(token);
       distinctAnalyzer.processToken(token);
       }
@@ -83,7 +82,6 @@ public class FileAnalysis {
 
 
    public void writeOutputFiles(){
-      //createInstanceAnalyzerClasses();
       summaryAnalyzer.generateOutputFile();
       distinctAnalyzer.generateOutputFile();
    }
