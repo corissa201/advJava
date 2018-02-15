@@ -8,7 +8,7 @@ import java.util.*;
  * class FileAnalysis
  */
 public class FileAnalysis {
-   private static final int VALID_ARGUMENTS_COUNT = 1;
+   private static final int VALID_ARGUMENTS_COUNT = 2;
 
       FileSummaryAnalyzer summaryAnalyzer = new FileSummaryAnalyzer();
       DistinctTokensAnalyzer distinctAnalyzer = new DistinctTokensAnalyzer();
