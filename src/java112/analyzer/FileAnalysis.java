@@ -34,7 +34,7 @@ public class FileAnalysis {
       fileAnalysis.openInputFile(arguments[0]);
       //readInputFile();
       //fileAnalysis.callProcessToken();
-      fileAnalysis.writeOutputFiles();
+      fileAnalysis.writeOutputFiles(arguments[0],arguments[1]);
    }
 
    public void createInstanceAnalyzerClasses(){
@@ -81,8 +81,8 @@ public class FileAnalysis {
    }
 
 
-   public void writeOutputFiles(){
-      summaryAnalyzer.generateOutputFile();
-      distinctAnalyzer.generateOutputFile();
+   public void writeOutputFiles(String inputFilePath, String outputFilePath){
+      summaryAnalyzer.generateOutputFile(inputFilePath, outputFilePath);
+      distinctAnalyzer.generateOutputFile(inputFilePath, outputFilePath);
    }
 }

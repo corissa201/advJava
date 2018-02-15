@@ -34,7 +34,7 @@ public class FileSummaryAnalyzer implements TokenAnalyzer{
     public void generateOutputFile(String inputFilePath, String outputFilePath){
 
          try (
-            PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter(inputFilePath)))
+            PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter("summary.txt")))
         ) {
 
             writer.println();
