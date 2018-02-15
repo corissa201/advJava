@@ -27,14 +27,16 @@ public class FileAnalysis {
          System.out.println("Please enter a file path");
          return;
       }
+       String inputFilePath = arguments[0];
+       String outputFilePath = arguments[1];
 
       FileAnalysis fileAnalysis = new FileAnalysis();
 
       //fileAnalysis.createInstanceAnalyzerClasses();
-      fileAnalysis.openInputFile(arguments[0]);
+      fileAnalysis.openInputFile(inputFilePath);
       //readInputFile();
       //fileAnalysis.callProcessToken();
-      fileAnalysis.writeOutputFiles(arguments[0],arguments[1]);
+      fileAnalysis.writeOutputFiles(inputFilePath, outputFilePath);
    }
 
    public void createInstanceAnalyzerClasses(){
@@ -43,10 +45,10 @@ public class FileAnalysis {
       return;
    }
 
-   public void openInputFile(String filePath){
+   public void openInputFile(String inputFilePath){
 
         try (
-            BufferedReader input = new BufferedReader(new FileReader(filePath))
+            BufferedReader input = new BufferedReader(new FileReader(inputFilePath))
             ) {
                 readInputFile(input);
 
