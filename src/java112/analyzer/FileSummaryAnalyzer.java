@@ -48,7 +48,7 @@ public class FileSummaryAnalyzer implements TokenAnalyzer{
 }
 
    public String writer() {
-      String message = "testing";
+      String message = "Application: File Magic\nAuthor: Corissa Engel AdvJava-S18\nAuthor Email: cengel@madisoncollege.edu\nFile: /home/student/AgathaChristie.txt\nTotal Tokens:" + getTotalTokensCount();
       return message;
 }
 
