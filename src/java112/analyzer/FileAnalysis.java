@@ -10,7 +10,8 @@ import java.util.*;
 public class FileAnalysis {
    private static final int VALID_ARGUMENTS_COUNT = 1;
 
-
+      FileSummaryAnalyzer summaryAnalyzer = new FileSummaryAnalyzer();
+      DistinctTokensAnalyzer distinctAnalyzer = new DistinctTokensAnalyzer();
 
 
    /**
@@ -39,6 +40,7 @@ public class FileAnalysis {
    public void createInstanceAnalyzerClasses(){
       FileSummaryAnalyzer summaryAnalyzer = new FileSummaryAnalyzer();
       DistinctTokensAnalyzer distinctAnalyzer = new DistinctTokensAnalyzer();
+      return;
    }
 
    public void openInputFile(String filePath){
@@ -72,16 +74,17 @@ public class FileAnalysis {
 
 
    public void callProcessToken(String[] tokenArray){
-      createInstanceAnalyzerClasses();
-      summaryAnalyzer.processTokens();
-      distinctAnalyzer.processTokens();
-
+      for (String token : tokenArray){
+      //createInstanceAnalyzerClasses();
+      summaryAnalyzer.processToken(token);
+      distinctAnalyzer.processToken(token);
+      }
    }
 
 
    public void writeOutputFiles(){
-      createInstanceAnalyzerClasses();
-      summaryAnalyzer.generateOutputFiles();
-      distinctAnalyzer.generateOutputFiles();
+      //createInstanceAnalyzerClasses();
+      summaryAnalyzer.generateOutputFile();
+      distinctAnalyzer.generateOutputFile();
    }
 }
