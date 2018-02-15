@@ -37,7 +37,7 @@ public class FileSummaryAnalyzer implements TokenAnalyzer{
             PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter(outputFilePath)))
         ) {
 
-            writer.println();
+            writer.println(writer());
 
         } catch (IOException inputOutputException) {
             inputOutputException.printStackTrace();

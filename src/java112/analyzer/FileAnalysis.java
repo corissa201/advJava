@@ -30,13 +30,9 @@ public class FileAnalysis {
        String inputFilePath = arguments[0];
        String outputFilePath = arguments[1];
 
-      FileAnalysis fileAnalysis = new FileAnalysis();
-
-      //fileAnalysis.createInstanceAnalyzerClasses();
-      fileAnalysis.openInputFile(inputFilePath);
-      //readInputFile();
-      //fileAnalysis.callProcessToken();
-      fileAnalysis.writeOutputFiles(inputFilePath, outputFilePath);
+      
+      openInputFile(inputFilePath);
+      writeOutputFiles(inputFilePath, outputFilePath);
    }
 
    public void createInstanceAnalyzerClasses(){
