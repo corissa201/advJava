@@ -71,7 +71,7 @@ public class FileAnalysis {
     }
 
 
-   public void callProcessToken(){
+   public void callProcessToken(String[] tokenArray){
       createInstanceAnalyzerClasses();
       summaryAnalyzer.processTokens();
       distinctAnalyzer.processTokens();
