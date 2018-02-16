@@ -35,12 +35,6 @@ public class FileAnalysis {
       writeOutputFiles(inputFilePath, outputFilePath);
    }
 
-   public void createInstanceAnalyzerClasses(){
-      FileSummaryAnalyzer summaryAnalyzer = new FileSummaryAnalyzer();
-      DistinctTokensAnalyzer distinctAnalyzer = new DistinctTokensAnalyzer();
-      return;
-   }
-
    public void openInputFile(String inputFilePath){
 
         try (

@@ -8,8 +8,7 @@ import java.util.*;
  * class DistinctTokensAnalyzer,
  */
 
- //Class will create the report of all distinct tokens
-public class DistinctTokensAnalyzer implements TokenAnalyzer{
+public class DistinctTokensAnalyzer implements TokenAnalyzer {
 
     private Set<String> distinctTokens;
 
@@ -28,7 +27,7 @@ public class DistinctTokensAnalyzer implements TokenAnalyzer{
       distinctTokens.add(token);
    }
 
-   public void generateOutputFile(String inputFilePath, String outputFilePath){
+   public void generateOutputFile(String inputFilePath, String outputFilePath) {
       outputFilePath = "distinct_tokens.txt";
    	   
          try (
