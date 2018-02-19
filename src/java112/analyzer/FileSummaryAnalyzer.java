@@ -2,8 +2,8 @@ package java112.analyzer;
 
 
 import java.io.*;
-import java.util.*;
 import java.net.URI;
+import java.util.*;
 
 
 /**
@@ -20,6 +20,7 @@ public class FileSummaryAnalyzer implements TokenAnalyzer {
      */
     public FileSummaryAnalyzer() {
     }
+
 
     /**
      *
@@ -48,7 +49,7 @@ public class FileSummaryAnalyzer implements TokenAnalyzer {
 
 
     public void writer(PrintWriter writer, String inputFilePath) {
-        File file  = new File(inputFilePath);
+        File file = new File(inputFilePath);
 
         String path = file.getAbsolutePath();
         Date modifiedDate = new Date(file.lastModified());
@@ -58,12 +59,11 @@ public class FileSummaryAnalyzer implements TokenAnalyzer {
         writer.println("Application: Counting Agatha");
         writer.println("Author: Corissa Engel AdvJava-S18");
         writer.println("Author Email: cengel@madisoncollege.edu");
-        writer.println("File: "+ path);
-        writer.println("Date of analysis:  "+ new Date());
-        writer.println("Last Modified Date: "+ modifiedDate);
-        writer.println("File size: "+ size);
+        writer.println("File: " + path);
+        writer.println("Date of analysis:  " + new Date());
+        writer.println("Last Modified Date: " + modifiedDate);
+        writer.println("File size: " + size);
         writer.println("File URI: " + uri);
-        writer.println("Total Tokens: "+ getTotalTokensCount());
+        writer.println("Total Tokens: " + getTotalTokensCount());
     }
 }
-

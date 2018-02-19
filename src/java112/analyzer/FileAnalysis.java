@@ -15,6 +15,7 @@ public class FileAnalysis {
     private FileSummaryAnalyzer summaryAnalyzer;
     private DistinctTokensAnalyzer distinctAnalyzer;
 
+
     /**
      * Constructor for FileAnalyzer
      */
@@ -29,13 +30,12 @@ public class FileAnalysis {
             return;
         }
 
+
         String inputFilePath = arguments[0];
 
         createNewAnalyzerInstances();
         openInputFile(inputFilePath);
         writeOutputFiles(inputFilePath);
-
-
     }
 
 
@@ -70,7 +70,6 @@ public class FileAnalysis {
     public void createNewAnalyzerInstances() {
         summaryAnalyzer = new FileSummaryAnalyzer();
         distinctAnalyzer = new DistinctTokensAnalyzer();
-
     }
 
 
@@ -89,4 +88,3 @@ public class FileAnalysis {
         distinctAnalyzer.generateOutputFile(inputFilePath, "output/distinct_token.txt");
     }
 }
-

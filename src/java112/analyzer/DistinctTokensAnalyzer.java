@@ -28,9 +28,7 @@ public class DistinctTokensAnalyzer implements TokenAnalyzer {
 
 
     public void processToken(String token) {
-
-            distinctTokens.add(token);
-
+        distinctTokens.add(token);
     }
 
 
@@ -48,4 +46,3 @@ public class DistinctTokensAnalyzer implements TokenAnalyzer {
         }
     }
 }
-
