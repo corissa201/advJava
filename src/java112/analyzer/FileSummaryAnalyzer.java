@@ -38,10 +38,10 @@ public class FileSummaryAnalyzer implements TokenAnalyzer {
 
     public void generateOutputFile(String inputFilePath, String outputFilePath) {
 
-        try (PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter(outputFilePath)))
+        try (PrintWriter output = new PrintWriter(new BufferedWriter(new FileWriter(outputFilePath)))
         ) {
 
-            writer.println(writer());
+            writer(output);
         } catch (IOException inputOutputException) {
             inputOutputException.printStackTrace();
         } catch (Exception exception) {
@@ -50,17 +50,16 @@ public class FileSummaryAnalyzer implements TokenAnalyzer {
     }
 
 
-    public String writer() {
-        String message = "Application: File Magic\n"
-        + "Author: Corissa Engel AdvJava-S18\n"
-        + "Author Email: cengel@madisoncollege.edu\n"
-        + "File: n"
-        + "Date of analysis: " + new Date() + "\n"
-        + "Last Modified Date: " + new Date() + "\n"
-        + "File size: \n"
-        + "File URI: file:\n"
-        + "Total Tokens:" + getTotalTokensCount();
-        return message;
+    public void writer(PrintWriter writer) {
+        writer.println("Application: File Magic");
+        writer.println("Author: Corissa Engel AdvJava-S18");
+        writer.println("Author Email: cengel@madisoncollege.edu");
+        writer.println("File: ");
+        writer.println("Date of analysis:  "+ new Date());
+        writer.println("Last Modified Date: "+ new Date());
+        writer.println("File size: ");
+        writer.println("File URI: file:");
+        writer.println("Total Tokens: "+ getTotalTokensCount());
     }
 }
 
