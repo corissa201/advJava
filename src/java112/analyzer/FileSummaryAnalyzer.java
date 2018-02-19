@@ -49,12 +49,13 @@ public class FileSummaryAnalyzer implements TokenAnalyzer {
     public void writer(PrintWriter writer, String inputFilePath) {
         File file  = new File(inputFilePath);
         String path = file.getAbsolutePath();
-        writer.println("Application: File Magic");
+        Date modifiedDate = new Date(file.lastModified());
+        writer.println("Application: Counting Agatha");
         writer.println("Author: Corissa Engel AdvJava-S18");
         writer.println("Author Email: cengel@madisoncollege.edu");
         writer.println("File: "+ path);
         writer.println("Date of analysis:  "+ new Date());
-        writer.println("Last Modified Date: "+ new Date());
+        writer.println("Last Modified Date: "+ modifiedDate);
         writer.println("File size: ");
         writer.println("File URI: file:");
         writer.println("Total Tokens: "+ getTotalTokensCount());
