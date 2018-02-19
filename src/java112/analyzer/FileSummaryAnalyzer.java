@@ -30,9 +30,9 @@ public class FileSummaryAnalyzer implements TokenAnalyzer {
 
 
     public void processToken(String token) {
-        if (token != null && !token.isEmpty() && !Character.isDigit(token.charAt(0))) {
+
             totalTokensCount += 1;
-        }
+
     }
 
 
