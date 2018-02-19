@@ -36,13 +36,17 @@ public class DistinctTokensAnalyzer implements TokenAnalyzer {
 
         try (PrintWriter outputWriter = new PrintWriter(new BufferedWriter(new FileWriter(outputFilePath)))
         ) {
-            for (String token : distinctTokens) {
-                outputWriter.println(token);
-            }
+            outputWriterPrint(outputWriter);
         } catch (IOException inputOutputException) {
             inputOutputException.printStackTrace();
         } catch (Exception exception) {
             exception.printStackTrace();
         }
+    }
+
+    public void outputWriterPrint(PrintWriter outputWriter){
+        for (String token : distinctTokens) {
+                outputWriter.println(token);
+            }
     }
 }
