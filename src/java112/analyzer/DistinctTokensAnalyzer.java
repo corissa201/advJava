@@ -28,9 +28,9 @@ public class DistinctTokensAnalyzer implements TokenAnalyzer {
 
 
     public void processToken(String token) {
-        if (token != null && !token.isEmpty() && !Character.isDigit(token.charAt(0))) {
+
             distinctTokens.add(token);
-        }
+
     }
 
 

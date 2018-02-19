@@ -76,8 +76,10 @@ public class FileAnalysis {
 
     public void callProcessToken(String[] tokenArray) {
         for (String token : tokenArray) {
-            summaryAnalyzer.processToken(token);
-            distinctAnalyzer.processToken(token);
+            if (token != null && !token.isEmpty() && !Character.isDigit(token.charAt(0))) {
+                summaryAnalyzer.processToken(token);
+                distinctAnalyzer.processToken(token);
+            }
         }
     }
 
