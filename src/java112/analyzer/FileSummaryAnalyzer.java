@@ -50,13 +50,14 @@ public class FileSummaryAnalyzer implements TokenAnalyzer {
         File file  = new File(inputFilePath);
         String path = file.getAbsolutePath();
         Date modifiedDate = new Date(file.lastModified());
+        long size = file.length();
         writer.println("Application: Counting Agatha");
         writer.println("Author: Corissa Engel AdvJava-S18");
         writer.println("Author Email: cengel@madisoncollege.edu");
         writer.println("File: "+ path);
         writer.println("Date of analysis:  "+ new Date());
         writer.println("Last Modified Date: "+ modifiedDate);
-        writer.println("File size: ");
+        writer.println("File size: "+ size);
         writer.println("File URI: file:");
         writer.println("Total Tokens: "+ getTotalTokensCount());
     }
