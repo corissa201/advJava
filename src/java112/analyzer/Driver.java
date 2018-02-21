@@ -3,7 +3,9 @@ package java112.analyzer;
 
 /**
  * Driver class of the analyzer program
- * @author Corissa Engel
+ *
+ * @author     Corissa Engel
+ * @created    Febuary 18, 2018
  */
 public class Driver {
 
