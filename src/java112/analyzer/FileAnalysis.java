@@ -6,10 +6,11 @@ import java.util.*;
 
 
 /**
+ * FileAnalysis class in the analyzer program
  * The main controller class for project 1
  *
  * @author     Corissa Engel
- * @created    Febuary 18, 2018
+ * @created    February 18, 2018
  */
 public class FileAnalysis {
 

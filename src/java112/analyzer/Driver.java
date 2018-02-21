@@ -2,10 +2,10 @@ package java112.analyzer;
 
 
 /**
- * Driver class of the analyzer program
+ * Driver class in the analyzer program
  *
  * @author     Corissa Engel
- * @created    Febuary 18, 2018
+ * @created    February 18, 2018
  */
 public class Driver {
 
