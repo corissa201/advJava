@@ -1,3 +1,4 @@
 # Code Review Notes and Assessment
 
-Initial commit of my semester project
+- 2/21/2018
+    - Cleanup javadoc. Commit, push, let me know. Tag after I respond.
