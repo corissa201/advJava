@@ -6,8 +6,10 @@ import java.util.*;
 
 
 /**
- * @author Corissa Engel
- * class FileAnalysis
+ * The main controller class for project 1
+ *
+ * @author     Corissa Engel
+ * @created    Febuary 18, 2018
  */
 public class FileAnalysis {
 
@@ -22,8 +24,13 @@ public class FileAnalysis {
     public FileAnalysis() {
     }
 
-
-    public void analyze(String[] arguments) {
+    /**
+     * The analyze method will first checks that 1 argument have been entered by
+     * the user. Then calls the methods createNewAnalyzerInstances, openInputFile
+     * and writeOutputFiles.
+     * @param arguments This is the user entered argument
+     */
+    private void analyze(String[] arguments) {
 
         if (arguments.length != VALID_ARGUMENTS_COUNT) {
             System.out.println("Please enter a file path");
@@ -38,8 +45,11 @@ public class FileAnalysis {
         writeOutputFiles(inputFilePath);
     }
 
-
-    public void openInputFile(String inputFilePath) {
+    /**
+     *  This method opens the input file for reading.
+     * @param inputFilePath The file path to the input file.
+    */
+    private void openInputFile(String inputFilePath) {
 
         try (BufferedReader input = new BufferedReader(new FileReader(inputFilePath))
         ) {
@@ -53,8 +63,12 @@ public class FileAnalysis {
         }
     }
 
-
-    public void readInputFile(BufferedReader input) throws IOException {
+    /**
+     * This meathod will read through the input file and create a token array
+     * for each line.
+     * @param input The BufferedReader for the input file.
+     */
+    private void readInputFile(BufferedReader input) throws IOException {
         String inputLine = null;
         String[] tokenArray = null;
 
@@ -66,14 +80,19 @@ public class FileAnalysis {
         }
     }
 
-
-    public void createNewAnalyzerInstances() {
+    /**
+     *This method will instantiate both Analyzer class instance variables
+     */
+    private void createNewAnalyzerInstances() {
         summaryAnalyzer = new FileSummaryAnalyzer();
         distinctAnalyzer = new DistinctTokensAnalyzer();
     }
 
-
-    public void callProcessToken(String[] tokenArray) {
+    /**
+     * This method will pass the generated tokens to each Analyzer instance.
+     * @param tokenArray The token array created in the readInputFile method
+     */
+    private void callProcessToken(String[] tokenArray) {
         for (String token : tokenArray) {
             if (!(token.isEmpty() || Character.isDigit(token.charAt(0)))) {
                 summaryAnalyzer.processToken(token);
@@ -82,8 +101,12 @@ public class FileAnalysis {
         }
     }
 
-
-    public void writeOutputFiles(String inputFilePath) {
+    /**
+     * This method will generate the output files by calling the
+     * generateOutputFile method for each Analyzer class.
+     * @param inputFilePath The file path to the input file.
+     */
+    private void writeOutputFiles(String inputFilePath) {
         summaryAnalyzer.generateOutputFile(inputFilePath, "output/summary.txt");
         distinctAnalyzer.generateOutputFile(inputFilePath, "output/distinct_token.txt");
     }
