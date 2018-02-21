@@ -30,7 +30,7 @@ public class FileAnalysis {
      * and writeOutputFiles.
      * @param arguments This is the user entered argument
      */
-    private void analyze(String[] arguments) {
+    public void analyze(String[] arguments) {
 
         if (arguments.length != VALID_ARGUMENTS_COUNT) {
             System.out.println("Please enter a file path");
