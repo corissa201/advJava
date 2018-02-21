@@ -18,4 +18,3 @@ public class Driver {
         analyzer.analyze(arguments);
     }
 }
-

@@ -6,8 +6,9 @@ import java.util.*;
 
 
 /**
- * @author Corissa Engel
- * class DistinctTokensAnalyzer,
+ * DistinctTokenAnalyzer class will create the report of all distinct tokens
+ * @author      Corissa Engel
+ * @create      February 18, 2018
  */
 public class DistinctTokensAnalyzer implements TokenAnalyzer {
 
@@ -15,14 +16,20 @@ public class DistinctTokensAnalyzer implements TokenAnalyzer {
 
 
     /**
-     * Constructor for DistinctTokensAnalyzer, zero parameter
+     * Constructor for DistinctTokensAnalyzer that will create an instance of a
+     * TreeSet and assigns it to the distinctTokens variable
      */
     public DistinctTokensAnalyzer() {
         distinctTokens = new TreeSet<>();
     }
 
 
-    public Set<String> getDistinctTokens() {
+    /**
+     * Gets the distinctTokens
+     *
+     * @return distinctTokens
+     */
+    private Set<String> getDistinctTokens() {
         return distinctTokens;
     }
 
@@ -45,7 +52,11 @@ public class DistinctTokensAnalyzer implements TokenAnalyzer {
     }
 
 
-    public void outputWriterPrint(PrintWriter outputWriter) {
+    /**
+     * This method will through and print out each token to a new line
+     * @param outputWriter The PrintWriter open to the new file.
+     */
+    private void outputWriterPrint(PrintWriter outputWriter) {
         for (String token : distinctTokens) {
             outputWriter.println(token);
         }

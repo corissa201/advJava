@@ -25,6 +25,7 @@ public class FileAnalysis {
     public FileAnalysis() {
     }
 
+
     /**
      * The analyze method will first checks that 1 argument have been entered by
      * the user. Then calls the methods createNewAnalyzerInstances, openInputFile
@@ -46,10 +47,11 @@ public class FileAnalysis {
         writeOutputFiles(inputFilePath);
     }
 
+
     /**
      *  This method opens the input file for reading.
      * @param inputFilePath The file path to the input file.
-    */
+     */
     private void openInputFile(String inputFilePath) {
 
         try (BufferedReader input = new BufferedReader(new FileReader(inputFilePath))
@@ -63,6 +65,7 @@ public class FileAnalysis {
             exception.printStackTrace();
         }
     }
+
 
     /**
      * This meathod will read through the input file and create a token array
@@ -81,6 +84,7 @@ public class FileAnalysis {
         }
     }
 
+
     /**
      *This method will instantiate both Analyzer class instance variables
      */
@@ -88,6 +92,7 @@ public class FileAnalysis {
         summaryAnalyzer = new FileSummaryAnalyzer();
         distinctAnalyzer = new DistinctTokensAnalyzer();
     }
+
 
     /**
      * This method will pass the generated tokens to each Analyzer instance.
@@ -101,6 +106,7 @@ public class FileAnalysis {
             }
         }
     }
+
 
     /**
      * This method will generate the output files by calling the

@@ -7,8 +7,10 @@ import java.util.*;
 
 
 /**
- * @author Corissa Engel
- * class FileSummaryAnalyzer
+ * FileSummaryAnalyzer will create the summary report
+ *
+ * @author      Corissa Engel
+ * @create      February 18, 2018
  */
 public class FileSummaryAnalyzer implements TokenAnalyzer {
 
@@ -23,7 +25,9 @@ public class FileSummaryAnalyzer implements TokenAnalyzer {
 
 
     /**
+     * Gets the totalTokensCounts
      *
+     * @return totalTokensCount The total count of all tokens
      */
     public int getTotalTokensCount() {
         return totalTokensCount;
@@ -48,7 +52,12 @@ public class FileSummaryAnalyzer implements TokenAnalyzer {
     }
 
 
-    public void writer(PrintWriter writer, String inputFilePath) {
+    /**
+     * This method with create the information that will go into the summary report
+     * @param writer  The PrinterWiter open to a new file
+     * @param inputFilePath That file path to the input file.
+     */
+    private void writer(PrintWriter writer, String inputFilePath) {
         File file = new File(inputFilePath);
 
         String path = file.getAbsolutePath();
