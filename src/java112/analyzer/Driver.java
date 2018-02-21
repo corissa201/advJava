@@ -2,13 +2,13 @@ package java112.analyzer;
 
 
 /**
+ * Driver class of the analyzer program
  * @author Corissa Engel
- * class Driver
  */
 public class Driver {
 
     /**
-     *The main class to that will run the project 1 program
+     * The main method that will run the project 1 program
      * @param arguments The command line arguments.
      */
     public static void main(String[] arguments) {

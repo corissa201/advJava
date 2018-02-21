@@ -44,9 +44,10 @@ public class DistinctTokensAnalyzer implements TokenAnalyzer {
         }
     }
 
-    public void outputWriterPrint(PrintWriter outputWriter){
+
+    public void outputWriterPrint(PrintWriter outputWriter) {
         for (String token : distinctTokens) {
-                outputWriter.println(token);
-            }
+            outputWriter.println(token);
+        }
     }
 }
