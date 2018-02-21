@@ -10,7 +10,7 @@ import java.util.*;
  * FileSummaryAnalyzer will create the summary report
  *
  * @author      Corissa Engel
- * @create      February 18, 2018
+ * @version     1.1
  */
 public class FileSummaryAnalyzer implements TokenAnalyzer {
 

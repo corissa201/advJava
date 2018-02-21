@@ -10,7 +10,7 @@ import java.util.*;
  * The main controller class for project 1
  *
  * @author     Corissa Engel
- * @created    February 18, 2018
+ * @version     1.1
  */
 public class FileAnalysis {
 

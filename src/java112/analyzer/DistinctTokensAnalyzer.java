@@ -8,7 +8,7 @@ import java.util.*;
 /**
  * DistinctTokenAnalyzer class will create the report of all distinct tokens
  * @author      Corissa Engel
- * @create      February 18, 2018
+ * @version     1.1
  */
 public class DistinctTokensAnalyzer implements TokenAnalyzer {
 

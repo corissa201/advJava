@@ -4,8 +4,8 @@ package java112.analyzer;
 /**
  * TokenAnalyzer interface in the analyzer program
  *
- * @author Corissa Engel
- * @created February 18, 2018
+ * @author      Corissa Engel
+ * @version     1.1
  */
 public interface TokenAnalyzer{
 
