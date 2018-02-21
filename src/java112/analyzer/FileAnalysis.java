@@ -71,6 +71,7 @@ public class FileAnalysis {
      * This meathod will read through the input file and create a token array
      * for each line.
      * @param input The BufferedReader for the input file.
+     * @throws IOException If an input exception occurs
      */
     private void readInputFile(BufferedReader input) throws IOException {
         String inputLine = null;
