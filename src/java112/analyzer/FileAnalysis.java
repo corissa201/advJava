@@ -6,8 +6,8 @@ import java.util.*;
 
 
 /**
- * FileAnalysis class in the analyzer program
- * The main controller class for project 1
+ * The FileAnalysis class is the main controller class for project 1. It
+ * contains the main processing method, analyze, for the project.
  *
  * @author     Corissa Engel
  * @version     1.1
@@ -20,7 +20,7 @@ public class FileAnalysis {
 
 
     /**
-     * Constructor for FileAnalyzer
+     * Constructor for FileAnalyzer class.
      */
     public FileAnalysis() {
     }
@@ -30,7 +30,7 @@ public class FileAnalysis {
      * The analyze method will first checks that 1 argument have been entered by
      * the user. Then calls the methods createNewAnalyzerInstances, openInputFile
      * and writeOutputFiles.
-     * @param arguments This is the user entered argument
+     * @param arguments This is the user entered argument.
      */
     public void analyze(String[] arguments) {
 
@@ -71,7 +71,7 @@ public class FileAnalysis {
      * This meathod will read through the input file and create a token array
      * for each line.
      * @param input The BufferedReader for the input file.
-     * @throws IOException If an input exception occurs
+     * @throws IOException If an input exception occurs.
      */
     private void readInputFile(BufferedReader input) throws IOException {
         String inputLine = null;
@@ -87,7 +87,7 @@ public class FileAnalysis {
 
 
     /**
-     *This method will instantiate both Analyzer class instance variables
+     *This method will instantiate both Analyzer class instance variables.
      */
     private void createNewAnalyzerInstances() {
         summaryAnalyzer = new FileSummaryAnalyzer();
@@ -97,7 +97,7 @@ public class FileAnalysis {
 
     /**
      * This method will pass the generated tokens to each Analyzer instance.
-     * @param tokenArray The token array created in the readInputFile method
+     * @param tokenArray The token array created in the readInputFile method.
      */
     private void callProcessToken(String[] tokenArray) {
         for (String token : tokenArray) {
