@@ -7,7 +7,7 @@ import java.util.*;
 
 
 /**
- * FileSummaryAnalyzer will create the summary report
+ * The FileSummaryAnalyzer class will create the summary report.
  *
  * @author      Corissa Engel
  * @version     1.1
@@ -18,27 +18,37 @@ public class FileSummaryAnalyzer implements TokenAnalyzer {
 
 
     /**
-     * Constructor for FileSummaryAnalyzer
+     * Constructor for the FileSummaryAnalyzer class.
      */
     public FileSummaryAnalyzer() {
     }
 
 
     /**
-     * Gets the totalTokensCounts
+     * The getter for the totalTokensCounts.
      *
-     * @return totalTokensCount The total count of all tokens
+     * @return totalTokensCount The total count of all tokens.
      */
     public int getTotalTokensCount() {
         return totalTokensCount;
     }
 
-
+    /**
+     * This method implements the processToken method in the TokenAnalyzer
+     * interface and increments the value of totalTokensCount by 1 for each token.
+     * @param token A list of all the tokens within the file.
+     */
     public void processToken(String token) {
         totalTokensCount += 1;
     }
 
-
+    /**
+     * This method implements the generateOutputFile method in the TokenAnalyzer
+     * interface and opens a PrintWriter to the specified file name. It then
+     * calls the writer method to create the summary report.
+     * @param inputFilePath The file path of the input file.
+     * @param outputFilePath The file path of the summary output file.
+     */
     public void generateOutputFile(String inputFilePath, String outputFilePath) {
 
         try (PrintWriter output = new PrintWriter(new BufferedWriter(new FileWriter(outputFilePath)))
@@ -53,8 +63,8 @@ public class FileSummaryAnalyzer implements TokenAnalyzer {
 
 
     /**
-     * This method with create the information that will go into the summary report
-     * @param writer  The PrinterWiter open to a new file
+     * This method with create the information that will go into the summary report.
+     * @param writer  The PrinterWiter open to a new file.
      * @param inputFilePath That file path to the input file.
      */
     private void writer(PrintWriter writer, String inputFilePath) {
