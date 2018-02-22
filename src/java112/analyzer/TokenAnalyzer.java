@@ -2,7 +2,8 @@ package java112.analyzer;
 
 
 /**
- * TokenAnalyzer interface in the analyzer program
+ * The TokenAnalyzer interface is implemented by the Analyzer classes in the
+ * analyzer program to process tokens and generate the output file.
  *
  * @author      Corissa Engel
  * @version     1.1
