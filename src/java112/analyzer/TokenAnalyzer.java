@@ -6,7 +6,7 @@ package java112.analyzer;
  * analyzer program to process tokens and generate the output file.
  *
  * @author      Corissa Engel
- * @version     1.1
+ * @version     2.1
  */
 public interface TokenAnalyzer{
 
@@ -19,7 +19,6 @@ public interface TokenAnalyzer{
     /**
      * This method is used to generate the output files for all Analyzer classes.
      * @param inputFilePath The file path to the input file.
-     * @param outputFilePath The file path to the output file.
      */
-    void generateOutputFile(String inputFilePath, String outputFilePath);
+    void generateOutputFile(String inputFilePath);
 }
