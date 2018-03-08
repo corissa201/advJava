@@ -22,6 +22,7 @@
   <property name="WEB-INF" value="${build}/WEB-INF"/>
   <property name="META-INF" value="${build}/META-INF"/>
   <property name="web_classes" value="${WEB-INF}/classes"/>
+  <property name="web_lib" value="${WEB-INF}/lib"/>
   <property name="build.compiler" value="modern"/>
   <property name="static" value="public_html" />
   <property name="analyzer_lib" value="${project_home}/lib/analyzer.jar" />
@@ -31,10 +32,10 @@
   <property name="junit" value="${project_home}/lib/junit.jar" />
   <property name="hamcrest" value="${project_home}/lib/hamcrest.jar" />
   <property name="java_hamcrest" value="${project_home}/lib/java-hamcrest.jar" />
-  <property name="project_1" value="present" />
-  <property name="project_2" value="present" />
-  <!-- <property name="project_3" value="present" /> -->
-  <!-- <property name="project_4" value="present" /> -->
+  <property name="project_1" value="present"/>
+  <property name="project_2" value="present"/>
+  <!-- <property name="project_3" value="present"/> -->
+  <!-- <property name="project_4" value="present"/> -->
 
   <target name="init1">
     <!-- Create the time stamp -->
@@ -62,18 +63,18 @@
     <mkdir dir="${utilities}" />
     <echo message="Initialization for project 2 completed" />
   </target>
-  
+
   <target name="init3" depends="init2" if="project_3">
     <tstamp/>
-    
+
     <mkdir dir="${project3}" />
     <mkdir dir="${labs3}" />
     <echo message="Initialization for project 3 completed" />
   </target>
-  
+
   <target name="init4" depends="init3" if="project_4">
     <tstamp/>
-    
+
     <mkdir dir="${project4}" />
     <mkdir dir="${labs4}" />
     <echo message="Initialization for project 4 completed" />
@@ -88,7 +89,7 @@
     <!-- Delete the ${build} and ${dist} directory trees -->
     <delete dir="${build}"/>
     <delete dir="${dist}"/>
-    <delete file="${analyzer_lib}" />
+    <!-- <delete file="${analyzer_lib}" /> -->
   </target>
 
   <target name="compile_analyzer" depends="init">
@@ -156,7 +157,7 @@
   </target>
 
   <target name="build_analyzer" depends="backup, clean, compile_analyzer">
-    <jar destfile="lib/analyzer.jar">
+    <jar destfile="${analyzer_lib}">
       <fileset dir="${build}/classes" excludes="${build}/classes/java112/tests/**" />
     </jar>
   </target>
@@ -180,7 +181,10 @@
       extdirs="${lib}"
       verbose="false"
       includes="java112/utilities/**,
-                java112/project2/**"
+                java112/project2/**,
+                java112/project3/**
+                java112/project4/**,
+                java112/employee/**"
       excludes="*.jsp,
                 *.html,
                 *.xml,
@@ -251,7 +255,9 @@
                          java112.labs4.*,
                          java112.project2.*,
                          java112.project3.*,
-                         java112.project4.*
+                         java112.project4.*,
+                         java112.employee.*,
+                         java112.utilities.*
                          "
             sourcepath="${src}"
             classpath="${lib}/servlet-api.jar"
@@ -272,15 +278,15 @@
 
   <exec executable="tar">
     <arg value="-cf" />
-    <arg value="${user_home}/backups/projects_backup.tar.gz" />
+    <arg value="${user_home}/backups/projects_with_git.tar.gz" />
     <arg value="${project_home}" />
   </exec>
 
-  <tar destfile="${user_home}/backups/projects_with_git.tgz"
+  <tar destfile="${user_home}/backups/projects_backup.tgz"
        compression="gzip"
        basedir="${project_home}"
   />
-   
+
   <echo message="Backup Files Created"/>
 </target>
 
@@ -301,9 +307,20 @@
 
 <!--  Testing Targets -->
 
-  <target name="build_tests" depends="clean, compile_tests">
+  <target name="build_tests" depends="compile_tests">
     <jar destfile="lib/java112Tests.jar">
-      <fileset dir="${build}/classes" excludes="java112/analyzer/** java112/labs1/** java112/labs2/**" />
+      <fileset dir="${build}/classes"
+               excludes="java112/analyzer/**,
+                         java112/labs1/**,
+                         java112/labs2/**,
+                         java112/labs3/**,
+                         java112/labs4/**,
+                         java112/employee/**,
+                         java112/project3/**,
+                         java112/project4/**,
+                         java112/utilities/**
+                         "
+      />
     </jar>
   </target>
 
@@ -313,13 +330,26 @@
     destdir="${build}/classes"
     extdirs="${lib}"
     verbose="false"
-    excludes="*.jsp,*.html,*.xml java112/analyzer/**, java112/labs1/**, java112/project2/**, java112/labs2"
+    excludes="*.jsp,
+              *.html,
+              *.xml,
+              java112/analyzer/**,
+              java112/labs1/**,
+              java112/labs2/**,
+              java112/labs3/**,
+              java112/labs4/**,
+              java112/employee/**,
+              java112/project2/**,
+              java112/project3/**,
+              java112/project4/**,
+              java112/utilities/**,
+              "
     deprecation="on"
     debug="on"
     includeAntRuntime="false" />
   </target>
 
-  <target name="run_tests_lab2">
+  <target name="run_tests_lab2" depends="build_labs">
     <junit printsummary="yes" fork="yes" haltonfailure="no">
       <classpath>
         <pathelement location="${lab_lib}"/>
@@ -333,7 +363,7 @@
     </junit>
   </target>
 
-  <target name="run_tests_lab3">
+  <target name="run_tests_lab3" depends="build_labs">
     <junit printsummary="yes" fork="yes" haltonfailure="no">
       <classpath>
         <pathelement location="${lab_lib}"/>
@@ -347,7 +377,7 @@
     </junit>
   </target>
 
-  <target name="run_tests_lab4">
+  <target name="run_tests_lab4" depends="build_labs">
     <junit printsummary="yes" fork="yes" haltonfailure="no">
       <classpath>
         <pathelement location="${lab_lib}"/>
@@ -361,7 +391,7 @@
     </junit>
   </target>
 
-  <target name="run_tests_lab5">
+  <target name="run_tests_lab5" depends="build_labs">
     <junit printsummary="yes" fork="yes" haltonfailure="no">
       <classpath>
         <pathelement location="${lab_lib}"/>
@@ -375,7 +405,7 @@
     </junit>
   </target>
 
-  <target name="run_tests_lab6">
+  <target name="run_tests_lab6" depends="build_labs">
     <junit printsummary="yes" fork="yes" haltonfailure="no">
       <classpath>
         <pathelement location="${lab_lib}"/>
@@ -389,7 +419,7 @@
     </junit>
   </target>
 
-  <target name="run_tests_lab7">
+  <target name="run_tests_lab7" depends="build_labs">
     <junit printsummary="yes" fork="yes" haltonfailure="no">
       <classpath>
         <pathelement location="${lab_lib}"/>
@@ -403,7 +433,7 @@
     </junit>
   </target>
 
-  <target name="run_tests_lab8">
+  <target name="run_tests_lab8" depends="build_labs">
     <junit printsummary="yes" fork="yes" haltonfailure="no">
       <classpath>
         <pathelement location="${lab_lib}"/>
@@ -416,8 +446,8 @@
       <test name="java112.tests.LabEightTests"/>
     </junit>
   </target>
-  
-  <target name="run_tests_analyzer1" if="project_1">
+
+  <target name="run_tests_analyzer1" depends="build_analyzer" if="project_1">
     <junit printsummary="yes" fork="yes" haltonfailure="no">
       <classpath>
         <pathelement location="${analyzer_lib}"/>
@@ -427,12 +457,12 @@
         <pathelement location="${junit}" />
       </classpath>
       <formatter type="plain"/>
-      <test name="java112.tests.AnalyzerDriverTest"/>
-      <test name="java112.tests.SummaryReportTest"/>
-      <test name="java112.tests.SummaryReportOutputTest"/>
-      <test name="java112.tests.UniqueTokenAnalyzerOutputTest"/>
-      <test name="java112.tests.UniqueTokenAnalyzerProcessTokenTest"/>
-      <test name="java112.tests.AnalyzeFileMethodsTest"/>
+      <test name="java112.tests.DriverTest"/>
+      <test name="java112.tests.FileAnalysisMethodsTest"/>
+      <test name="java112.tests.FileSummaryAnalyzerTest"/>
+      <test name="java112.tests.FileSummaryAnalyzerOutputTest"/>
+      <test name="java112.tests.DistinctTokensAnalyzerProcessTokenTest"/>
+      <test name="java112.tests.DistinctTokensAnalyzerOutputTest"/>
     </junit>
   </target>
 
@@ -446,10 +476,10 @@
         <pathelement location="${junit}" />
       </classpath>
       <formatter type="plain"/>
-      <test name="java112.tests.BigWordAnalyzerOutputTest" />
-      <test name="java112.tests.BigWordAnalyzerProcessTokenTest" />
-      <test name="java112.tests.TokenCountAnalyzerOutputTest" />
-      <test name="java112.tests.TokenCountAnalyzerProcessTokenTest" />
+      <test name="java112.tests.LargestTokensAnalyzerOutputTest" />
+      <test name="java112.tests.LargestTokensAnalyzerProcessTokenTest" />
+      <test name="java112.tests.DistinctTokenCountsAnalyzerOutputTest" />
+      <test name="java112.tests.DistinctTokenCountsAnalyzerProcessTokenTest" />
     </junit>
   </target>
 
@@ -463,14 +493,10 @@
         <pathelement location="${junit}" />
       </classpath>
       <formatter type="plain"/>
-      <test name="java112.tests.KeywordAnalyzerProcessTokenTest" />
-      <test name="java112.tests.KeywordAnalyzerOutputTest" />
-      <test name="java112.tests.TokenSizeAnalyzerProcessTokenTest" />
-      <test name="java112.tests.TokenSizeAnalyzerOutputTest" />
     </junit>
   </target>
 
-  <target name="run_tests_analyzer" depends="run_tests_analyzer3" >
+  <target name="run_tests_analyzer" depends="build_analyzer, run_tests_analyzer3" >
     <echo message="Analyzer Tests Completed"/>
   </target>
 
