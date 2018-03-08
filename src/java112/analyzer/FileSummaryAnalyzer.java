@@ -15,6 +15,7 @@ import java.util.*;
 public class FileSummaryAnalyzer implements TokenAnalyzer {
 
     private int totalTokensCount;
+    private Properties properties;
 
 
     /**

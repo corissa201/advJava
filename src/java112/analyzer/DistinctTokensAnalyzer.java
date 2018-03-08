@@ -13,6 +13,7 @@ import java.util.*;
 public class DistinctTokensAnalyzer implements TokenAnalyzer {
 
     private Set<String> distinctTokens;
+    private Properties properties;
 
 
     /**
