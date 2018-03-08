@@ -6,17 +6,19 @@ import java.util.*;
 
 
 /**
- * The FileAnalysis class is the main controller class for project 1. It
- * contains the main processing method, analyze, for the project.
+ * The FileAnalysis class is the main controller class for project 2. It
+ * contains the main processing method, analyze, for the project. It will
+ * implement the PropertiesLoader interface.
  *
  * @author     Corissa Engel
- * @version     1.1
+ * @version     2.0
  */
-public class FileAnalysis {
+public class FileAnalysis implements PropertiesLoader {
 
-    private static final int VALID_ARGUMENTS_COUNT = 1;
-    private FileSummaryAnalyzer summaryAnalyzer;
-    private DistinctTokensAnalyzer distinctAnalyzer;
+    private static final int VALID_ARGUMENTS_COUNT = 2;
+    //Deleted for project 2 private FileSummaryAnalyzer summaryAnalyzer;
+    //Deleted for project 2 private DistinctTokensAnalyzer distinctAnalyzer;
+    private List<String> TokenAnalyzer;
 
 
     /**
@@ -87,11 +89,12 @@ public class FileAnalysis {
 
 
     /**
-     *This method will instantiate both Analyzer class instance variables.
+     * This method will instantiate the TokenAnalyzer classes to call the new
+     * constructor with the Properties parameter
      */
     private void createNewAnalyzerInstances() {
-        summaryAnalyzer = new FileSummaryAnalyzer();
-        distinctAnalyzer = new DistinctTokensAnalyzer();
+        summaryAnalyzer.add(new FileSummaryAnalyzer(properties));
+        distinctAnalyzer.add(new DistinctTokensAnalyzer(properties));
     }
 
 
