@@ -23,6 +23,21 @@ public class DistinctTokensAnalyzer implements TokenAnalyzer {
         distinctTokens = new TreeSet<>();
     }
 
+    /**
+     * Empty constructor for the DistinctTokensAnalyzer class.
+     */
+    public DistinctTokensAnalyzer() {
+
+    }
+
+    /**
+     * Constructor with one Properties parameter
+     */
+    public DistinctTokensAnalyzer(Properties properties) {
+        this();
+        this.properties = properties;
+    }
+
 
     /**
      * This method is the getter for the distinctTokens.

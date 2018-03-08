@@ -10,7 +10,7 @@ import java.util.*;
  * The FileSummaryAnalyzer class will create the summary report.
  *
  * @author      Corissa Engel
- * @version     1.1
+ * @version     2.0
  */
 public class FileSummaryAnalyzer implements TokenAnalyzer {
 
@@ -18,9 +18,18 @@ public class FileSummaryAnalyzer implements TokenAnalyzer {
 
 
     /**
-     * Constructor for the FileSummaryAnalyzer class.
+     * Empty constructor for the FileSummaryAnalyzer class.
      */
     public FileSummaryAnalyzer() {
+
+    }
+
+    /**
+     * Constructor with one Properties parameter
+     */
+    public FileSummaryAnalyzer(Properties properties) {
+        this();
+        this.properties = properties;
     }
 
 
