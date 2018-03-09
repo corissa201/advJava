@@ -6,7 +6,7 @@ package java112.analyzer;
  * analyzer program to process tokens and generate the output file.
  *
  * @author      Corissa Engel
- * @version     2.1
+ * @version     2.0
  */
 public interface TokenAnalyzer{
 
