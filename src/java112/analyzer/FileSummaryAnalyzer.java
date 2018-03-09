@@ -59,7 +59,10 @@ public class FileSummaryAnalyzer implements TokenAnalyzer {
      * @param inputFilePath The file path of the input file.
      * @param outputFilePath The file path of the summary output file.
      */
-    public void generateOutputFile(String inputFilePath, String outputFilePath) {
+    public void generateOutputFile(String inputFilePath, ) {
+
+        String outputFilePath = properties.getProperty("output.directory")
+                + properties.getProperty("output.file.summary")
 
         try (PrintWriter output = new PrintWriter(new BufferedWriter(new FileWriter(outputFilePath)))
         ) {
@@ -84,8 +87,9 @@ public class FileSummaryAnalyzer implements TokenAnalyzer {
         Date modifiedDate = new Date(file.lastModified());
         long size = file.length();
         URI uri = file.toURI();
+        String applicationName = properties.getProperty("application.name");
 
-        writer.println("Application: Counting Agatha");
+        writer.println("Application: " + applicationName);
         writer.println("Author: Corissa Engel AdvJava-S18");
         writer.println("Author Email: cengel@madisoncollege.edu");
         writer.println("File: " + path);

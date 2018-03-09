@@ -37,6 +37,7 @@ public class DistinctTokensAnalyzer implements TokenAnalyzer {
     public DistinctTokensAnalyzer(Properties properties) {
         this();
         this.properties = properties;
+
     }
 
 
@@ -65,9 +66,13 @@ public class DistinctTokensAnalyzer implements TokenAnalyzer {
      * @param inputFilePath The file path of the input file.
      * @param outputFilePath The file path of the distinct_tokens output file.
      */
-    public void generateOutputFile(String inputFilePath, String outputFilePath) {
+    public void generateOutputFile(String inputFilePath) {
 
-        try (PrintWriter outputWriter = new PrintWriter(new BufferedWriter(new FileWriter(outputFilePath)))
+        String outputFilePath = properties.getProperty("output.directory")
+                + properties.getProperty("output.file.distinct")
+
+        try (PrintWriter outputWriter = new PrintWriter(new BufferedWriter(
+                new FileWriter(outputFilePath)))
         ) {
             outputWriterPrint(outputWriter);
         } catch (IOException inputOutputException) {

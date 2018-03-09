@@ -4,6 +4,7 @@ import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
+import java.utilities.*;
 
 /**
  *  This is part of a lab and is the first servlet for the course.
@@ -14,7 +15,14 @@ import javax.servlet.annotation.*;
     name = "trivialServlet",
     urlPatterns = { "/trivial", "/simple" }
 )
-public class TrivialServlet extends HttpServlet {
+public class TrivialServlet extends HttpServlet implements PropertiesLoader {
+
+    public void init() throws ServletException {
+
+    properties = loadProperties("./project2/properties");
+
+}
+
     /**
      *  Handles HTTP GET requests.
      *

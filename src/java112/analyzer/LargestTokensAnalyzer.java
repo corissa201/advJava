@@ -41,14 +41,36 @@ public class LargestTokensAnalyzer{
         this.properties = properties;
     }
     /**
-     * This method is used to process the token for all Analyzer classes.
-     * @param token A list of all the tokens read from the file.
+     * This method implements the generateOutputFile method in the TokenAnalyzer
+     * interface and opens a PrintWriter to the specified file name and call the
+     * outputWriterPrint method to print out each token.
+     * @param inputFilePath The file path of the input file.
+     * @param outputFilePath The file path of the distinct_tokens output file.
      */
-    void processToken(String token);
+    public void generateOutputFile(String inputFilePath) {
+
+        String outputFilePath = properties.getProperty("output.directory")
+                + properties.getProperty("output.file.largest.words")
+
+        try (PrintWriter outputWriter = new PrintWriter(new BufferedWriter(
+                new FileWriter(outputFilePath)))
+        ) {
+            outputWriterPrint(outputWriter);
+        } catch (IOException inputOutputException) {
+            inputOutputException.printStackTrace();
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+    }
+
 
     /**
-     * This method is used to generate the output files for all Analyzer classes.
-     * @param inputFilePath The file path to the input file.
+     * This method will loop through and print out each token to a new line.
+     * @param outputWriter The PrintWriter open to the new file.
      */
-    void generateOutputFile(String inputFilePath);
+    private void outputWriterPrint(PrintWriter outputWriter) {
+        for (String token : distinctTokens) {
+            outputWriter.println(token);
+        }
+    }
 }

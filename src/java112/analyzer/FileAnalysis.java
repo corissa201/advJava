@@ -3,6 +3,7 @@ package java112.analyzer;
 
 import java.io.*;
 import java.util.*;
+import java112.utilities.*;
 
 
 /**
@@ -16,9 +17,7 @@ import java.util.*;
 public class FileAnalysis implements PropertiesLoader {
 
     private static final int VALID_ARGUMENTS_COUNT = 2;
-    //Deleted for project 2 private FileSummaryAnalyzer summaryAnalyzer;
-    //Deleted for project 2 private DistinctTokensAnalyzer distinctAnalyzer;
-    private List<String> TokenAnalyzer;
+    private List<TokenAnalyzer> analyzers;
 
 
     /**
@@ -43,8 +42,9 @@ public class FileAnalysis implements PropertiesLoader {
 
 
         String inputFilePath = arguments[0];
+        String propertiesFilePath = arguments[1];
 
-        createNewAnalyzerInstances();
+        createNewAnalyzerInstances(propertiesFilePath);
         openInputFile(inputFilePath);
         writeOutputFiles(inputFilePath);
     }
@@ -92,9 +92,17 @@ public class FileAnalysis implements PropertiesLoader {
      * This method will instantiate the TokenAnalyzer classes to call the new
      * constructor with the Properties parameter
      */
-    private void createNewAnalyzerInstances() {
-        //summaryAnalyzer.add(new FileSummaryAnalyzer(properties));
-        //distinctAnalyzer.add(new DistinctTokensAnalyzer(properties));
+    private void createNewAnalyzerInstances(String propertiesFilePath) {
+
+        analyzers = new ArrayList<>();
+
+        Properties properties = loadProperties(propertiesFilePath);
+
+        analyzers.add(new FileSummaryAnalayzer(properties));
+        analyzers.add(new DistinctTokenAnalayzer(properties));
+        analyzers.add(new DistinctTokenCountsAnalayzer(properties));
+        analyzers.add(new LargestTokenAnalayzer(properties));
+
     }
 
 
@@ -103,14 +111,24 @@ public class FileAnalysis implements PropertiesLoader {
      * @param tokenArray The token array created in the readInputFile method.
      */
     private void callProcessToken(String[] tokenArray) {
+
         for (String token : tokenArray) {
-            if (!(token.isEmpty() || Character.isDigit(token.charAt(0)))) {
-                //summaryAnalyzer.processToken(token);
-                //distinctAnalyzer.processToken(token);
+
+            if (token.isEmpty() || Character.isDigit(token.charAt(0))) {
+                continue;
+            }
+
+            name(tokenArray);
             }
         }
     }
 
+
+    private void name(String tokenArray) {
+        for (TokenAnalyzer analyzer ; analyzers){
+            analyzer.
+
+    }
 
     /**
      * This method will generate the output files by calling the
@@ -118,6 +136,11 @@ public class FileAnalysis implements PropertiesLoader {
      * @param inputFilePath The file path to the input file.
      */
     private void writeOutputFiles(String inputFilePath) {
+
+        for (TokenAnalyzer analyzer : analyzers){
+            analyzer.generateOutputfile(inputFilePath);
+        }
+
         //summaryAnalyzer.generateOutputFile(inputFilePath, "output/summary.txt");
         //distinctAnalyzer.generateOutputFile(inputFilePath, "output/distinct_token.txt");
     }
