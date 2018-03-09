@@ -93,8 +93,8 @@ public class FileAnalysis implements PropertiesLoader {
      * constructor with the Properties parameter
      */
     private void createNewAnalyzerInstances() {
-        summaryAnalyzer.add(new FileSummaryAnalyzer(properties));
-        distinctAnalyzer.add(new DistinctTokensAnalyzer(properties));
+        //summaryAnalyzer.add(new FileSummaryAnalyzer(properties));
+        //distinctAnalyzer.add(new DistinctTokensAnalyzer(properties));
     }
 
 
@@ -105,8 +105,8 @@ public class FileAnalysis implements PropertiesLoader {
     private void callProcessToken(String[] tokenArray) {
         for (String token : tokenArray) {
             if (!(token.isEmpty() || Character.isDigit(token.charAt(0)))) {
-                summaryAnalyzer.processToken(token);
-                distinctAnalyzer.processToken(token);
+                //summaryAnalyzer.processToken(token);
+                //distinctAnalyzer.processToken(token);
             }
         }
     }
@@ -118,7 +118,7 @@ public class FileAnalysis implements PropertiesLoader {
      * @param inputFilePath The file path to the input file.
      */
     private void writeOutputFiles(String inputFilePath) {
-        summaryAnalyzer.generateOutputFile(inputFilePath, "output/summary.txt");
-        distinctAnalyzer.generateOutputFile(inputFilePath, "output/distinct_token.txt");
+        //summaryAnalyzer.generateOutputFile(inputFilePath, "output/summary.txt");
+        //distinctAnalyzer.generateOutputFile(inputFilePath, "output/distinct_token.txt");
     }
 }
