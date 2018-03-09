@@ -31,23 +31,23 @@
     <h2>Project 3:</h2>
     <div class="box">
     <ul>
-    <li><a href="#">January</a></li>
-    <li><a href="#">February</a></li>
+    <li><a href="#">...</a></li>
+    <li><a href="#">....</a></li>
     </ul>
     </div>
 
     <h2>Project 4:</h2>
     <div class="box">
     <ul>
-    <li><a href="#">Apple</a></li>
-    <li><a href="#">Microsoft</a></li>
+    <li><a href="#">...</a></li>
+    <li><a href="#">...</a></li>
     </ul>
     </div>
   </div>
 
   <div id="content">
     <h1>Welcome</h1>
-    <img src="images/placeholder/technics-q-c-680-280-4.jpg" class="post-img" alt="Bild" />
+    <img src="images/background.jpeg" class="post-img" alt="Bild" />
   </div>
 
   <div id="footer">
