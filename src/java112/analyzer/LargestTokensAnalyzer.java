@@ -14,7 +14,7 @@ import java.util.*;
  * Properties object and can’t be hard-coded into the class.
  *
  * @author      Corissa Engel
- * @version     2.0
+ * @version     1.0
  */
 
 public class LargestTokensAnalyzer{
