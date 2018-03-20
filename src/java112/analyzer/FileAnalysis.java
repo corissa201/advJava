@@ -99,9 +99,9 @@ public class FileAnalysis implements PropertiesLoader {
         Properties properties = loadProperties(propertiesFilePath);
 
         analyzers.add(new FileSummaryAnalayzer(properties));
-        analyzers.add(new DistinctTokenAnalayzer(properties));
-        analyzers.add(new DistinctTokenCountsAnalayzer(properties));
-        analyzers.add(new LargestTokenAnalayzer(properties));
+        //analyzers.add(new DistinctTokenAnalayzer(properties));
+        //analyzers.add(new DistinctTokenCountsAnalayzer(properties));
+        //analyzers.add(new LargestTokenAnalayzer(properties));
 
     }
 
@@ -121,13 +121,12 @@ public class FileAnalysis implements PropertiesLoader {
             name(tokenArray);
             }
         }
-    }
 
 
     private void name(String tokenArray) {
-        for (TokenAnalyzer analyzer ; analyzers){
-            analyzer.
-
+        for (TokenAnalyzer analyzer : analyzers){
+            analyzer.processToken(tokenArray);
+        }
     }
 
     /**

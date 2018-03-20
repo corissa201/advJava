@@ -2,6 +2,7 @@ package java112.analyzer;
 
 
 import java.io.*;
+import java.net.URI;
 import java.util.*;
 
 
@@ -15,6 +16,12 @@ public class DistinctTokensAnalyzer implements TokenAnalyzer {
     private Set<String> distinctTokens;
     private Properties properties;
 
+    /**
+     * Empty constructor for the DistinctTokensAnalyzer class.
+     */
+    public DistinctTokensAnalyzer() {
+
+    }
 
     /**
      * Constructor for DistinctTokensAnalyzer that will create an instance of a
@@ -25,19 +32,11 @@ public class DistinctTokensAnalyzer implements TokenAnalyzer {
     }
 
     /**
-     * Empty constructor for the DistinctTokensAnalyzer class.
-     */
-    public DistinctTokensAnalyzer() {
-
-    }
-
-    /**
      * Constructor with one Properties parameter
      */
     public DistinctTokensAnalyzer(Properties properties) {
         this();
         this.properties = properties;
-
     }
 
 
@@ -69,7 +68,7 @@ public class DistinctTokensAnalyzer implements TokenAnalyzer {
     public void generateOutputFile(String inputFilePath) {
 
         String outputFilePath = properties.getProperty("output.directory")
-                + properties.getProperty("output.file.distinct")
+                + properties.getProperty("output.file.distinct");
 
         try (PrintWriter outputWriter = new PrintWriter(new BufferedWriter(
                 new FileWriter(outputFilePath)))

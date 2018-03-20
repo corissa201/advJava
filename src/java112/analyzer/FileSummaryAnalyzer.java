@@ -59,10 +59,10 @@ public class FileSummaryAnalyzer implements TokenAnalyzer {
      * @param inputFilePath The file path of the input file.
      * @param outputFilePath The file path of the summary output file.
      */
-    public void generateOutputFile(String inputFilePath, ) {
+    public void generateOutputFile(String inputFilePath) {
 
         String outputFilePath = properties.getProperty("output.directory")
-                + properties.getProperty("output.file.summary")
+                + properties.getProperty("output.file.summary");
 
         try (PrintWriter output = new PrintWriter(new BufferedWriter(new FileWriter(outputFilePath)))
         ) {

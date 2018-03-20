@@ -16,13 +16,10 @@ import java.util.*;
  * @version     1.0
  */
 
-public class DistinctTokenCountsAnalyzer{
-    private Properties properties;
-    private Map<String, Integer> distinctTokenCounts;
+public class DistinctTokenCountsAnalyzer implements TokenAnalyzer{
 
-    public Map<String, Integer> getDistinctTokenCounts() {
-        return distinctTokenCounts;
-    }
+    private Map<String, Integer> distinctTokenCounts;
+    private Properties properties;
 
     /**
      * Empty constructor for the DistinctTokenCountsAnalyzer class.
@@ -39,15 +36,54 @@ public class DistinctTokenCountsAnalyzer{
         this.properties = properties;
     }
 
+
+    /**
+     * This method is the getter for the distinctTokensCounts.
+     *
+     * @return distinctTokensCount A string and count of unique tokens from the
+     * input file.
+     */
+    public Map<String, Integer> getDistinctTokenCounts() {
+        return distinctTokenCounts;
+    }
+
+
     /**
      * This method is used to process the token for all Analyzer classes.
      * @param token A list of all the tokens read from the file.
      */
-    void processToken(String token);
+    public void processToken(String token){
+        distinctTokenCounts = new TreeMap<String, Integer>();
+
+        distinctTokenCounts.put();
+    }
 
     /**
      * This method is used to generate the output files for all Analyzer classes.
      * @param inputFilePath The file path to the input file.
      */
-    void generateOutputFile(String inputFilePath);
+    public void generateOutputFile(String inputFilePath){
+                String outputFilePath = properties.getProperty("output.directory")
+                + properties.getProperty("output.file.distinct.counts");
+
+        try (PrintWriter outputWriter = new PrintWriter(new BufferedWriter(
+                new FileWriter(outputFilePath)))
+        ) {
+            outputWriterPrint(outputWriter);
+        } catch (IOException inputOutputException) {
+            inputOutputException.printStackTrace();
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+    }
+
+    /**
+     * This method will loop through and print out each token to a new line.
+     * @param outputWriter The PrintWriter open to the new file.
+     */
+    private void outputWriterPrint(PrintWriter outputWriter) {
+        for (String token : distinctTokenCounts) {
+            outputWriter.println(token);
+        }
+    }
 }

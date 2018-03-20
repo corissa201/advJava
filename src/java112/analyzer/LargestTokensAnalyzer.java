@@ -17,7 +17,7 @@ import java.util.*;
  * @version     1.0
  */
 
-public class LargestTokensAnalyzer{
+public class LargestTokensAnalyzer implements TokenAnalyzer{
     private Properties properties;
     private Set<String> largestTokens;
     private int minimumTokenLength;
@@ -50,7 +50,7 @@ public class LargestTokensAnalyzer{
     public void generateOutputFile(String inputFilePath) {
 
         String outputFilePath = properties.getProperty("output.directory")
-                + properties.getProperty("output.file.largest.words")
+                + properties.getProperty("output.file.largest.words");
 
         try (PrintWriter outputWriter = new PrintWriter(new BufferedWriter(
                 new FileWriter(outputFilePath)))
@@ -69,7 +69,7 @@ public class LargestTokensAnalyzer{
      * @param outputWriter The PrintWriter open to the new file.
      */
     private void outputWriterPrint(PrintWriter outputWriter) {
-        for (String token : distinctTokens) {
+        for (String token : largestTokens) {
             outputWriter.println(token);
         }
     }
