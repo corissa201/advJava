@@ -55,18 +55,19 @@ public class DistinctTokenCountsAnalyzer implements TokenAnalyzer{
     public void processToken(String token){
         distinctTokenCounts = new TreeMap<String, Integer>();
 
-        for (String distinctToken:token) {
+        for (String tokens:token) {
 
-            if (!distinctTokenCounts.containsKey(s)) {  // first time we've seen this string
-                distinctTokenCounts.put(distinctToken, 1);
+            if (!distinctTokenCounts.containsKey(tokens)) {  // first time we've seen this string
+                distinctTokenCounts.put(token, 1);
             }
             else {
-                int count = distinctTokenCounts.get(s);
-                distinctTokenCounts.put(distinctToken, count + 1);
+                int count = tokens.get(tokens);
+                distinctTokenCounts.put(tokens, count + 1);
             }
         }
         return distinctTokenCounts;
     }
+
 
     /**
      * This method is used to generate the output files for all Analyzer classes.

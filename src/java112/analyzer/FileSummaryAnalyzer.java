@@ -87,12 +87,12 @@ public class FileSummaryAnalyzer implements TokenAnalyzer {
         Date modifiedDate = new Date(file.lastModified());
         long size = file.length();
         URI uri = file.toURI();
-        String applicationName = properties.getProperty("application.name");
+        //String applicationName = properties.getProperty("application.name");
 
-        writer.println("Application: " + applicationName);
-        writer.println("Author: Corissa Engel AdvJava-S18");
-        writer.println("Author Email: cengel@madisoncollege.edu");
-        writer.println("File: " + path);
+        writer.println("Application: " + properties.getProperty("application.name"));
+        writer.println("Author: " + properties.getProperty("author"));
+        writer.println("Author Email: " + properties.getProperty("author.email.address"));
+        writer.println("File: " + file);
         writer.println("Date of analysis:  " + new Date());
         writer.println("Last Modified Date: " + modifiedDate);
         writer.println("File size: " + size);
