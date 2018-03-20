@@ -49,6 +49,23 @@ public class FileAnalysis implements PropertiesLoader {
         writeOutputFiles(inputFilePath);
     }
 
+    /**
+     * This method will instantiate the TokenAnalyzer classes to call the new
+     * constructor with the Properties parameter
+     */
+    private void createNewAnalyzerInstances(String propertiesFilePath) {
+
+        analyzers = new ArrayList<>();
+
+        Properties properties = loadProperties(propertiesFilePath);
+
+        analyzers.add(new FileSummaryAnalyzer(properties));
+        analyzers.add(new DistinctTokensAnalyzer(properties));
+        analyzers.add(new DistinctTokenCountsAnalyzer(properties));
+        analyzers.add(new LargestTokensAnalyzer(properties));
+
+    }
+
 
     /**
      *  This method opens the input file for reading.
@@ -88,22 +105,7 @@ public class FileAnalysis implements PropertiesLoader {
     }
 
 
-    /**
-     * This method will instantiate the TokenAnalyzer classes to call the new
-     * constructor with the Properties parameter
-     */
-    private void createNewAnalyzerInstances(String propertiesFilePath) {
 
-        analyzers = new ArrayList<>();
-
-        Properties properties = loadProperties(propertiesFilePath);
-
-        analyzers.add(new FileSummaryAnalyzer(properties));
-        analyzers.add(new DistinctTokensAnalyzer(properties));
-        analyzers.add(new DistinctTokenCountsAnalyzer(properties));
-        analyzers.add(new LargestTokensAnalyzer(properties));
-
-    }
 
 
     /**

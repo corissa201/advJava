@@ -62,23 +62,14 @@ public class DistinctTokenCountsAnalyzer implements TokenAnalyzer{
      * @param token A list of all the tokens read from the file.
      */
     public void processToken(String token){
-        wordCount();
+
+        wordCount(token);
     }
 
-    public Map<String, Integer> wordCount(String[] strings) {
-        Map<String, Integer> distinctTokenCounts = new HashMap<String, Integer> ();
-         for (String s:strings) {
+    public void wordCount(String token){
 
-            if (!distinctTokenCounts.containsKey(s)) {  // first time we've seen this string
-                distinctTokenCounts.put(s, 1);
-            }
-            else {
-                int count = distinctTokenCounts.get(s);
-                distinctTokenCounts.put(s, count + 1);
-            }
-            return distinctTokenCounts;
-         }
     }
+
 
     /**
      * This method is used to generate the output files for all Analyzer classes.
@@ -105,8 +96,8 @@ public class DistinctTokenCountsAnalyzer implements TokenAnalyzer{
      * @param outputWriter The PrintWriter open to the new file.
      */
     private void outputWriterPrint(PrintWriter outputWriter) {
-        for (String token : distinctTokenCounts) {
-            outputWriter.println(token);
+        for (Map.Entry<String, Integer> entry : distinctTokenCounts.entrySet()){
+            outputWriter.println(entry.getKey() + ": " + entry.getValue());
         }
     }
 }

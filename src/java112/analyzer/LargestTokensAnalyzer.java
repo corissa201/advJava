@@ -34,6 +34,14 @@ public class LargestTokensAnalyzer implements TokenAnalyzer{
     }
 
     /**
+     * Constructor for LargestTokensAnalyzer that will create an instance of a
+     * TreeSet and assigns it to the largestTokens variable.
+     */
+    public LargestTokensAnalyzer(Set<String> largestTokens) {
+        largestTokens = new TreeSet<>();
+    }
+
+    /**
      * Constructor with one Properties parameter
      */
     public LargestTokensAnalyzer(Properties properties) {
@@ -43,15 +51,19 @@ public class LargestTokensAnalyzer implements TokenAnalyzer{
     }
 
     public void processToken(String token){
-        Set largestTokens = new TreeSet<>();
+        Set<String> largestTokens = new TreeSet<>();
 
-        for (String token : token) {
+        for (String element : largestTokens) {
 
-        if (token.length() >= minimumTokenLength){
-            largestTokens.add(token);
+        if (element.length() >= minimumTokenLength){
+            element.add(largestTokens);
         }
     }
 }
+
+    public void findLargestTokens(){
+
+    }
 
     /**
      * This method implements the generateOutputFile method in the TokenAnalyzer
