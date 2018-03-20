@@ -55,7 +55,17 @@ public class DistinctTokenCountsAnalyzer implements TokenAnalyzer{
     public void processToken(String token){
         distinctTokenCounts = new TreeMap<String, Integer>();
 
-        distinctTokenCounts.put();
+        for (String distinctToken:token) {
+
+            if (!distinctTokenCounts.containsKey(s)) {  // first time we've seen this string
+                distinctTokenCounts.put(distinctToken, 1);
+            }
+            else {
+                int count = distinctTokenCounts.get(s);
+                distinctTokenCounts.put(distinctToken, count + 1);
+            }
+        }
+        return distinctTokenCounts;
     }
 
     /**
