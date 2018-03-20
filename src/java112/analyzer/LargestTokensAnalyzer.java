@@ -39,11 +39,11 @@ public class LargestTokensAnalyzer implements TokenAnalyzer{
     public LargestTokensAnalyzer(Properties properties) {
         this();
         this.properties = properties;
-        this.minimumTokenLength = properties.getProperty("largest.words.minimum.length");
+        int minimumTokenLength = Integer.parseInt(properties.getProperty("largest.words.minimum.length"));
     }
 
     public void processToken(String token){
-        String largestTokens = new TreeSet<>();
+        Set largestTokens = new TreeSet<>();
 
         for (String token : token) {
 

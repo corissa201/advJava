@@ -27,7 +27,7 @@ public class DistinctTokensAnalyzer implements TokenAnalyzer {
      * Constructor for DistinctTokensAnalyzer that will create an instance of a
      * TreeSet and assigns it to the distinctTokens variable.
      */
-    public DistinctTokensAnalyzer() {
+    public DistinctTokensAnalyzer(Set<String> distinctTokens) {
         distinctTokens = new TreeSet<>();
     }
 

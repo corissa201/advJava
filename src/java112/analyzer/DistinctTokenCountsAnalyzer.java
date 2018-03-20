@@ -29,6 +29,14 @@ public class DistinctTokenCountsAnalyzer implements TokenAnalyzer{
     }
 
     /**
+     * Constructor for DistinctTokenCountsAnalyzer that will create an instance of a
+     * TreeSet and assigns it to the distinctTokenCounts variable.
+     */
+    public DistinctTokenCountsAnalyzer(Map<String, Integer> distinctTokenCounts) {
+        distinctTokenCounts = new TreeMap<>();
+    }
+
+    /**
      * Constructor with one Properties parameter
      */
     public DistinctTokenCountsAnalyzer(Properties properties) {
@@ -53,19 +61,8 @@ public class DistinctTokenCountsAnalyzer implements TokenAnalyzer{
      * @param token A list of all the tokens read from the file.
      */
     public void processToken(String token){
-        distinctTokenCounts = new TreeMap<String, Integer>();
+        distinctTokenCounts.put(token);
 
-        for (String tokens:token) {
-
-            if (!distinctTokenCounts.containsKey(tokens)) {  // first time we've seen this string
-                distinctTokenCounts.put(token, 1);
-            }
-            else {
-                int count = tokens.get(tokens);
-                distinctTokenCounts.put(tokens, count + 1);
-            }
-        }
-        return distinctTokenCounts;
     }
 
 
@@ -74,7 +71,8 @@ public class DistinctTokenCountsAnalyzer implements TokenAnalyzer{
      * @param inputFilePath The file path to the input file.
      */
     public void generateOutputFile(String inputFilePath){
-                String outputFilePath = properties.getProperty("output.directory")
+
+        String outputFilePath = properties.getProperty("output.directory")
                 + properties.getProperty("output.file.distinct.counts");
 
         try (PrintWriter outputWriter = new PrintWriter(new BufferedWriter(
