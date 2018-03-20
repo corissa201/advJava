@@ -36,6 +36,7 @@ public class DistinctTokenCountsAnalyzer implements TokenAnalyzer{
         distinctTokenCounts = new TreeMap<>();
     }
 
+
     /**
      * Constructor with one Properties parameter
      */
@@ -61,10 +62,23 @@ public class DistinctTokenCountsAnalyzer implements TokenAnalyzer{
      * @param token A list of all the tokens read from the file.
      */
     public void processToken(String token){
-        distinctTokenCounts.put(token);
-
+        wordCount();
     }
 
+    public Map<String, Integer> wordCount(String[] strings) {
+        Map<String, Integer> distinctTokenCounts = new HashMap<String, Integer> ();
+         for (String s:strings) {
+
+            if (!distinctTokenCounts.containsKey(s)) {  // first time we've seen this string
+                distinctTokenCounts.put(s, 1);
+            }
+            else {
+                int count = distinctTokenCounts.get(s);
+                distinctTokenCounts.put(s, count + 1);
+            }
+            return distinctTokenCounts;
+         }
+    }
 
     /**
      * This method is used to generate the output files for all Analyzer classes.
