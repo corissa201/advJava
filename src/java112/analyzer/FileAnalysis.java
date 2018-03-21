@@ -120,12 +120,12 @@ public class FileAnalysis implements PropertiesLoader {
                 continue;
             }
 
-            name(token);
+            createProcessToken(token);
             }
         }
 
 
-    private void name(String token) {
+    private void createProcessToken(String token) {
         for (TokenAnalyzer analyzer : analyzers){
             analyzer.processToken(token);
         }

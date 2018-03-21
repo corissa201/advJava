@@ -51,18 +51,17 @@ public class LargestTokensAnalyzer implements TokenAnalyzer{
     }
 
     public void processToken(String token){
-        Set<String> largestTokens = new TreeSet<>();
+        //Set<String> largestTokens = new TreeSet<>();
 
         for (String element : largestTokens) {
-
-        if (element.length() >= minimumTokenLength){
-            element.add(largestTokens);
+            findLargestTokens(element);
         }
     }
-}
 
-    public void findLargestTokens(){
-
+    public void findLargestTokens(String element){
+        if (element.length() >= minimumTokenLength){
+            largestTokens.add(element);
+        }
     }
 
     /**
