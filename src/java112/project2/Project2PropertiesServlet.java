@@ -26,7 +26,7 @@ public class Project2PropertiesServlet extends HttpServlet implements Properties
 
     public void init() throws ServletException {
 
-        properties = loadProperties("/project2/properties");
+        properties = loadProperties("/project2.properties");
     }
 
 
@@ -52,6 +52,12 @@ public class Project2PropertiesServlet extends HttpServlet implements Properties
         out.print("<td>Author</td>");
         out.print("<td>");
         out.print(properties.getProperty("author"));
+        out.print("</td>");
+        out.print("</tr>");
+                out.print("<tr>");
+        out.print("<td>Author Email</td>");
+        out.print("<td>");
+        out.print(properties.getProperty("author.email.address"));
         out.print("</td>");
         out.print("</tr>");
         out.print("</table>");
