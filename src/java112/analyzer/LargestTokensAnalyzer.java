@@ -42,25 +42,23 @@ public class LargestTokensAnalyzer implements TokenAnalyzer {
     public LargestTokensAnalyzer(Properties properties) {
         this();
         this.properties = properties;
-        int minimumTokenLength = Integer.parseInt(properties.getProperty("largest.words.minimum.length"));
     }
 
 
     public void processToken(String token) {
+        minimumTokenLength = Integer.parseInt(properties.getProperty("largest.words.minimum.length"));
 
-        // Set<String> largestTokens = new TreeSet<>();
-        for (String element : largestTokens) {
-            findLargestTokens(element);
+        if (token.length() >= minimumTokenLength) {
+            largestTokens.add(token);
         }
     }
 
 
-    public void findLargestTokens(String element) {
-        if (element.length() >= minimumTokenLength) {
-            largestTokens.add(element);
-        }
-    }
-
+    // public void findLargestTokens(String element) {
+    // int minimumTokenLength = Integer.parseInt(properties.getProperty("largest.words.minimum.length"))
+    // if (element.length() >= minimumTokenLength) {
+    // largestTokens.add(element);
+    // }
 
     /**
      * This method implements the generateOutputFile method in the TokenAnalyzer
