@@ -25,14 +25,6 @@ public class DistinctTokenCountsAnalyzer implements TokenAnalyzer {
      * Empty constructor for the DistinctTokenCountsAnalyzer class.
      */
     public DistinctTokenCountsAnalyzer() {
-    }
-
-
-    /**
-     * Constructor for DistinctTokenCountsAnalyzer that will create an instance of a
-     * TreeSet and assigns it to the distinctTokenCounts variable.
-     */
-    public DistinctTokenCountsAnalyzer(Map<String, Integer> distinctTokenCounts) {
         distinctTokenCounts = new TreeMap<>();
     }
 
@@ -102,4 +94,3 @@ public class DistinctTokenCountsAnalyzer implements TokenAnalyzer {
         }
     }
 }
-

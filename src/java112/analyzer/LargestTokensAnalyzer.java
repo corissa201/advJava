@@ -32,14 +32,6 @@ public class LargestTokensAnalyzer implements TokenAnalyzer {
      * Empty constructor for the LargestTokensAnalyzer class.
      */
     public LargestTokensAnalyzer() {
-    }
-
-
-    /**
-     * Constructor for LargestTokensAnalyzer that will create an instance of a
-     * TreeSet and assigns it to the largestTokens variable.
-     */
-    public LargestTokensAnalyzer(Set<String> largestTokens) {
         largestTokens = new TreeSet<>();
     }
 

@@ -21,14 +21,6 @@ public class DistinctTokensAnalyzer implements TokenAnalyzer {
      * Empty constructor for the DistinctTokensAnalyzer class.
      */
     public DistinctTokensAnalyzer() {
-    }
-
-
-    /**
-     * Constructor for DistinctTokensAnalyzer that will create an instance of a
-     * TreeSet and assigns it to the distinctTokens variable.
-     */
-    public DistinctTokensAnalyzer(Set<String> distinctTokens) {
         distinctTokens = new TreeSet<>();
     }
 
@@ -58,6 +50,7 @@ public class DistinctTokensAnalyzer implements TokenAnalyzer {
      * @param token A list of all the tokens within the file.
      */
     public void processToken(String token) {
+
         distinctTokens.add(token);
     }
 
