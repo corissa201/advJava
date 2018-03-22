@@ -27,6 +27,8 @@ public class DistinctTokensAnalyzer implements TokenAnalyzer {
 
     /**
      * Constructor with one Properties parameter
+     *
+     * @param properties The properties file for project 2.
      */
     public DistinctTokensAnalyzer(Properties properties) {
         this();
@@ -60,7 +62,6 @@ public class DistinctTokensAnalyzer implements TokenAnalyzer {
      * interface and opens a PrintWriter to the specified file name and call the
      * outputWriterPrint method to print out each token.
      * @param inputFilePath The file path of the input file.
-     * @param outputFilePath The file path of the distinct_tokens output file.
      */
     public void generateOutputFile(String inputFilePath) {
 

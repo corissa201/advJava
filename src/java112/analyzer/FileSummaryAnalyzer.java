@@ -27,6 +27,8 @@ public class FileSummaryAnalyzer implements TokenAnalyzer {
 
     /**
      * Constructor with one Properties parameter
+     *
+     * @param properties The properties file for project 2.
      */
     public FileSummaryAnalyzer(Properties properties) {
         this();
@@ -59,7 +61,6 @@ public class FileSummaryAnalyzer implements TokenAnalyzer {
      * interface and opens a PrintWriter to the specified file name. It then
      * calls the writer method to create the summary report.
      * @param inputFilePath The file path of the input file.
-     * @param outputFilePath The file path of the summary output file.
      */
     public void generateOutputFile(String inputFilePath) {
 

@@ -31,6 +31,8 @@ public class DistinctTokenCountsAnalyzer implements TokenAnalyzer {
 
     /**
      * Constructor with one Properties parameter
+     *
+     * @param properties The properties file for project 2.
      */
     public DistinctTokenCountsAnalyzer(Properties properties) {
         this();

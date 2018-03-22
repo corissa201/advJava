@@ -54,6 +54,8 @@ public class FileAnalysis implements PropertiesLoader {
     /**
      * This method will instantiate the TokenAnalyzer classes to call the new
      * constructor with the Properties parameter
+     *
+     * @param propertiesFilePath The property file path for project 2.
      */
     private void createNewAnalyzerInstances(String propertiesFilePath) {
 
