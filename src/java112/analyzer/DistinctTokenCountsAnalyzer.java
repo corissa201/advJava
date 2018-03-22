@@ -54,8 +54,12 @@ public class DistinctTokenCountsAnalyzer implements TokenAnalyzer {
      * @param token A list of all the tokens read from the file.
      */
     public void processToken(String token) {
-
-        distinctTokenCounts.put(token, new Integer);
+        Integer count = distinctTokenCounts.get(token);
+        if (count == null) {
+            distinctTokenCounts.put(token, 1);
+        } else {
+            distinctTokenCounts.put(token, count + 1);
+        }
     }
 
 
@@ -86,7 +90,7 @@ public class DistinctTokenCountsAnalyzer implements TokenAnalyzer {
      */
     private void outputWriterPrint(PrintWriter outputWriter) {
         for (Map.Entry <String, Integer> entry : distinctTokenCounts.entrySet()) {
-            outputWriter.println(entry.getKey() + ": " + entry.getValue());
+            outputWriter.println(entry.getKey() + \t + entry.getValue());
         }
     }
 }
