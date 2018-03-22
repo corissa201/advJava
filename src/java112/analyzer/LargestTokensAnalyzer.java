@@ -16,22 +16,24 @@ import java.util.*;
  * @author      Corissa Engel
  * @version     1.0
  */
+public class LargestTokensAnalyzer implements TokenAnalyzer {
 
-public class LargestTokensAnalyzer implements TokenAnalyzer{
     private Properties properties;
     private Set<String> largestTokens;
     private int minimumTokenLength;
+
 
     public Set<String> getLargestTokens() {
         return largestTokens;
     }
 
- /**
+
+    /**
      * Empty constructor for the LargestTokensAnalyzer class.
      */
     public LargestTokensAnalyzer() {
-
     }
+
 
     /**
      * Constructor for LargestTokensAnalyzer that will create an instance of a
@@ -40,6 +42,7 @@ public class LargestTokensAnalyzer implements TokenAnalyzer{
     public LargestTokensAnalyzer(Set<String> largestTokens) {
         largestTokens = new TreeSet<>();
     }
+
 
     /**
      * Constructor with one Properties parameter
@@ -50,19 +53,22 @@ public class LargestTokensAnalyzer implements TokenAnalyzer{
         int minimumTokenLength = Integer.parseInt(properties.getProperty("largest.words.minimum.length"));
     }
 
-    public void processToken(String token){
-        //Set<String> largestTokens = new TreeSet<>();
 
+    public void processToken(String token) {
+
+        // Set<String> largestTokens = new TreeSet<>();
         for (String element : largestTokens) {
             findLargestTokens(element);
         }
     }
 
-    public void findLargestTokens(String element){
-        if (element.length() >= minimumTokenLength){
+
+    public void findLargestTokens(String element) {
+        if (element.length() >= minimumTokenLength) {
             largestTokens.add(element);
         }
     }
+
 
     /**
      * This method implements the generateOutputFile method in the TokenAnalyzer
@@ -74,10 +80,10 @@ public class LargestTokensAnalyzer implements TokenAnalyzer{
     public void generateOutputFile(String inputFilePath) {
 
         String outputFilePath = properties.getProperty("output.directory")
-                + properties.getProperty("output.file.largest.words");
+        + properties.getProperty("output.file.largest.words");
 
         try (PrintWriter outputWriter = new PrintWriter(new BufferedWriter(
-                new FileWriter(outputFilePath)))
+        new FileWriter(outputFilePath)))
         ) {
             outputWriterPrint(outputWriter);
         } catch (IOException inputOutputException) {

@@ -22,8 +22,8 @@ public class FileSummaryAnalyzer implements TokenAnalyzer {
      * Empty constructor for the FileSummaryAnalyzer class.
      */
     public FileSummaryAnalyzer() {
-
     }
+
 
     /**
      * Constructor with one Properties parameter
@@ -43,6 +43,7 @@ public class FileSummaryAnalyzer implements TokenAnalyzer {
         return totalTokensCount;
     }
 
+
     /**
      * This method implements the processToken method in the TokenAnalyzer
      * interface and increments the value of totalTokensCount by 1 for each token.
@@ -51,6 +52,7 @@ public class FileSummaryAnalyzer implements TokenAnalyzer {
     public void processToken(String token) {
         totalTokensCount += 1;
     }
+
 
     /**
      * This method implements the generateOutputFile method in the TokenAnalyzer
@@ -62,7 +64,7 @@ public class FileSummaryAnalyzer implements TokenAnalyzer {
     public void generateOutputFile(String inputFilePath) {
 
         String outputFilePath = properties.getProperty("output.directory")
-                + properties.getProperty("output.file.summary");
+        + properties.getProperty("output.file.summary");
 
         try (PrintWriter output = new PrintWriter(new BufferedWriter(new FileWriter(outputFilePath)))
         ) {
@@ -87,8 +89,8 @@ public class FileSummaryAnalyzer implements TokenAnalyzer {
         Date modifiedDate = new Date(file.lastModified());
         long size = file.length();
         URI uri = file.toURI();
-        //String applicationName = properties.getProperty("application.name");
 
+        // String applicationName = properties.getProperty("application.name");
         writer.println("Application: " + properties.getProperty("application.name"));
         writer.println("Author: " + properties.getProperty("author"));
         writer.println("Author Email: " + properties.getProperty("author.email.address"));

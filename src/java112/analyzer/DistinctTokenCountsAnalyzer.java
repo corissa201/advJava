@@ -15,18 +15,18 @@ import java.util.*;
  * @author      Corissa Engel
  * @version     1.0
  */
-
-public class DistinctTokenCountsAnalyzer implements TokenAnalyzer{
+public class DistinctTokenCountsAnalyzer implements TokenAnalyzer {
 
     private Map<String, Integer> distinctTokenCounts;
     private Properties properties;
+
 
     /**
      * Empty constructor for the DistinctTokenCountsAnalyzer class.
      */
     public DistinctTokenCountsAnalyzer() {
-
     }
+
 
     /**
      * Constructor for DistinctTokenCountsAnalyzer that will create an instance of a
@@ -61,13 +61,13 @@ public class DistinctTokenCountsAnalyzer implements TokenAnalyzer{
      * This method is used to process the token for all Analyzer classes.
      * @param token A list of all the tokens read from the file.
      */
-    public void processToken(String token){
+    public void processToken(String token) {
 
         wordCount(token);
     }
 
-    public void wordCount(String token){
 
+    public void wordCount(String token) {
     }
 
 
@@ -75,13 +75,13 @@ public class DistinctTokenCountsAnalyzer implements TokenAnalyzer{
      * This method is used to generate the output files for all Analyzer classes.
      * @param inputFilePath The file path to the input file.
      */
-    public void generateOutputFile(String inputFilePath){
+    public void generateOutputFile(String inputFilePath) {
 
         String outputFilePath = properties.getProperty("output.directory")
-                + properties.getProperty("output.file.distinct.counts");
+        + properties.getProperty("output.file.distinct.counts");
 
         try (PrintWriter outputWriter = new PrintWriter(new BufferedWriter(
-                new FileWriter(outputFilePath)))
+        new FileWriter(outputFilePath)))
         ) {
             outputWriterPrint(outputWriter);
         } catch (IOException inputOutputException) {
@@ -91,13 +91,15 @@ public class DistinctTokenCountsAnalyzer implements TokenAnalyzer{
         }
     }
 
+
     /**
      * This method will loop through and print out each token to a new line.
      * @param outputWriter The PrintWriter open to the new file.
      */
     private void outputWriterPrint(PrintWriter outputWriter) {
-        for (Map.Entry<String, Integer> entry : distinctTokenCounts.entrySet()){
+        for (Map.Entry <String, Integer> entry : distinctTokenCounts.entrySet()) {
             outputWriter.println(entry.getKey() + ": " + entry.getValue());
         }
     }
 }
+

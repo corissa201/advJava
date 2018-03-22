@@ -3,6 +3,7 @@ package java112.analyzer;
 
 import java.io.*;
 import java.util.*;
+
 import java112.utilities.*;
 
 
@@ -49,6 +50,7 @@ public class FileAnalysis implements PropertiesLoader {
         writeOutputFiles(inputFilePath);
     }
 
+
     /**
      * This method will instantiate the TokenAnalyzer classes to call the new
      * constructor with the Properties parameter
@@ -63,7 +65,6 @@ public class FileAnalysis implements PropertiesLoader {
         analyzers.add(new DistinctTokensAnalyzer(properties));
         analyzers.add(new DistinctTokenCountsAnalyzer(properties));
         analyzers.add(new LargestTokensAnalyzer(properties));
-
     }
 
 
@@ -105,9 +106,6 @@ public class FileAnalysis implements PropertiesLoader {
     }
 
 
-
-
-
     /**
      * This method will pass the generated tokens to each Analyzer instance.
      * @param tokenArray The token array created in the readInputFile method.
@@ -120,16 +118,18 @@ public class FileAnalysis implements PropertiesLoader {
                 continue;
             }
 
+
             createProcessToken(token);
-            }
         }
+    }
 
 
     private void createProcessToken(String token) {
-        for (TokenAnalyzer analyzer : analyzers){
+        for (TokenAnalyzer analyzer : analyzers) {
             analyzer.processToken(token);
         }
     }
+
 
     /**
      * This method will generate the output files by calling the
@@ -138,11 +138,10 @@ public class FileAnalysis implements PropertiesLoader {
      */
     private void writeOutputFiles(String inputFilePath) {
 
-        for (TokenAnalyzer analyzer : analyzers){
+        for (TokenAnalyzer analyzer : analyzers) {
             analyzer.generateOutputFile(inputFilePath);
         }
-
-        //summaryAnalyzer.generateOutputFile(inputFilePath, "output/summary.txt");
-        //distinctAnalyzer.generateOutputFile(inputFilePath, "output/distinct_token.txt");
+        // summaryAnalyzer.generateOutputFile(inputFilePath, "output/summary.txt");
+        // distinctAnalyzer.generateOutputFile(inputFilePath, "output/distinct_token.txt");
     }
 }

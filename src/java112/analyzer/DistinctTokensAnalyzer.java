@@ -16,12 +16,13 @@ public class DistinctTokensAnalyzer implements TokenAnalyzer {
     private Set<String> distinctTokens;
     private Properties properties;
 
+
     /**
      * Empty constructor for the DistinctTokensAnalyzer class.
      */
     public DistinctTokensAnalyzer() {
-
     }
+
 
     /**
      * Constructor for DistinctTokensAnalyzer that will create an instance of a
@@ -30,6 +31,7 @@ public class DistinctTokensAnalyzer implements TokenAnalyzer {
     public DistinctTokensAnalyzer(Set<String> distinctTokens) {
         distinctTokens = new TreeSet<>();
     }
+
 
     /**
      * Constructor with one Properties parameter
@@ -49,6 +51,7 @@ public class DistinctTokensAnalyzer implements TokenAnalyzer {
         return distinctTokens;
     }
 
+
     /**
      * This method implements the processToken method in the TokenAnalyzer
      * interface and add each unique token to the distinctTokens set.
@@ -57,6 +60,7 @@ public class DistinctTokensAnalyzer implements TokenAnalyzer {
     public void processToken(String token) {
         distinctTokens.add(token);
     }
+
 
     /**
      * This method implements the generateOutputFile method in the TokenAnalyzer
@@ -68,10 +72,10 @@ public class DistinctTokensAnalyzer implements TokenAnalyzer {
     public void generateOutputFile(String inputFilePath) {
 
         String outputFilePath = properties.getProperty("output.directory")
-                + properties.getProperty("output.file.distinct");
+        + properties.getProperty("output.file.distinct");
 
         try (PrintWriter outputWriter = new PrintWriter(new BufferedWriter(
-                new FileWriter(outputFilePath)))
+        new FileWriter(outputFilePath)))
         ) {
             outputWriterPrint(outputWriter);
         } catch (IOException inputOutputException) {
