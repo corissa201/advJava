@@ -33,6 +33,7 @@ public class LargestTokensAnalyzer implements TokenAnalyzer {
      */
     public LargestTokensAnalyzer() {
         largestTokens = new TreeSet<>();
+        minimumTokenLength = Integer.parseInt(properties.getProperty("largest.words.minimum.length"));
     }
 
 
@@ -46,7 +47,7 @@ public class LargestTokensAnalyzer implements TokenAnalyzer {
 
 
     public void processToken(String token) {
-        minimumTokenLength = Integer.parseInt(properties.getProperty("largest.words.minimum.length"));
+
 
         if (token.length() >= minimumTokenLength) {
             largestTokens.add(token);

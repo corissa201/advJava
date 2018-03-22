@@ -1,9 +1,10 @@
 package java112.project2;
 
-import java112.utilities.*;
 
 import java.io.*;
 import java.util.*;
+
+import java112.utilities.*;
 
 import javax.servlet.*;
 import javax.servlet.annotation.*;
@@ -18,8 +19,7 @@ import javax.servlet.http.*;
 @WebServlet(
 name = "propertiesServlet",
 urlPatterns = "/properties"
-)
-public class Project2PropertiesServlet extends HttpServlet implements PropertiesLoader {
+) public class Project2PropertiesServlet extends HttpServlet implements PropertiesLoader {
 
     private Properties properties;
 
@@ -88,7 +88,7 @@ public class Project2PropertiesServlet extends HttpServlet implements Properties
         out.print("</td>");
         out.print("</tr>");
         out.print("</table>");
-        out.print("<p><a href=/java112/>Return to Home page</a></p>");
+        out.print("<p><a href=\"/java112/\">Return to Home page</a></p>");
         out.print("</BODY>");
         out.print("</HTML>");
         out.close();
