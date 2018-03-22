@@ -1,10 +1,14 @@
 package java112.project2;
 
+import java112.utilities.*;
+
 import java.io.*;
+import java.util.*;
+
 import javax.servlet.*;
-import javax.servlet.http.*;
 import javax.servlet.annotation.*;
-import java.utilities.*;
+import javax.servlet.http.*;
+
 
 /**
  *  This is part of a lab and is the first servlet for the course.
@@ -12,18 +16,19 @@ import java.utilities.*;
  *@author    CEngel
  */
 @WebServlet(
-    name = "propertiesServlet",
-    urlPatterns = { "/properties" }
+name = "propertiesServlet",
+urlPatterns = "/properties"
 )
 public class Project2PropertiesServlet extends HttpServlet implements PropertiesLoader {
 
     private Properties properties;
 
+
     public void init() throws ServletException {
 
-    properties = loadProperties("/project2/properties");
+        properties = loadProperties("/project2/properties");
+    }
 
-}
 
     /**
      *  Handles HTTP GET requests.
@@ -34,20 +39,25 @@ public class Project2PropertiesServlet extends HttpServlet implements Properties
      *@exception  IOException       if there is an IO failure
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    throws ServletException, IOException {
         response.setContentType("text/html");
+
         // set the response type before sending data
-        PrintWriter  out  = response.getWriter();
+        PrintWriter out = response.getWriter();
         out.print("<HTML>");
         out.print("<HEAD><TITLE>This is the Project2 properties servlet</TITLE></HEAD>");
         out.print("<BODY>");
-        out.print("<h1>Table goes here</h1>");
-        out.print("<p><a href="/java112">Return to Home page</a></p>")
-
+        out.print("<table border=1>");
+        out.print("<tr>");
+        out.print("<td>Author</td>");
+        out.print("<td>");
+        out.print(properties.getProperty("author"));
+        out.print("</td>");
+        out.print("</tr>");
+        out.print("</table>");
+        out.print("<p><a href=/java112/>Return to Home page</a></p>");
         out.print("</BODY>");
         out.print("</HTML>");
         out.close();
     }
-
 }
-

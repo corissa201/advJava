@@ -1,10 +1,15 @@
 package java112.project2;
 
+import java112.utilities.*;
+
 import java.io.*;
+import java.util.*;
+
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
-import java.utilities.*;
+
+
 
 /**
  *  This is part of a lab and is the first servlet for the course.
@@ -17,11 +22,13 @@ import java.utilities.*;
 )
 public class TrivialServlet extends HttpServlet implements PropertiesLoader {
 
+    private Properties properties;
+
     public void init() throws ServletException {
 
-    properties = loadProperties("/project2/properties");
+        properties = loadProperties("/project2/properties");
 
-}
+    }
 
     /**
      *  Handles HTTP GET requests.
