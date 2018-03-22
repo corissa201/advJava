@@ -19,7 +19,7 @@ public class First112Servlet extends HttpServlet implements PropertiesLoader {
 
     public void init() throws ServletException {
 
-    properties = loadProperties("./project2/properties");
+    properties = loadProperties("/project2/properties");
 
 }
 

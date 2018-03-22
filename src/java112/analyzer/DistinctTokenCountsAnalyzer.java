@@ -50,16 +50,12 @@ public class DistinctTokenCountsAnalyzer implements TokenAnalyzer {
 
 
     /**
-     * This method is used to process the token for all Analyzer classes.
+     * This method is used to process the token for the DistinctTokenCountsAnalyzer class.
      * @param token A list of all the tokens read from the file.
      */
     public void processToken(String token) {
 
-        wordCount(token);
-    }
-
-
-    public void wordCount(String token) {
+        distinctTokenCounts.put(token, new Integer);
     }
 
 
