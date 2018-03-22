@@ -90,7 +90,7 @@ public class DistinctTokenCountsAnalyzer implements TokenAnalyzer {
      */
     private void outputWriterPrint(PrintWriter outputWriter) {
         for (Map.Entry <String, Integer> entry : distinctTokenCounts.entrySet()) {
-            outputWriter.println(entry.getKey() + \t + entry.getValue());
+            outputWriter.println(entry.getKey() + "\t" + entry.getValue());
         }
     }
 }
