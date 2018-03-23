@@ -7,7 +7,7 @@
 
 <%@ include file="jsp/menu.jsp" %>
 
-<%@ include file="content/home.jsp" %>
+<%@ include file="content/project3Request.jsp" %>
 
 <%@include file="jsp/footer.jsp" %>
 </div>

@@ -42,6 +42,8 @@ urlPatterns = "/properties"
     throws ServletException, IOException {
         response.setContentType("text/html");
 
+        Enumeration e = properties.propertyNames();
+
         // set the response type before sending data
         PrintWriter out = response.getWriter();
         out.print("<HTML>");
@@ -51,10 +53,21 @@ urlPatterns = "/properties"
         out.print("<table border=1>");
         out.print("<th>Property</th>");
         out.print("<th>Value</th>");
-        out.print("<tr>");
-        out.print("<td>Author</td>");
+
+        while (e.hasMoreElements()) {
+            String key = (String) e.nextElement();
+            out.print("<tr>");
+            out.print("<td>");
+            out.print(key);
+            out.print("</td>");
+            out.print("<td>");
+            out.print(properties.getProperty(key));
+            out.print("</td>");
+            out.print("</tr>");
+        }
+        /**out.print("<td>Author</td>");
         out.print("<td>");
-        out.print(properties.getProperty("author"));
+        out.print(properties.getProperty());
         out.print("</td>");
         out.print("</tr>");
         out.print("<tr>");
@@ -85,7 +98,7 @@ urlPatterns = "/properties"
         out.print("<td>Description of Project</td>");
         out.print("<td>");
         out.print(properties.getProperty("project.description"));
-        out.print("</td>");
+        out.print("</td>");*/
         out.print("</tr>");
         out.print("</table>");
         out.print("<p><a href=\"/java112/\">Return to Home page</a></p>");
