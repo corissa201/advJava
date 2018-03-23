@@ -45,9 +45,7 @@ urlPatterns = {"/first"}
         out.print("<HEAD><TITLE>Corissa Engel</TITLE></HEAD>");
         out.print("<BODY>");
         out.print("<h1>Advanced Java Spring 2018</h1>");
-        out.print("<div>");
-        out.print("<img src=\"/public_html/images/first112Image.png\"/>");
-        out.print("</div>");
+        out.print("<img src=\"images/first112Image.png\"/>");
         out.print("<p><a href=\"/java112\">Return to Home page</a></p>");
         out.print("</BODY>");
         out.print("</HTML>");

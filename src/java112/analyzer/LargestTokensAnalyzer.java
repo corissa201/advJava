@@ -49,8 +49,6 @@ public class LargestTokensAnalyzer implements TokenAnalyzer {
 
 
     public void processToken(String token) {
-
-
         if (token.length() >= minimumTokenLength) {
             largestTokens.add(token);
         }
