@@ -23,11 +23,6 @@ public class LargestTokensAnalyzer implements TokenAnalyzer {
     private int minimumTokenLength;
 
 
-    public Set<String> getLargestTokens() {
-        return largestTokens;
-    }
-
-
     /**
      * Empty constructor for the LargestTokensAnalyzer class.
      */
@@ -48,18 +43,17 @@ public class LargestTokensAnalyzer implements TokenAnalyzer {
     }
 
 
+    public Set<String> getLargestTokens() {
+        return largestTokens;
+    }
+
+
     public void processToken(String token) {
         if (token.length() >= minimumTokenLength) {
             largestTokens.add(token);
         }
     }
 
-
-    // public void findLargestTokens(String element) {
-    // int minimumTokenLength = Integer.parseInt(properties.getProperty("largest.words.minimum.length"))
-    // if (element.length() >= minimumTokenLength) {
-    // largestTokens.add(element);
-    // }
 
     /**
      * This method implements the generateOutputFile method in the TokenAnalyzer

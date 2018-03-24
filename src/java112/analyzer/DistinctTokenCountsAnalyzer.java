@@ -56,11 +56,12 @@ public class DistinctTokenCountsAnalyzer implements TokenAnalyzer {
      * @param token A list of all the tokens read from the file.
      */
     public void processToken(String token) {
-        Integer count = distinctTokenCounts.get(token);
+
         if (distinctTokenCounts.containsKey(token)) {
             distinctTokenCounts.put(token, 1);
         } else {
-            distinctTokenCounts.put(token, count + 1);
+            Integer count = distinctTokenCounts.get(token);
+            distinctTokenCounts.put(token, count++);
         }
     }
 
