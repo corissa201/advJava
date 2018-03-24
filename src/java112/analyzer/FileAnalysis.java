@@ -143,7 +143,5 @@ public class FileAnalysis implements PropertiesLoader {
         for (TokenAnalyzer analyzer : analyzers) {
             analyzer.generateOutputFile(inputFilePath);
         }
-        // summaryAnalyzer.generateOutputFile(inputFilePath, "output/summary.txt");
-        // distinctAnalyzer.generateOutputFile(inputFilePath, "output/distinct_token.txt");
     }
 }
