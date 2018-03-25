@@ -1,20 +1,19 @@
 package java112.project2;
 
-
+import java112.utilities.*;
 import java.io.*;
 import java.util.*;
-
-import java112.utilities.*;
-
 import javax.servlet.*;
 import javax.servlet.annotation.*;
 import javax.servlet.http.*;
 
 
 /**
- *  This is part of a lab and is the first servlet for the course.
+ * The Project2PropertiesServlet will output the keys and values from the
+ * propeties file in a HTML formatted table.
  *
- *@author    CEngel
+ *@author       CEngel
+ *@version      1.0
  */
 @WebServlet(
 name = "propertiesServlet",
@@ -23,20 +22,24 @@ urlPatterns = "/properties"
 
     private Properties properties;
 
-
+    /**
+     * The init method loads the properties file path into the properties instance.
+     *
+     *@exception ServletException   If a servlet exception occurs.
+     */
     public void init() throws ServletException {
-
         properties = loadProperties("/project2.properties");
     }
 
 
     /**
-     *  Handles HTTP GET requests.
+     * The doGet method handles HTTP GET requests and loops through the properties
+     * file and outputs each element in a html table row.
      *
      *@param  request                   the HttpServletRequest object
-     *@param  response                   the HttpServletResponse object
-     *@exception  ServletException  if there is a Servlet failure
-     *@exception  IOException       if there is an IO failure
+     *@param  response                  the HttpServletResponse object
+     *@exception  ServletException      if there is a Servlet failure
+     *@exception  IOException           if there is an IO failure
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
@@ -55,7 +58,7 @@ urlPatterns = "/properties"
         out.print("<th>Value</th>");
 
         while (e.hasMoreElements()) {
-            String key = (String) e.nextElement();
+            String key = (String)e.nextElement();
             out.print("<tr>");
             out.print("<td>");
             out.print(key);
@@ -65,40 +68,7 @@ urlPatterns = "/properties"
             out.print("</td>");
             out.print("</tr>");
         }
-        /**out.print("<td>Author</td>");
-        out.print("<td>");
-        out.print(properties.getProperty());
-        out.print("</td>");
-        out.print("</tr>");
-        out.print("<tr>");
-        out.print("<td>Author Email</td>");
-        out.print("<td>");
-        out.print(properties.getProperty("author.email.address"));
-        out.print("</td>");
-        out.print("</tr>");
-        out.print("<tr>");
-        out.print("<td>Course Title</td>");
-        out.print("<td>");
-        out.print(properties.getProperty("course.title"));
-        out.print("</td>");
-        out.print("</tr>");
-        out.print("<tr>");
-        out.print("<td>Course Meeting Day & Time</td>");
-        out.print("<td>");
-        out.print(properties.getProperty("course.day.time"));
-        out.print("</td>");
-        out.print("</tr>");
-        out.print("<tr>");
-        out.print("<td>Instructor Name</td>");
-        out.print("<td>");
-        out.print(properties.getProperty("course.instructor"));
-        out.print("</td>");
-        out.print("</tr>");
-        out.print("<tr>");
-        out.print("<td>Description of Project</td>");
-        out.print("<td>");
-        out.print(properties.getProperty("project.description"));
-        out.print("</td>");*/
+
         out.print("</tr>");
         out.print("</table>");
         out.print("<p><a href=\"/java112/\">Return to Home page</a></p>");

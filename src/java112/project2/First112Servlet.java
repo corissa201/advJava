@@ -1,11 +1,9 @@
 package java112.project2;
 
 
+import java112.utilities.*;
 import java.io.*;
 import java.util.*;
-
-import java112.utilities.*;
-
 import javax.servlet.*;
 import javax.servlet.annotation.*;
 import javax.servlet.http.*;
@@ -21,20 +19,7 @@ import javax.servlet.http.*;
 @WebServlet(
 name = "first112Servlet",
 urlPatterns = {"/first"}
-) public class First112Servlet extends HttpServlet implements PropertiesLoader {
-
-    private Properties properties;
-
-
-    /**
-     * The init method loads the properties file path into the properties instance.
-     *
-     *@exception ServletException   If a servlet exception occurs.
-     */
-    public void init() throws ServletException {
-        properties = loadProperties("/project2.properties");
-    }
-
+) public class First112Servlet extends HttpServlet{
 
     /**
      * This method handles the HTTP GET requests and outputs the html formatted
@@ -52,10 +37,11 @@ urlPatterns = {"/first"}
         // set the response type before sending data
         PrintWriter out = response.getWriter();
         out.print("<HTML>");
-        out.print("<HEAD><TITLE>Corissa Engel</TITLE></HEAD>");
+        out.print("<HEAD><TITLE>FirstServlet</TITLE></HEAD>");
         out.print("<BODY>");
         out.print("<h1>Advanced Java Spring 2018</h1>");
-        out.print("<img src=\"images/first112Image.png\"/>");
+        out.print("<h2>Corissa Engel</h2>");
+        out.print("<div><img src=\"images/first112Image.png\"/></div>");
         out.print("<p><a href=\"/java112\">Return to Home page</a></p>");
         out.print("</BODY>");
         out.print("</HTML>");
