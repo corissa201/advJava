@@ -1,10 +1,9 @@
 package java112.project2;
 
-import java112.utilities.*;
 
+import java112.utilities.*;
 import java.io.*;
 import java.util.*;
-
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
