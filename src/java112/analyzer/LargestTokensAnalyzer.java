@@ -7,11 +7,8 @@ import java.util.*;
 
 
 /**
- * The LargestTokensAnalyzer class will only store unique tokens that are greater than or equal
- * to a specified number. The output for this TokenAnalyzer will be look like
- * the distinct tokens data file from project 1, except it will have fewer words.
- * The specified number for the minimum length token must come from the project
- * Properties object and can’t be hard-coded into the class.
+ * The LargestTokensAnalyzer class will store the unique tokens from the input file
+ * that are greater than or equal to a number specified in the properties files.
  *
  * @author      Corissa Engel
  * @version     1.0
@@ -24,7 +21,7 @@ public class LargestTokensAnalyzer implements TokenAnalyzer {
 
 
     /**
-     * Empty constructor for the LargestTokensAnalyzer class.
+     * This is a empty constructor for the LargestTokensAnalyzer class.
      */
     public LargestTokensAnalyzer() {
         largestTokens = new TreeSet<>();
@@ -32,7 +29,7 @@ public class LargestTokensAnalyzer implements TokenAnalyzer {
 
 
     /**
-     * Constructor with one Properties parameter
+     * This is a Constructor with one Properties parameter.
      *
      * @param properties The properties file for project 2.
      */
@@ -43,11 +40,24 @@ public class LargestTokensAnalyzer implements TokenAnalyzer {
     }
 
 
+    /**
+     * This method is the getter for the largestTokens.
+     *
+     * @return largestTokens The treeSet of the largest tokens from the input file.
+     */
     public Set<String> getLargestTokens() {
         return largestTokens;
     }
 
 
+    /**
+     * This method implements the processToken method in the TokenAnalyzer
+     * interface and if the token length is equal to or greater then the
+     * minimumTokenLength written in the properties file the token is added to
+     * the distinctTokens treeSet.
+     *
+     * @param token A list of all the tokens from the input file.
+     */
     public void processToken(String token) {
         if (token.length() >= minimumTokenLength) {
             largestTokens.add(token);
@@ -57,8 +67,9 @@ public class LargestTokensAnalyzer implements TokenAnalyzer {
 
     /**
      * This method implements the generateOutputFile method in the TokenAnalyzer
-     * interface and opens a PrintWriter to the specified file name and call the
+     * interface and opens a PrintWriter to the specified file name and calls the
      * outputWriterPrint method to print out each token.
+     *
      * @param inputFilePath The file path of the input file.
      */
     public void generateOutputFile(String inputFilePath) {
@@ -80,6 +91,7 @@ public class LargestTokensAnalyzer implements TokenAnalyzer {
 
     /**
      * This method will loop through and print out each token to a new line.
+     *
      * @param outputWriter The PrintWriter open to the new file.
      */
     private void outputWriterPrint(PrintWriter outputWriter) {
