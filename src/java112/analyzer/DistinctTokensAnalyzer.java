@@ -7,9 +7,11 @@ import java.util.*;
 
 
 /**
- * DistinctTokenAnalyzer class will create the report of all distinct tokens.
+ * The DistinctTokenAnalyzer class will create the output report file of all
+ * the distinct tokens.
+ *
  * @author      Corissa Engel
- * @version     1.1
+ * @version     2.0
  */
 public class DistinctTokensAnalyzer implements TokenAnalyzer {
 
@@ -39,7 +41,7 @@ public class DistinctTokensAnalyzer implements TokenAnalyzer {
     /**
      * This method is the getter for the distinctTokens.
      *
-     * @return distinctTokens The Set of unique tokens from the input file.
+     * @return distinctTokens The treeSet of unique tokens from the input file.
      */
     public Set<String> getDistinctTokens() {
         return distinctTokens;
@@ -48,19 +50,20 @@ public class DistinctTokensAnalyzer implements TokenAnalyzer {
 
     /**
      * This method implements the processToken method in the TokenAnalyzer
-     * interface and add each unique token to the distinctTokens set.
-     * @param token A list of all the tokens within the file.
+     * interface and adds each unique token to the distinctTokens treeSet.
+     *
+     * @param token A list of all the tokens from the input file.
      */
     public void processToken(String token) {
-
         distinctTokens.add(token);
     }
 
 
     /**
      * This method implements the generateOutputFile method in the TokenAnalyzer
-     * interface and opens a PrintWriter to the specified file name and call the
-     * outputWriterPrint method to print out each token.
+     * interface and opens a PrintWriter to the file specified in the properties
+     * file and calls the outputWriterPrint method to print out each token.
+     *
      * @param inputFilePath The file path of the input file.
      */
     public void generateOutputFile(String inputFilePath) {
@@ -82,6 +85,7 @@ public class DistinctTokensAnalyzer implements TokenAnalyzer {
 
     /**
      * This method will loop through and print out each token to a new line.
+     *
      * @param outputWriter The PrintWriter open to the new file.
      */
     private void outputWriterPrint(PrintWriter outputWriter) {

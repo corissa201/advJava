@@ -52,8 +52,9 @@ public class DistinctTokenCountsAnalyzer implements TokenAnalyzer {
 
 
     /**
-     * This method is used to process the tokens for the
-     * DistinctTokenCountsAnalyzer class.
+     * This method implements the processToken method in the TokenAnalyzer
+     * interface and adds each token and token count to the distinctTokenCounts
+     * treeMap.
      *
      * @param token A list of all the tokens read from the input file.
      */
@@ -70,8 +71,9 @@ public class DistinctTokenCountsAnalyzer implements TokenAnalyzer {
 
 
     /**
-     * This method is used to generate the output file for the
-     * DistinctTokenCountsAnalyzer class.
+     * This method implements the generateOutputFile method in the TokenAnalyzer
+     * interface and opens a PrintWriter to the file specified in the properties
+     * file and calls the outputWriter method to print out each token.
      *
      * @param inputFilePath The file path to the input file.
      */
