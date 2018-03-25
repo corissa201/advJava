@@ -3,7 +3,6 @@ package java112.analyzer;
 
 import java.io.*;
 import java.util.*;
-
 import java112.utilities.*;
 
 
@@ -29,18 +28,19 @@ public class FileAnalysis implements PropertiesLoader {
 
 
     /**
-     * The analyze method will first checks that 1 argument have been entered by
-     * the user. Then calls the methods createNewAnalyzerInstances, openInputFile
-     * and writeOutputFiles.
+     * The analyze method will first checks that 1 argument has been entered by
+     * the user. The second arguement is the properties file path which is
+     * hardcoded in the runanalyzer program. It will then call the methods
+     * createNewAnalyzerInstances, openInputFile and writeOutputFiles to run the
+     * analyzer program.
+     *
      * @param arguments This is the user entered argument.
      */
     public void analyze(String[] arguments) {
-
         if (arguments.length != VALID_ARGUMENTS_COUNT) {
             System.out.println("Please enter a file path");
             return;
         }
-
 
         String inputFilePath = arguments[0];
         String propertiesFilePath = arguments[1];
@@ -72,6 +72,7 @@ public class FileAnalysis implements PropertiesLoader {
 
     /**
      *  This method opens the input file for reading.
+     *
      * @param inputFilePath The file path to the input file.
      */
     private void openInputFile(String inputFilePath) {
@@ -92,6 +93,7 @@ public class FileAnalysis implements PropertiesLoader {
     /**
      * This meathod will read through the input file and create a token array
      * for each line.
+     *
      * @param input The BufferedReader for the input file.
      * @throws IOException If an input exception occurs.
      */
@@ -110,22 +112,24 @@ public class FileAnalysis implements PropertiesLoader {
 
     /**
      * This method will pass the generated tokens to each Analyzer instance.
+     *
      * @param tokenArray The token array created in the readInputFile method.
      */
     private void callProcessToken(String[] tokenArray) {
-
         for (String token : tokenArray) {
-
             if (token.isEmpty() || Character.isDigit(token.charAt(0))) {
                 continue;
             }
-
-
             createProcessToken(token);
         }
     }
 
-
+    /**
+     * This method will loop through the analyzers and pass them each the list
+     * of tokens.
+     *
+     * @param token The list of tokens from the input file.
+     */
     private void createProcessToken(String token) {
         for (TokenAnalyzer analyzer : analyzers) {
             analyzer.processToken(token);
@@ -136,10 +140,10 @@ public class FileAnalysis implements PropertiesLoader {
     /**
      * This method will generate the output files by calling the
      * generateOutputFile method for each Analyzer class.
+     *
      * @param inputFilePath The file path to the input file.
      */
     private void writeOutputFiles(String inputFilePath) {
-
         for (TokenAnalyzer analyzer : analyzers) {
             analyzer.generateOutputFile(inputFilePath);
         }

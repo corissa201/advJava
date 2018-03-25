@@ -7,7 +7,7 @@ package java112.analyzer;
  * class, FileAnalysis, passing the command line arguments array to the method.
  *
  * @author     Corissa Engel
- * @version     1.1
+ * @version    2.0
  */
 public class Driver {
 
