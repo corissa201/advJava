@@ -58,10 +58,11 @@ public class DistinctTokenCountsAnalyzer implements TokenAnalyzer {
     public void processToken(String token) {
 
         if (distinctTokenCounts.containsKey(token)) {
-            distinctTokenCounts.put(token, 1);
-        } else {
             Integer count = distinctTokenCounts.get(token);
-            distinctTokenCounts.put(token, count++);
+            count++;
+            distinctTokenCounts.put(token, count);
+        } else {
+            distinctTokenCounts.put(token, 1);
         }
     }
 
