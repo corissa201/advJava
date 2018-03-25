@@ -8,12 +8,11 @@ import java.util.*;
 
 /**
  * The DistinctTokenCountsAnalyzer class will count the number of unique tokens.
- * The output file will contain a row for each unique token. Each row will have
- * the token, a tab character, and the number of times that token occurred in
- * the file.
+ * The output file will contain a row for each  unique token and the number of
+ * times that token occurred in the input file.
  *
  * @author      Corissa Engel
- * @version     1.0
+ * @version     2.0
  */
 public class DistinctTokenCountsAnalyzer implements TokenAnalyzer {
 
@@ -30,7 +29,7 @@ public class DistinctTokenCountsAnalyzer implements TokenAnalyzer {
 
 
     /**
-     * Constructor with one Properties parameter
+     * Constructor with Properties parameter.
      *
      * @param properties The properties file for project 2.
      */
@@ -43,7 +42,8 @@ public class DistinctTokenCountsAnalyzer implements TokenAnalyzer {
     /**
      * This method is the getter for the distinctTokensCounts.
      *
-     * @return distinctTokensCount A string and count of unique tokens from the
+     * @return distinctTokensCount A treeMap with the key a string containing
+     * unique tokens and the value a integer count of unique tokens from the
      * input file.
      */
     public Map<String, Integer> getDistinctTokenCounts() {
@@ -52,8 +52,10 @@ public class DistinctTokenCountsAnalyzer implements TokenAnalyzer {
 
 
     /**
-     * This method is used to process the token for the DistinctTokenCountsAnalyzer class.
-     * @param token A list of all the tokens read from the file.
+     * This method is used to process the tokens for the
+     * DistinctTokenCountsAnalyzer class.
+     *
+     * @param token A list of all the tokens read from the input file.
      */
     public void processToken(String token) {
 
@@ -68,7 +70,9 @@ public class DistinctTokenCountsAnalyzer implements TokenAnalyzer {
 
 
     /**
-     * This method is used to generate the output files for all Analyzer classes.
+     * This method is used to generate the output file for the
+     * DistinctTokenCountsAnalyzer class.
+     *
      * @param inputFilePath The file path to the input file.
      */
     public void generateOutputFile(String inputFilePath) {
@@ -89,7 +93,10 @@ public class DistinctTokenCountsAnalyzer implements TokenAnalyzer {
 
 
     /**
-     * This method will loop through and print out each token to a new line.
+     * This method is called from the generateOutputFile method. It will loop
+     * through the treeMap of distinctTokenCounts and write the token and count
+     * to a new line.
+     *
      * @param outputWriter The PrintWriter open to the new file.
      */
     private void outputWriterPrint(PrintWriter outputWriter) {
