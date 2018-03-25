@@ -12,9 +12,11 @@ import javax.servlet.http.*;
 
 
 /**
- *  This is part of a lab and is the first servlet for the course.
+ * The first112Servlet will generate HTML output of my name and this course. It
+ * will also contain a html image tag.
  *
- *@author    CEngel
+ *@author       CEngel
+ *@version      1.0
  */
 @WebServlet(
 name = "first112Servlet",
@@ -24,18 +26,24 @@ urlPatterns = {"/first"}
     private Properties properties;
 
 
+    /**
+     * The init method loads the properties file path into the properties instance.
+     *
+     *@exception ServletException   If a servlet exception occurs.
+     */
     public void init() throws ServletException {
         properties = loadProperties("/project2.properties");
     }
 
 
     /**
-     *  Handles HTTP GET requests.
+     * This method handles the HTTP GET requests and outputs the html formatted
+     * information.
      *
-     *@param  request                   the HttpServletRequest object
-     *@param  response                   the HttpServletResponse object
-     *@exception  ServletException  if there is a Servlet failure
-     *@exception  IOException       if there is an IO failure
+     *@param  request                       the HttpServletRequest object
+     *@param  response                      the HttpServletResponse object
+     *@exception  ServletException          if there is a Servlet failure
+     *@exception  IOException               if there is an IO failure
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
@@ -54,4 +62,3 @@ urlPatterns = {"/first"}
         out.close();
     }
 }
-
