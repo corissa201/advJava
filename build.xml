@@ -1,6 +1,6 @@
 <!--
     10-152-112 Advanced Java
-    build.xml for project 2
+    build.xml for project 3
 -->
 
 <project default="deploy">
