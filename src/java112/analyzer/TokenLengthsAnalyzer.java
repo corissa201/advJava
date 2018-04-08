@@ -2,6 +2,7 @@ package java112.analyzer;
 
 
 import java.io.*;
+import java.lang.*;
 import java.net.URI;
 import java.util.*;
 
@@ -17,13 +18,14 @@ public class TokenLengthsAnalyzer implements TokenAnalyzer {
 
     private Map<Integer, Integer> tokenLengths;
     private Properties properties;
+    private static final double MAX_COL_LENGTH = 76.0;
 
 
     /**
      * Empty constructor for the TokenLengthsAnalyzer class.
      */
     public TokenLengthsAnalyzer() {
-        tokenLengths = new Map<>();
+        tokenLengths = new TreeMap<>();
     }
 
 
@@ -57,8 +59,25 @@ public class TokenLengthsAnalyzer implements TokenAnalyzer {
      * @param token A list of all the tokens from the input file.
      */
     public void processToken(String token) {
-        tokenLengths.add(token);
+        Integer length = token.length();
+
+
+        if (tokenLengths.containsKey(length)) {
+            Integer newLength = (tokenLengths.get(length) + 1);
+            tokenLengths.replace(length, newLength);
+        } else {
+            tokenLengths.put(length, 1);
+        }
+
+        histogramDisplay(token);
     }
+
+    public void histogramDisplay(String token){
+        Integer maxValue = (Collections.max(tokenLengths.values());
+        double keyValue = maxValue / MAX_COL_LENGTH;
+    }
+
+
 
 
     /**
@@ -91,8 +110,8 @@ public class TokenLengthsAnalyzer implements TokenAnalyzer {
      * @param outputWriter The PrintWriter open to the new file.
      */
     private void outputWriterPrint(PrintWriter outputWriter) {
-        for (String token : distinctTokens) {
-            outputWriter.println(token);
+        for (Map.Entry <Integer, Integer> entry : tokenLengths.entrySet()) {
+            outputWriter.println(entry.getKey() + "\t" + entry.getValue());
         }
     }
 }

@@ -23,8 +23,8 @@ public class TokenLocationSearchAnalyzer implements TokenAnalyzer {
     /**
      * Empty constructor for the TokenLocationSearchAnalyzer class.
      */
-    public TokenLengthsAnalyzer() {
-        tokenLengths = new Map<>();
+    public TokenLocationSearchAnalyzer() {
+        foundLocations = new TreeMap<>();
     }
 
 
@@ -56,7 +56,10 @@ public class TokenLocationSearchAnalyzer implements TokenAnalyzer {
      * @param token A list of all the tokens from the input file.
      */
     public void processToken(String token) {
-        foundLocations.add(token);
+        //currentTokenLocation++;
+        //if (){
+        //foundLocations.get.add(token,);
+        //}
     }
 
 
@@ -90,8 +93,8 @@ public class TokenLocationSearchAnalyzer implements TokenAnalyzer {
      * @param outputWriter The PrintWriter open to the new file.
      */
     private void outputWriterPrint(PrintWriter outputWriter) {
-        for (String token : distinctTokens) {
-            outputWriter.println(token);
+        for (Map.Entry <String, List<Integer>> entry : foundLocations.entrySet()) {
+            outputWriter.println(entry.getKey() + "\t" + entry.getValue());
         }
     }
 }
