@@ -12,7 +12,7 @@
     <h2>Project 3:</h2>
     <div class="box">
     <ul>
-    <li><a href="/java112/project3Request.jsp">Project 3 Request</a></li>
+    <li><a href="/java112/request-servlet">Request Servlet</a></li>
     <li><a href="/java112/lab33">Lab 3.3</a></li>
     <li><a href="/java112/mvc-demo">MVC Demo</a></li>
     </ul>

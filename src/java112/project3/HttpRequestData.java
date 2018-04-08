@@ -2,10 +2,11 @@ package java112.project3;
 
 
 /**
- * @author Corissa Engel
  * The HttpRequestData class is a JavaBean for the project 3 web application.
  * It will contain all the instance variables and getters/setters for the
  * HttpRequestServlet.
+ *
+ * @author Corissa Engel
  */
 public class HttpRequestData {
 
@@ -20,13 +21,14 @@ public class HttpRequestData {
     private String currentServerLocale;
     private String query;
     private String queryParameter;
-    private String User-Agent;
+    private String userAgent;
 
 
     /**
      * Empty constructor for HttpRequestData JavaBean
      */
     public HttpRequestData() {
+        //currentServerLocale = "default value";
     }
 
 
@@ -217,19 +219,19 @@ public class HttpRequestData {
 
 
     /**
-     * Returns the value of User-Agent.
+     * Returns the value of userAgent.
      */
-    public String getUser-Agent() {
-        return User-Agent;
+    public String getUserAgent() {
+        return userAgent;
     }
 
 
     /**
-     * Sets the value of User-Agent.
-     * @param User-Agent The value to assign User-Agent.
+     * Sets the value of userAgent.
+     * @param userAgent The value to assign userAgent.
      */
-    public void setUser-Agent(String User-Agent) {
-        this.User-Agent = User-Agent;
+    public void setUserAgent(String userAgent) {
+        this.userAgent = userAgent;
     }
 }
 
