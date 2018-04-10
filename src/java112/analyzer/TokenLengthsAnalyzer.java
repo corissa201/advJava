@@ -26,6 +26,7 @@ public class TokenLengthsAnalyzer implements TokenAnalyzer {
      */
     public TokenLengthsAnalyzer() {
         tokenLengths = new TreeMap<>();
+
     }
 
 
@@ -61,23 +62,19 @@ public class TokenLengthsAnalyzer implements TokenAnalyzer {
     public void processToken(String token) {
         Integer length = token.length();
 
-
         if (tokenLengths.containsKey(length)) {
             Integer newLength = (tokenLengths.get(length) + 1);
             tokenLengths.replace(length, newLength);
+
         } else {
             tokenLengths.put(length, 1);
         }
-
-        histogramDisplay(token);
     }
 
-    public void histogramDisplay(String token){
-        Integer maxValue = (Collections.max(tokenLengths.values());
+    public void findMaxFile(String token){
+        Integer maxValue = Collections.max(tokenLengths.values());
         double keyValue = maxValue / MAX_COL_LENGTH;
     }
-
-
 
 
     /**
@@ -110,6 +107,12 @@ public class TokenLengthsAnalyzer implements TokenAnalyzer {
      * @param outputWriter The PrintWriter open to the new file.
      */
     private void outputWriterPrint(PrintWriter outputWriter) {
+        for (Map.Entry <Integer, Integer> entry : tokenLengths.entrySet()) {
+            outputWriter.println(entry.getKey() + "\t" + entry.getValue());
+        }
+        outputWriter.println();
+        outputWriter.println();
+
         for (Map.Entry <Integer, Integer> entry : tokenLengths.entrySet()) {
             outputWriter.println(entry.getKey() + "\t" + entry.getValue());
         }

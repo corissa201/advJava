@@ -6,6 +6,8 @@ import java.net.URI;
 import java.util.*;
 
 
+
+
 /**
  * The TokenLocationSearchAnalyzer class will determine where search
  * tokens are in the input file.
@@ -49,6 +51,18 @@ public class TokenLocationSearchAnalyzer implements TokenAnalyzer {
     }
 
 
+    private void loadSearchFile(){
+
+    String input = properties.getProperty("class.search.tokens");
+    while (input.ready()) {
+      String word = input.next();
+
+      foundLocations.put(word);
+    }
+
+    }
+
+
     /**
      * This method implements the processToken method in the TokenAnalyzer
      * interface and ***
@@ -56,10 +70,11 @@ public class TokenLocationSearchAnalyzer implements TokenAnalyzer {
      * @param token A list of all the tokens from the input file.
      */
     public void processToken(String token) {
-        //currentTokenLocation++;
-        //if (){
-        //foundLocations.get.add(token,);
-        //}
+
+        currentTokenLocation++;
+        if (foundLocations.getValue() = token){
+        foundLocations.get.add(token, currentTokenLocation);
+        }
     }
 
 
