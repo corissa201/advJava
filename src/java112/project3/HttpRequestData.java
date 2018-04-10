@@ -1,5 +1,7 @@
 package java112.project3;
 
+import java.util.Locale;
+
 
 /**
  * The HttpRequestData class is a JavaBean for the project 3 web application.
@@ -14,11 +16,11 @@ public class HttpRequestData {
     private String remoteAddress;
     private String httpMethod;
     private String requestUri;
-    private String requestUrl;
+    private StringBuffer requestUrl;
     private String requestProtocal;
     private String serverName;
-    private String serverPortNmb;
-    private String currentServerLocale;
+    private int serverPortNmb;
+    private Locale currentServerLocale;
     private String query;
     private String queryParameter;
     private String userAgent;
@@ -103,7 +105,7 @@ public class HttpRequestData {
     /**
      * Returns the value of requestUrl.
      */
-    public String getRequestUrl() {
+    public StringBuffer getRequestUrl() {
         return requestUrl;
     }
 
@@ -112,7 +114,7 @@ public class HttpRequestData {
      * Sets the value of requestUrl.
      * @param requestUrl The value to assign requestUrl.
      */
-    public void setRequestUrl(String requestUrl) {
+    public void setRequestUrl(StringBuffer requestUrl) {
         this.requestUrl = requestUrl;
     }
 
@@ -153,7 +155,7 @@ public class HttpRequestData {
     /**
      * Returns the value of serverPortNmb.
      */
-    public String getServerPortNmb() {
+    public int getServerPortNmb() {
         return serverPortNmb;
     }
 
@@ -162,7 +164,7 @@ public class HttpRequestData {
      * Sets the value of serverPortNmb.
      * @param serverPortNmb The value to assign serverPortNmb.
      */
-    public void setServerPortNmb(String serverPortNmb) {
+    public void setServerPortNmb(int serverPortNmb) {
         this.serverPortNmb = serverPortNmb;
     }
 
@@ -170,7 +172,7 @@ public class HttpRequestData {
     /**
      * Returns the value of currentServerLocale.
      */
-    public String getCurrentServerLocale() {
+    public Locale getCurrentServerLocale() {
         return currentServerLocale;
     }
 
@@ -179,7 +181,7 @@ public class HttpRequestData {
      * Sets the value of currentServerLocale.
      * @param currentServerLocale The value to assign currentServerLocale.
      */
-    public void setCurrentServerLocale(String currentServerLocale) {
+    public void setCurrentServerLocale(Locale currentServerLocale) {
         this.currentServerLocale = currentServerLocale;
     }
 

@@ -2,6 +2,7 @@ package java112.project3;
 
 import java.io.*;
 import java.util.*;
+import java.lang.*;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -37,15 +38,15 @@ public class HttpRequestServlet extends HttpServlet {
         myHttpBean.setRemoteComputer(request.getRemoteHost());
         myHttpBean.setRemoteAddress(request.getRemoteAddr());
         myHttpBean.setHttpMethod(request.getMethod());
-        myHttpBean.setRequestUri(request.getRequestUri());
-        myHttpBean.setRequestUrl(request.getRequestUrl());
+        myHttpBean.setRequestUri(request.getRequestURI());
+        myHttpBean.setRequestUrl(request.getRequestURL());
         myHttpBean.setRequestProtocal(request.getProtocol());
         myHttpBean.setServerName(request.getServerName());
-        myHttpBean.setServerPortNmb(request.getServerName());
-        myHttpBean.setCurrentServerLocale(request.getServerName());
+        myHttpBean.setServerPortNmb(request.getServerPort());
+        myHttpBean.setCurrentServerLocale(request.getLocale());
         myHttpBean.setQuery(request.getQueryString());
-        myHttpBean.setQueryParameter(request.getServerName());
-        myHttpBean.setUserAgent(request.getHeader());
+        myHttpBean.setQueryParameter(request.getParameter("queryParameter"));
+        myHttpBean.setUserAgent(request.getHeader("User-Agent"));
 
         request.setAttribute("myProject3Bean", myHttpBean);
 
