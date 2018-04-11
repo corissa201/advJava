@@ -6,8 +6,6 @@ import java.net.URI;
 import java.util.*;
 
 
-
-
 /**
  * The TokenLocationSearchAnalyzer class will determine where search
  * tokens are in the input file.
@@ -17,7 +15,7 @@ import java.util.*;
  */
 public class TokenLocationSearchAnalyzer implements TokenAnalyzer {
 
-    private Map<String, List<Integer>> foundLocations;
+    private Map<String, List <Integer>> foundLocations;
     private Properties properties;
     private int currentTokenLocation;
 
@@ -46,67 +44,34 @@ public class TokenLocationSearchAnalyzer implements TokenAnalyzer {
      *
      * @return foundLocations
      */
-    public Map<String, List<Integer>> getFoundLocations() {
+    public Map<String, List <Integer>> getFoundLocations() {
         return foundLocations;
     }
 
 
-
-
-        /**
-     *  This method opens the input file for reading.
-     *
-     * @param inputFilePath The file path to the input file.
-     */
-    private void openSearchFile(String inputFilePath) {
-        String filePath = properties.getProperty("class.search.tokens");
-        try (BufferedReader input = new BufferedReader(new FileReader(filePath))
-        ) {
-            readSearchFile(input);
-        } catch (FileNotFoundException fileNotFoundException) {
-            fileNotFoundException.printStackTrace();
-        } catch (IOException inputOutputException) {
-            inputOutputException.printStackTrace();
-        } catch (Exception exception) {
-            exception.printStackTrace();
-        }
-    }
-
-
     /**
-     * This meathod will read through the input file and create a token array
-     * for each line.
+     *This method will load a file of search tokens, parse the file and store
+     * all the them in a Map.
      *
-     * @param input The BufferedReader for the input file.
-     * @throws IOException If an input exception occurs.
+     *
      */
-    private void readSearchFile(BufferedReader input) throws IOException {
-        String inputLine = null;
-        foundLoc;
-
-        while (input.ready()) {
-            inputLine = input.readLine();
-            tokenArray = inputLine.split("\\W");
-
-
-      foundLocations.put(tokenArray, "");
+    public void loadSearchFile() {
     }
-    }
-
-
 
 
     /**
      * This method implements the processToken method in the TokenAnalyzer
-     * interface and ***
+     * interface and checks if the search token is the same as the input token.
      *
      * @param token A list of all the tokens from the input file.
      */
     public void processToken(String token) {
+        currentTokenLocation = 1;
 
-        currentTokenLocation++;
-        if (foundLocations.getValue() = token){
-        foundLocations.get.add(token, currentTokenLocation);
+        if (foundLocations.getValue() == token) {
+            foundLocations.get.add(token, currentTokenLocation);
+        } else {
+            currentTokenLocation++;
         }
     }
 
@@ -136,12 +101,14 @@ public class TokenLocationSearchAnalyzer implements TokenAnalyzer {
 
 
     /**
-     * This method will loop through and print out each token to a new line.
+     * This method will loop through and print out each search token and where
+     * each search token occured. Output line must come as close to 80 column
+     * width as possible.
      *
      * @param outputWriter The PrintWriter open to the new file.
      */
     private void outputWriterPrint(PrintWriter outputWriter) {
-        for (Map.Entry <String, List<Integer>> entry : foundLocations.entrySet()) {
+        for (Map.Entry <String, List <Integer>> entry : foundLocations.entrySet()) {
             outputWriter.println(entry.getKey() + "\t" + entry.getValue());
         }
     }

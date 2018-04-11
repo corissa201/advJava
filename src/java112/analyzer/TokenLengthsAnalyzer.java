@@ -26,7 +26,6 @@ public class TokenLengthsAnalyzer implements TokenAnalyzer {
      */
     public TokenLengthsAnalyzer() {
         tokenLengths = new TreeMap<>();
-
     }
 
 
@@ -52,18 +51,20 @@ public class TokenLengthsAnalyzer implements TokenAnalyzer {
         return tokenLengths;
     }
 
+
     /**
-    * This method finds the largest token length value in the input file and
-    * divides that my the constant value set to maximum column width to create the
-    * keyValue.
-    *
-    * @param token A list of all the tokens from the input file
-    */
-    public double findMaxFile(String token){
+     * This method finds the largest token length value in the input file and
+     * divides that my the constant value set to maximum column width to create the
+     * keyValue.
+     *
+     * @param token A list of all the tokens from the input file
+     */
+    public double findMaxFile(String token) {
         Integer maxValue = Collections.max(tokenLengths.values());
         double keyValue = maxValue / MAX_COL_LENGTH;
         return keyValue;
     }
+
 
     /**
      * This method implements the processToken method in the TokenAnalyzer
@@ -77,13 +78,10 @@ public class TokenLengthsAnalyzer implements TokenAnalyzer {
         if (tokenLengths.containsKey(length)) {
             Integer newLength = (tokenLengths.get(length) + 1);
             tokenLengths.replace(length, newLength);
-
         } else {
             tokenLengths.put(length, 1);
         }
     }
-
-
 
 
     /**
