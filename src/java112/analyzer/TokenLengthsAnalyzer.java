@@ -44,7 +44,7 @@ public class TokenLengthsAnalyzer implements TokenAnalyzer {
     /**
      * This method is the getter for the tokenLengths.
      *
-     * @return tokenLengths the map of *** tokens from the input file.
+     * @return tokenLengths the map of lengths and number of tokens from the input file.
      * The length of each token is the map key.
      * The value of the Map will hold the number of tokens with the key’s length.
      */
@@ -52,6 +52,18 @@ public class TokenLengthsAnalyzer implements TokenAnalyzer {
         return tokenLengths;
     }
 
+    /**
+    * This method finds the largest token length value in the input file and
+    * divides that my the constant value set to maximum column width to create the
+    * keyValue.
+    *
+    * @param token A list of all the tokens from the input file
+    */
+    public double findMaxFile(String token){
+        Integer maxValue = Collections.max(tokenLengths.values());
+        double keyValue = maxValue / MAX_COL_LENGTH;
+        return keyValue;
+    }
 
     /**
      * This method implements the processToken method in the TokenAnalyzer
@@ -71,10 +83,7 @@ public class TokenLengthsAnalyzer implements TokenAnalyzer {
         }
     }
 
-    public void findMaxFile(String token){
-        Integer maxValue = Collections.max(tokenLengths.values());
-        double keyValue = maxValue / MAX_COL_LENGTH;
-    }
+
 
 
     /**
@@ -102,7 +111,8 @@ public class TokenLengthsAnalyzer implements TokenAnalyzer {
 
 
     /**
-     * This method will loop through and print out each token to a new line.
+     * This method will loop through and print out each token to a new line once
+     * for the listing of sizes and number of tokens then again for the  histogram.
      *
      * @param outputWriter The PrintWriter open to the new file.
      */

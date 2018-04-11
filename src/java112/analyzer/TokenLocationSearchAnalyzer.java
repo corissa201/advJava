@@ -51,16 +51,49 @@ public class TokenLocationSearchAnalyzer implements TokenAnalyzer {
     }
 
 
-    private void loadSearchFile(){
 
-    String input = properties.getProperty("class.search.tokens");
-    while (input.ready()) {
-      String word = input.next();
 
-      foundLocations.put(word);
+        /**
+     *  This method opens the input file for reading.
+     *
+     * @param inputFilePath The file path to the input file.
+     */
+    private void openSearchFile(String inputFilePath) {
+        String filePath = properties.getProperty("class.search.tokens");
+        try (BufferedReader input = new BufferedReader(new FileReader(filePath))
+        ) {
+            readSearchFile(input);
+        } catch (FileNotFoundException fileNotFoundException) {
+            fileNotFoundException.printStackTrace();
+        } catch (IOException inputOutputException) {
+            inputOutputException.printStackTrace();
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
     }
 
+
+    /**
+     * This meathod will read through the input file and create a token array
+     * for each line.
+     *
+     * @param input The BufferedReader for the input file.
+     * @throws IOException If an input exception occurs.
+     */
+    private void readSearchFile(BufferedReader input) throws IOException {
+        String inputLine = null;
+        foundLoc;
+
+        while (input.ready()) {
+            inputLine = input.readLine();
+            tokenArray = inputLine.split("\\W");
+
+
+      foundLocations.put(tokenArray, "");
     }
+    }
+
+
 
 
     /**
