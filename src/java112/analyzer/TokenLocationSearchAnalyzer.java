@@ -42,7 +42,8 @@ public class TokenLocationSearchAnalyzer implements TokenAnalyzer {
     /**
      * This method is the getter for the foundLocations.
      *
-     * @return foundLocations
+     * @return foundLocations The map of search tokens and location of where
+     * they occur in the input file.
      */
     public Map<String, List <Integer>> getFoundLocations() {
         return foundLocations;

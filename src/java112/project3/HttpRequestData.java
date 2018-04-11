@@ -1,5 +1,6 @@
 package java112.project3;
 
+
 import java.util.Locale;
 
 
@@ -30,12 +31,13 @@ public class HttpRequestData {
      * Empty constructor for HttpRequestData JavaBean
      */
     public HttpRequestData() {
-        //currentServerLocale = "default value";
+    // currentServerLocale = "default value";
     }
 
 
     /**
      * Returns the value of remoteComputer.
+     * @return remoteComputer The remote computer making the request.
      */
     public String getRemoteComputer() {
         return remoteComputer;
@@ -53,6 +55,7 @@ public class HttpRequestData {
 
     /**
      * Returns the value of remoteAddress.
+     * @return The address of the remote computer making the request.
      */
     public String getRemoteAddress() {
         return remoteAddress;
@@ -70,6 +73,7 @@ public class HttpRequestData {
 
     /**
      * Returns the value of httpMethod.
+     * @return httpMethod The HTTP method of the request.
      */
     public String getHttpMethod() {
         return httpMethod;
@@ -87,6 +91,7 @@ public class HttpRequestData {
 
     /**
      * Returns the value of requestUri.
+     * @return requestUri The request URI.
      */
     public String getRequestUri() {
         return requestUri;
@@ -104,6 +109,7 @@ public class HttpRequestData {
 
     /**
      * Returns the value of requestUrl.
+     * @requestUrl The request URL.
      */
     public StringBuffer getRequestUrl() {
         return requestUrl;
@@ -118,8 +124,10 @@ public class HttpRequestData {
         this.requestUrl = requestUrl;
     }
 
+
     /**
      * Returns the value of requestProtocal.
+     * @return requestProtocal The protocol of the request.
      */
     public String getRequestProtocal() {
         return requestProtocal;
@@ -137,6 +145,7 @@ public class HttpRequestData {
 
     /**
      * Returns the value of serverName.
+     * @return serverName The request server name.
      */
     public String getServerName() {
         return serverName;
@@ -154,6 +163,7 @@ public class HttpRequestData {
 
     /**
      * Returns the value of serverPortNmb.
+     * @return serverPortNmb The server port number.
      */
     public int getServerPortNmb() {
         return serverPortNmb;
@@ -171,6 +181,7 @@ public class HttpRequestData {
 
     /**
      * Returns the value of currentServerLocale.
+     * @return currentServerLocale The current Locale of the server.
      */
     public Locale getCurrentServerLocale() {
         return currentServerLocale;
@@ -188,6 +199,7 @@ public class HttpRequestData {
 
     /**
      * Returns the value of query.
+     * @return query The query string.
      */
     public String getQuery() {
         return query;
@@ -205,6 +217,7 @@ public class HttpRequestData {
 
     /**
      * Returns the value of queryParameter.
+     * @return queryParameter The value of the query parameter.
      */
     public String getQueryParameter() {
         return queryParameter;
@@ -222,6 +235,7 @@ public class HttpRequestData {
 
     /**
      * Returns the value of userAgent.
+     * @return userAgent The value of the request header.
      */
     public String getUserAgent() {
         return userAgent;
@@ -236,4 +250,3 @@ public class HttpRequestData {
         this.userAgent = userAgent;
     }
 }
-
