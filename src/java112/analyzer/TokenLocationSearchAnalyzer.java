@@ -56,7 +56,7 @@ public class TokenLocationSearchAnalyzer implements TokenAnalyzer {
      *
      */
     public void loadSearchFile() {
-        this.getClass();
+
         try (
             InputStream inputStream = this.getClass().getResourceAsStream("classpath.search.tokens=/search-tokens.txt");
             InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
@@ -100,8 +100,8 @@ public class TokenLocationSearchAnalyzer implements TokenAnalyzer {
     public void processToken(String token) {
         currentTokenLocation = 1;
 
-        if (foundLocations.getValue() == token) {
-            foundLocations.put(token, currentTokenLocation);
+        if (foundLocations.containsKey(token)) {
+            foundLocations.put(token, new Integer (currentTokenLocation));
         } else {
             currentTokenLocation++;
         }
