@@ -21,7 +21,6 @@ public class TokenLengthsAnalyzer implements TokenAnalyzer {
     private Properties properties;
 
 
-
     /**
      * Empty constructor for the TokenLengthsAnalyzer class.
      */
@@ -74,6 +73,7 @@ public class TokenLengthsAnalyzer implements TokenAnalyzer {
      * @param token A list of all the tokens from the input file.
      */
     public void processToken(String token) {
+
         Integer length = token.length();
 
         if (tokenLengths.containsKey(length)) {
@@ -84,18 +84,24 @@ public class TokenLengthsAnalyzer implements TokenAnalyzer {
         }
     }
 
+
     /**
      * This method will convert the value to stars
      *
+     * @param number
+     * @return builder.toString()
      */
-     public String convertToStars(Integer number) {
-         StringBuilder builder = new StringBuilder();
+    public String convertToStars(Integer number) {
+        Integer maxValue = Collections.max(tokenLengths.values());
+        double keyValue = maxValue / MAXIMUM_COLUMN_LENGTH;
+        StringBuilder builder = new StringBuilder();
+        double starsNumber = number / keyValue;
 
-         for (Integer j = 0; j < number; j++) {
-             builder.append('*');
-         }
-         return builder.toString();
-     }
+        for (Integer j = 0; j < starsNumber; j++) {
+            builder.append('*');
+        }
+        return builder.toString();
+    }
 
 
     /**
@@ -129,6 +135,7 @@ public class TokenLengthsAnalyzer implements TokenAnalyzer {
      * @param outputWriter The PrintWriter open to the new file.
      */
     private void outputWriterPrint(PrintWriter outputWriter) {
+
         for (Map.Entry <Integer, Integer> entry : tokenLengths.entrySet()) {
             outputWriter.println(entry.getKey() + "\t" + entry.getValue());
         }
@@ -138,5 +145,6 @@ public class TokenLengthsAnalyzer implements TokenAnalyzer {
         for (Map.Entry <Integer, Integer> entry : tokenLengths.entrySet()) {
             outputWriter.println(entry.getKey() + "\t" + convertToStars(entry.getValue()));
         }
+        // outputWriter.println("Key= " + keyValue);
     }
 }
