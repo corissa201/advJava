@@ -45,7 +45,7 @@ public class TokenLocationSearchAnalyzer implements TokenAnalyzer {
      * @return foundLocations The map of search tokens and location of where
      * they occur in the input file.
      */
-    public Map<String, List <Integer>> getFoundLocations() {
+    public Map<String, List<Integer>> getFoundLocations() {
         return foundLocations;
     }
 
@@ -80,10 +80,11 @@ public class TokenLocationSearchAnalyzer implements TokenAnalyzer {
      */
     public void readSearchTokens(BufferedReader searchTokensReader) throws IOException {
         String inputLine = null;
+        List<Integer> value = null;
 
         while (searchTokensReader.ready()) {
             inputLine = searchTokensReader.readLine();
-            //foundLocations.add(inputLine, new Integer(0));
+            foundLocations.put(inputLine, value);
             //foundLocations.setValue(null);
             //tokenArray = inputLine.split("\\W");
 
@@ -98,10 +99,10 @@ public class TokenLocationSearchAnalyzer implements TokenAnalyzer {
      * @param token A list of all the tokens from the input file.
      */
     public void processToken(String token) {
-        currentTokenLocation = 1;
+        List<Integer> currentTokenLocation = null;
 
         if (foundLocations.containsKey(token)) {
-            //foundLocations.put(token, currentTokenLocation);
+            foundLocations.put(token, currentTokenLocation);
         } else {
             currentTokenLocation++;
         }
