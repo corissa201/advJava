@@ -16,9 +16,10 @@ import java.util.*;
  */
 public class TokenLengthsAnalyzer implements TokenAnalyzer {
 
+    private static final double MAXIMUM_COLUMN_LENGTH = 76.0;
     private Map<Integer, Integer> tokenLengths;
     private Properties properties;
-    private static final double MAX_COL_LENGTH = 76.0;
+
 
 
     /**
@@ -61,7 +62,7 @@ public class TokenLengthsAnalyzer implements TokenAnalyzer {
      */
     public double findMaxFile(String token) {
         Integer maxValue = Collections.max(tokenLengths.values());
-        double keyValue = maxValue / MAX_COL_LENGTH;
+        double keyValue = maxValue / MAXIMUM_COLUMN_LENGTH;
         return keyValue;
     }
 

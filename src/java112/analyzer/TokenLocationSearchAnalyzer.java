@@ -51,12 +51,43 @@ public class TokenLocationSearchAnalyzer implements TokenAnalyzer {
 
 
     /**
-     *This method will load a file of search tokens, parse the file and store
-     * all the them in a Map.
+     * This method will load a file of search tokens
      *
      *
      */
     public void loadSearchFile() {
+        this.getClass();
+        try (
+            InputStream inputStream = this.getClass().getResourceAsStream("classpath.search.tokens=/search-tokens.txt");
+            InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+            BufferedReader searchTokensReader = new BufferedReader(inputStreamReader)
+
+
+        ) {
+            readSearchTokens(searchTokensReader);
+        } catch (IOException inputOutputException) {
+            inputOutputException.printStackTrace();
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+    }
+
+
+    /**
+     * This method will read the search tokens and parse them into a map.
+     *
+     * @param searchTokensReader
+     */
+    public void readSearchTokens(BufferedReader searchTokensReader) {
+        String inputLine = null;
+
+        while (searchTokensReader.ready()) {
+            inputLine = searchTokensReader.readLine();
+            foundLocations.setKey(inputLine);
+            foundLocations.setValue(null);
+            //tokenArray = inputLine.split("\\W");
+
+        }
     }
 
 
@@ -70,7 +101,7 @@ public class TokenLocationSearchAnalyzer implements TokenAnalyzer {
         currentTokenLocation = 1;
 
         if (foundLocations.getValue() == token) {
-            foundLocations.get.add(token, currentTokenLocation);
+            foundLocations.put(token, currentTokenLocation);
         } else {
             currentTokenLocation++;
         }
