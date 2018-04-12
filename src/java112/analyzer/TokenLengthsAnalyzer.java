@@ -84,6 +84,19 @@ public class TokenLengthsAnalyzer implements TokenAnalyzer {
         }
     }
 
+    /**
+     * This method will convert the value to stars
+     *
+     */
+     public String convertToStars(Integer number) {
+         StringBuilder builder = new StringBuilder();
+
+         for (Integer j = 0; j < number; j++) {
+             builder.append('*');
+         }
+         return builder.toString();
+     }
+
 
     /**
      * This method implements the generateOutputFile method in the TokenAnalyzer
@@ -123,7 +136,7 @@ public class TokenLengthsAnalyzer implements TokenAnalyzer {
         outputWriter.println();
 
         for (Map.Entry <Integer, Integer> entry : tokenLengths.entrySet()) {
-            outputWriter.println(entry.getKey() + "\t" + entry.getValue());
+            outputWriter.println(entry.getKey() + "\t" + convertToStars(entry.getValue()));
         }
     }
 }

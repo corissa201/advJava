@@ -78,13 +78,13 @@ public class TokenLocationSearchAnalyzer implements TokenAnalyzer {
      *
      * @param searchTokensReader
      */
-    public void readSearchTokens(BufferedReader searchTokensReader) {
+    public void readSearchTokens(BufferedReader searchTokensReader) throws IOException {
         String inputLine = null;
 
         while (searchTokensReader.ready()) {
             inputLine = searchTokensReader.readLine();
-            foundLocations.setKey(inputLine);
-            foundLocations.setValue(null);
+            //foundLocations.add(inputLine, new Integer(0));
+            //foundLocations.setValue(null);
             //tokenArray = inputLine.split("\\W");
 
         }
@@ -101,7 +101,7 @@ public class TokenLocationSearchAnalyzer implements TokenAnalyzer {
         currentTokenLocation = 1;
 
         if (foundLocations.containsKey(token)) {
-            foundLocations.put(token, new Integer (currentTokenLocation));
+            //foundLocations.put(token, currentTokenLocation);
         } else {
             currentTokenLocation++;
         }
