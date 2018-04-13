@@ -15,7 +15,7 @@ import java.util.*;
  */
 public class TokenLocationSearchAnalyzer implements TokenAnalyzer {
 
-    private Map<String, List <Integer>> foundLocations;
+    private Map<String, List<Integer>> foundLocations;
     private Properties properties;
     private int currentTokenLocation;
 
@@ -36,6 +36,7 @@ public class TokenLocationSearchAnalyzer implements TokenAnalyzer {
     public TokenLocationSearchAnalyzer(Properties properties) {
         this();
         this.properties = properties;
+        loadSearchFile();
     }
 
 
@@ -45,7 +46,7 @@ public class TokenLocationSearchAnalyzer implements TokenAnalyzer {
      * @return foundLocations The map of search tokens and location of where
      * they occur in the input file.
      */
-    public Map<String, List<Integer>> getFoundLocations() {
+    public Map<String, List <Integer>> getFoundLocations() {
         return foundLocations;
     }
 
@@ -58,7 +59,7 @@ public class TokenLocationSearchAnalyzer implements TokenAnalyzer {
     public void loadSearchFile() {
 
         try (
-            InputStream inputStream = this.getClass().getResourceAsStream("classpath.search.tokens=/search-tokens.txt");
+            InputStream inputStream = this.getClass().getResourceAsStream(properties.getProperty("classpath.search.tokens"));
             InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
             BufferedReader searchTokensReader = new BufferedReader(inputStreamReader)
 
@@ -80,14 +81,14 @@ public class TokenLocationSearchAnalyzer implements TokenAnalyzer {
      */
     public void readSearchTokens(BufferedReader searchTokensReader) throws IOException {
         String inputLine = null;
-        List<Integer> value = null;
 
         while (searchTokensReader.ready()) {
             inputLine = searchTokensReader.readLine();
-            foundLocations.put(inputLine, value);
-            //foundLocations.setValue(null);
-            //tokenArray = inputLine.split("\\W");
+            if (inputLine.isEmpty()) {
+                inputLine = "nothingHere";
+            }
 
+            foundLocations.put(inputLine, new ArrayList<Integer>());
         }
     }
 
@@ -99,12 +100,11 @@ public class TokenLocationSearchAnalyzer implements TokenAnalyzer {
      * @param token A list of all the tokens from the input file.
      */
     public void processToken(String token) {
-        List<Integer> currentTokenLocation = null;
+
+        currentTokenLocation += 1;
 
         if (foundLocations.containsKey(token)) {
-            foundLocations.put(token, currentTokenLocation);
-        } else {
-            currentTokenLocation++;
+            foundLocations.get(token).add(currentTokenLocation);
         }
     }
 
@@ -132,7 +132,9 @@ public class TokenLocationSearchAnalyzer implements TokenAnalyzer {
         }
     }
 
-
+    public void test (List<Integer>, PrintWriter){
+    String outputString =
+}
     /**
      * This method will loop through and print out each search token and where
      * each search token occured. Output line must come as close to 80 column
@@ -141,8 +143,11 @@ public class TokenLocationSearchAnalyzer implements TokenAnalyzer {
      * @param outputWriter The PrintWriter open to the new file.
      */
     private void outputWriterPrint(PrintWriter outputWriter) {
+
         for (Map.Entry <String, List <Integer>> entry : foundLocations.entrySet()) {
-            outputWriter.println(entry.getKey() + "\t" + entry.getValue());
+            outputWriter.println(entry.getKey() + " =");
+            test(entry.getValue(), outputWriter);
+            outputWriter.println();
         }
     }
 }
