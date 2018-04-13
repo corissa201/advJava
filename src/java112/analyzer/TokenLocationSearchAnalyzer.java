@@ -144,19 +144,28 @@ public class TokenLocationSearchAnalyzer implements TokenAnalyzer {
      * @param outputWriter The PrintWriter open to the new file.
      */
     public void createLocationString(List<Integer> valueList, PrintWriter outputWriter) {
-        String outputLine = "";
+        String outputLine = "[";
+        String endLine = "]";
+        String locationString = null;
 
         for (Integer value : valueList) {
-            //outputLine + value;
 
-            if (outputLine.length() == MAXIMUM_STRING_LENGTH) {
+            locationString = value + ",";
+
+            if (outputLine.length() + locationString.length() > MAXIMUM_STRING_LENGTH) {
                 outputWriter.println(outputLine);
-                outputLine + value;
+                outputLine = locationString;
             } else {
-                outputLine += value;
+                outputLine += locationString;
+            }
+
+
+            if (valueList.size() < 1) {
+                outputLine.substring(0, outputLine.length() - 2);
             }
         }
-        //outputWriter.println(outputLine);
+        outputLine += endLine;
+        outputWriter.println(outputLine);
     }
 
 
