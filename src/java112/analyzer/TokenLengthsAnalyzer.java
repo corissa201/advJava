@@ -16,7 +16,7 @@ import java.util.*;
  */
 public class TokenLengthsAnalyzer implements TokenAnalyzer {
 
-    private static final double MAXIMUM_COLUMN_LENGTH = 76.0;
+    private static final double MAXIMUM_COLUMN_LENGTH = 77.0;
     private Map<Integer, Integer> tokenLengths;
     private Properties properties;
 
@@ -53,20 +53,6 @@ public class TokenLengthsAnalyzer implements TokenAnalyzer {
 
 
     /**
-     * This method finds the largest token length value in the input file and
-     * divides that my the constant value set to maximum column width to create the
-     * keyValue.
-     *
-     * @param token A list of all the tokens from the input file
-     */
-    public double findMaxFile(String token) {
-        Integer maxValue = Collections.max(tokenLengths.values());
-        double keyValue = maxValue / MAXIMUM_COLUMN_LENGTH;
-        return keyValue;
-    }
-
-
-    /**
      * This method implements the processToken method in the TokenAnalyzer
      * interface and adds each unique token to the tokenLengths map.
      *
@@ -92,12 +78,15 @@ public class TokenLengthsAnalyzer implements TokenAnalyzer {
      * @return builder.toString()
      */
     public String convertToStars(Integer number) {
-        Integer maxValue = Collections.max(tokenLengths.values());
+
+        int maxValue = Collections.max(tokenLengths.values());
+
         double keyValue = maxValue / MAXIMUM_COLUMN_LENGTH;
+
         StringBuilder builder = new StringBuilder();
         double starsNumber = number / keyValue;
 
-        for (Integer j = 0; j < starsNumber; j++) {
+        for (int j = 0; j < starsNumber; j++) {
             builder.append('*');
         }
         return builder.toString();
@@ -129,6 +118,23 @@ public class TokenLengthsAnalyzer implements TokenAnalyzer {
 
 
     /**
+     * This method is called from the outputWriterPrint. It will loop through
+     * the mapvalues an convert them to stars.
+     *
+     * @param outputWriter The PrinterWriter open to the new file.
+     */
+    public void starConverterOutput(PrintWriter outputWriter) {
+        for (Map.Entry <Integer, Integer> entry : tokenLengths.entrySet()) {
+            if (entry.getKey() < 10) {
+                outputWriter.println(entry.getKey() + "  " + convertToStars(entry.getValue()));
+            } else {
+                outputWriter.println(entry.getKey() + " " + convertToStars(entry.getValue()));
+            }
+        }
+    }
+
+
+    /**
      * This method will loop through and print out each token to a new line once
      * for the listing of sizes and number of tokens then again for the  histogram.
      *
@@ -142,9 +148,7 @@ public class TokenLengthsAnalyzer implements TokenAnalyzer {
         outputWriter.println();
         outputWriter.println();
 
-        for (Map.Entry <Integer, Integer> entry : tokenLengths.entrySet()) {
-            outputWriter.println(entry.getKey() + "\t" + convertToStars(entry.getValue()));
-        }
+        starConverterOutput(outputWriter);
         // outputWriter.println("Key= " + keyValue);
     }
 }

@@ -15,6 +15,7 @@ import java.util.*;
  */
 public class TokenLocationSearchAnalyzer implements TokenAnalyzer {
 
+    private static final int MAXIMUM_STRING_LENGTH = 80;
     private Map<String, List <Integer>> foundLocations;
     private Properties properties;
     private int currentTokenLocation;
@@ -83,14 +84,15 @@ public class TokenLocationSearchAnalyzer implements TokenAnalyzer {
         String inputLine = null;
 
         while (searchTokensReader.ready()) {
-            inputLine = searchTokensReader.readLine();
+            inputLine = searchTokensReader.readLine().trim();
             if (inputLine.isEmpty()) {
-                inputLine = "nothingHere";
+                continue;
             }
 
 
             foundLocations.put(inputLine, new ArrayList<Integer>());
         }
+        // System.out.println(foundLocations);
     }
 
 
@@ -134,29 +136,27 @@ public class TokenLocationSearchAnalyzer implements TokenAnalyzer {
     }
 
 
-    public void test(List<Integer> valueList, PrintWriter outputWriter) {
-        StringBuilder strbul = new StringBuilder();
-        Iterator<Integer> iter = valueList.iterator();
-        while(iter.hasNext()){
-            strbul.append(iter.next());
-            if(iter.hasNext()){
-                strbul.append(", ");
+    /**
+     * This method loops throught the list of map values and creates a new
+     * string. Then limits the width of the output and prints out the string.
+     *
+     * @param valueList The list of values from the found locations map.
+     * @param outputWriter The PrintWriter open to the new file.
+     */
+    public void createLocationString(List<Integer> valueList, PrintWriter outputWriter) {
+        String outputLine = "";
+
+        for (Integer value : valueList) {
+            //outputLine + value;
+
+            if (outputLine.length() == MAXIMUM_STRING_LENGTH) {
+                outputWriter.println(outputLine);
+                outputLine + value;
+            } else {
+                outputLine += value;
             }
         }
-        outputWriter.println(strbul);
-        /*valueList = new ArrayList<Integer>();
-        int valueLength = 0;
-        String listString = valueList.toSting();
-
-        for (int i = 0; i < valueList.size(); i++){
-            valueList.add();
-            valueLength ++;
-        if (valueLength< 80){
-        outputWriter.println(listString);
-        } else {
-            valueLength ++;
-        }
-        }*/
+        //outputWriter.println(outputLine);
     }
 
 
@@ -171,7 +171,7 @@ public class TokenLocationSearchAnalyzer implements TokenAnalyzer {
 
         for (Map.Entry <String, List <Integer>> entry : foundLocations.entrySet()) {
             outputWriter.println(entry.getKey() + " =");
-            test(entry.getValue(), outputWriter);
+            createLocationString(entry.getValue(), outputWriter);
             outputWriter.println();
         }
     }
