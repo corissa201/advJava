@@ -15,7 +15,7 @@ import java.util.*;
  */
 public class TokenLocationSearchAnalyzer implements TokenAnalyzer {
 
-    private Map<String, List<Integer>> foundLocations;
+    private Map<String, List <Integer>> foundLocations;
     private Properties properties;
     private int currentTokenLocation;
 
@@ -88,6 +88,7 @@ public class TokenLocationSearchAnalyzer implements TokenAnalyzer {
                 inputLine = "nothingHere";
             }
 
+
             foundLocations.put(inputLine, new ArrayList<Integer>());
         }
     }
@@ -132,9 +133,33 @@ public class TokenLocationSearchAnalyzer implements TokenAnalyzer {
         }
     }
 
-    public void test (List<Integer>, PrintWriter){
-    String outputString =
-}
+
+    public void test(List<Integer> valueList, PrintWriter outputWriter) {
+        StringBuilder strbul = new StringBuilder();
+        Iterator<Integer> iter = valueList.iterator();
+        while(iter.hasNext()){
+            strbul.append(iter.next());
+            if(iter.hasNext()){
+                strbul.append(", ");
+            }
+        }
+        outputWriter.println(strbul);
+        /*valueList = new ArrayList<Integer>();
+        int valueLength = 0;
+        String listString = valueList.toSting();
+
+        for (int i = 0; i < valueList.size(); i++){
+            valueList.add();
+            valueLength ++;
+        if (valueLength< 80){
+        outputWriter.println(listString);
+        } else {
+            valueLength ++;
+        }
+        }*/
+    }
+
+
     /**
      * This method will loop through and print out each search token and where
      * each search token occured. Output line must come as close to 80 column
