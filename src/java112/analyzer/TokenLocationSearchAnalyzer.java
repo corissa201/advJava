@@ -158,12 +158,12 @@ public class TokenLocationSearchAnalyzer implements TokenAnalyzer {
             } else {
                 outputLine += locationString;
             }
-
-
-            if (valueList.size() < 1) {
-                outputLine.substring(0, outputLine.length() - 2);
-            }
         }
+
+        if (outputLine.trim().endsWith(",")) {
+            outputLine = outputLine.substring(0, outputLine.length() - 2);
+        }
+
         outputLine += endLine;
         outputWriter.println(outputLine.trim());
     }
