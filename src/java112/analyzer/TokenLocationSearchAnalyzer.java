@@ -153,7 +153,7 @@ public class TokenLocationSearchAnalyzer implements TokenAnalyzer {
             locationString = value + ",";
 
             if (outputLine.length() + locationString.length() > MAXIMUM_STRING_LENGTH) {
-                outputWriter.println(outputLine);
+                outputWriter.println(outputLine.trim());
                 outputLine = locationString;
             } else {
                 outputLine += locationString;
@@ -165,7 +165,7 @@ public class TokenLocationSearchAnalyzer implements TokenAnalyzer {
             }
         }
         outputLine += endLine;
-        outputWriter.println(outputLine);
+        outputWriter.println(outputLine.trim());
     }
 
 
