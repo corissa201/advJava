@@ -150,7 +150,7 @@ public class TokenLocationSearchAnalyzer implements TokenAnalyzer {
 
         for (Integer value : valueList) {
 
-            locationString = value + ",";
+            locationString = value + ", ";
 
             if (outputLine.length() + locationString.length() > MAXIMUM_STRING_LENGTH) {
                 outputWriter.println(outputLine.trim());
