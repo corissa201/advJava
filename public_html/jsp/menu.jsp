@@ -23,7 +23,7 @@
     <div class="box">
     <ul>
     <li><a href="/java112/...">Add Employee</a></li>
-    <li><a href="/java112/...">Employee Search</a></li>
+    <li><a href="/java112/employeeSearch.jsp">Employee Search</a></li>
     <li><a href="/java112/jstl-lab1.jsp">Lab 1</a></li>
     <li><a href="/java112/JSTL-lab2-servlet">Lab 2</a></li>
     <li><a href="/java112/lab41.jsp">Lab 41</a></li>

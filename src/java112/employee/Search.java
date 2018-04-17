@@ -1,5 +1,7 @@
 package java112.employee;
 
+import java.util.*;
+
 
 /**
  *  This is a JavaBean class for the search
@@ -11,7 +13,7 @@ public class Search {
 
     private String enteredSearchType;
     private String enteredSearchTerm;
-    private ArrayList[] databaseQueryResult;
+    private ArrayList<String> databaseQueryResult;
     private boolean queryFoundEmployee;
 
 
@@ -19,7 +21,7 @@ public class Search {
      *  Constructor for the Search object
      */
     public Search() {
-        data = "default value";
+
     }
 
 
@@ -64,7 +66,7 @@ public class Search {
      * @return databaseQueryResult An ArrayList that holds the results from the
      * database query.
      */
-    public ArrayList[] getDatabaseQueryResult() {
+    public ArrayList<String> getDatabaseQueryResult() {
         return databaseQueryResult;
     }
 
@@ -73,7 +75,7 @@ public class Search {
      * Sets the value of databaseQueryResult.
      * @param databaseQueryResult The value to assign databaseQueryResult.
      */
-    public void setDatabaseQueryResult(ArrayList[] databaseQueryResult) {
+    public void setDatabaseQueryResult(ArrayList<String> databaseQueryResult) {
         this.databaseQueryResult = databaseQueryResult;
     }
 
@@ -103,6 +105,6 @@ public class Search {
      * @param employee A object of employee.
      */
     public void addFoundEmployee(Employee employee) {
-        databaseQueryResult.add(employee);
+        //databaseQueryResult.put(employee);
     }
 }
