@@ -14,7 +14,7 @@ import javax.servlet.annotation.*;
  */
 @WebServlet(
     name = "Lab41Servlet",
-    urlPatterns = { "/lab41-servlet" }
+    urlPatterns = {"/lab41-servlet"}
 )
 
 public class Lab41Servlet extends HttpServlet {
@@ -42,6 +42,7 @@ public class Lab41Servlet extends HttpServlet {
         String  param2 = request.getParameter("param2");
 
         System.out.println("param2: " + param2);
+
     }
 
 }

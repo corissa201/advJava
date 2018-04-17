@@ -86,7 +86,7 @@ public class TokenLengthsAnalyzer implements TokenAnalyzer {
         StringBuilder builder = new StringBuilder();
         double starsNumber = number / keyValue;
 
-        for (int j = 0; j < starsNumber; j++) {
+        for (int index = 0; index < starsNumber; index++) {
             builder.append('*');
         }
         return builder.toString();
