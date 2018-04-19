@@ -21,6 +21,18 @@ urlPatterns = {"/project4-startup"},
 loadOnStartup = 1
 ) public class ApplicationStartup extends HttpServlet {
 
+    private Properties properties;
+
+
+    /**
+     * The init method loads the properties file path into the properties instance.
+     *
+     * @exception ServletException   If a servlet exception occurs.
+     */
+    public void init() throws ServletException {
+        project4Properties = loadProperties("/project4.properties");
+    }
+
     /**
      *  Handles HTTP GET requests.
      *
