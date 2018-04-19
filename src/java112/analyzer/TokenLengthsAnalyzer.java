@@ -74,7 +74,7 @@ public class TokenLengthsAnalyzer implements TokenAnalyzer {
     /**
      * This method will convert the value to stars
      *
-     * @param number
+     * @param number The current map value.
      * @return builder.toString()
      */
     public String convertToStars(Integer number) {
