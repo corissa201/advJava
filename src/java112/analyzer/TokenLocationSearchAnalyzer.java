@@ -15,7 +15,7 @@ import java.util.*;
  */
 public class TokenLocationSearchAnalyzer implements TokenAnalyzer {
 
-    private static final int MAXIMUM_STRING_LENGTH = 80;
+    private static final int MAXIMUM_STRING_LENGTH = 81;
     private Map<String, List <Integer>> foundLocations;
     private Properties properties;
     private int currentTokenLocation;
