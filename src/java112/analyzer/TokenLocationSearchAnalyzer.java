@@ -78,7 +78,8 @@ public class TokenLocationSearchAnalyzer implements TokenAnalyzer {
     /**
      * This method will read the search tokens and parse them into a map.
      *
-     * @param searchTokensReader
+     * @param searchTokensReader The BuffferedReader for the input file.
+     * @throws IOException If an input exception occurs.
      */
     public void readSearchTokens(BufferedReader searchTokensReader) throws IOException {
         String inputLine = null;

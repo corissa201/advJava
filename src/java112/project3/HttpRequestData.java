@@ -109,7 +109,7 @@ public class HttpRequestData {
 
     /**
      * Returns the value of requestUrl.
-     * @requestUrl The request URL.
+     * @return requestUrl The request URL.
      */
     public StringBuffer getRequestUrl() {
         return requestUrl;
