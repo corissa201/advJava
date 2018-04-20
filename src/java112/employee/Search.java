@@ -1,19 +1,20 @@
 package java112.employee;
 
+
 import java.util.*;
 
 
 /**
  *  This is a JavaBean class for the search
  *
- * @author       cEngel
+ * @author       Corissa Engel
  * @version     1.0
  */
 public class Search {
 
     private String enteredSearchType;
     private String enteredSearchTerm;
-    private ArrayList<String> databaseQueryResult;
+    private ArrayList<Employee> databaseQueryResult;
     private boolean queryFoundEmployee;
 
 
@@ -21,7 +22,19 @@ public class Search {
      *  Constructor for the Search object
      */
     public Search() {
+    }
 
+
+    /**
+     * This method will add the employee object to the List of found Employee
+     * objects.
+     * @param employee A object of employee.
+     */
+    public void addFoundEmployee(Employee employee) {
+
+        // if we get to this point a record has been found
+        // databaseQueryResult.add(employee);
+        queryFoundEmployee = true;
     }
 
 
@@ -66,7 +79,7 @@ public class Search {
      * @return databaseQueryResult An ArrayList that holds the results from the
      * database query.
      */
-    public ArrayList<String> getDatabaseQueryResult() {
+    public ArrayList<Employee> getDatabaseQueryResult() {
         return databaseQueryResult;
     }
 
@@ -75,7 +88,7 @@ public class Search {
      * Sets the value of databaseQueryResult.
      * @param databaseQueryResult The value to assign databaseQueryResult.
      */
-    public void setDatabaseQueryResult(ArrayList<String> databaseQueryResult) {
+    public void setDatabaseQueryResult(ArrayList<Employee> databaseQueryResult) {
         this.databaseQueryResult = databaseQueryResult;
     }
 
@@ -99,12 +112,7 @@ public class Search {
     }
 
 
-    /**
-     * This method will add the employee object to the List of found Employee
-     * objects.
-     * @param employee A object of employee.
-     */
-    public void addFoundEmployee(Employee employee) {
-        //databaseQueryResult.put(employee);
+    public String toString() {
+        return getEnteredSearchType();
     }
 }

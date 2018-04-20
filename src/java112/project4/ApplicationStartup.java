@@ -4,6 +4,9 @@ package java112.project4;
 import java.io.*;
 import java.util.*;
 
+import java112.employee.*;
+import java112.utilities.*;
+
 import javax.servlet.*;
 import javax.servlet.annotation.*;
 import javax.servlet.http.*;
@@ -19,10 +22,7 @@ import javax.servlet.http.*;
 name = "applicationStartup",
 urlPatterns = {"/project4-startup"},
 loadOnStartup = 1
-) public class ApplicationStartup extends HttpServlet {
-
-    private Properties properties;
-
+) public class ApplicationStartup extends HttpServlet implements PropertiesLoader {
 
     /**
      * The init method loads the properties file path into the properties instance.
@@ -30,18 +30,15 @@ loadOnStartup = 1
      * @exception ServletException   If a servlet exception occurs.
      */
     public void init() throws ServletException {
-        project4Properties = loadProperties("/project4.properties");
-    }
 
-    /**
-     *  Handles HTTP GET requests.
-     *
-     *@param  request               the HttpRequest
-     *@param  response              the HttpResponse
-     *@exception  ServletException  if there is a general servlet exception
-     *@exception  IOException       if there is a general I/O exception
-     */
-    public void doGet(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
+        Properties properties = loadProperties("/project4.properties");
+
+        ServletContext context = getServletContext();
+
+        context.setAttribute("project4Properties", properties);
+
+        EmployeeDirectory directory = new EmployeeDirectory(properties);
+
+        context.setAttribute("project4Directory", directory);
     }
 }

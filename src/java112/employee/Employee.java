@@ -151,7 +151,7 @@ public class Employee {
 
 
     public String toString() {
-        return getEmployeeId() + getFirstName() + getLastName() + getSocialSecurityNumber()
-                + getDepartment() + getRoomNumber() + getPhoneNumber();
+        return getEmployeeId() +", "+ getFirstName() +", "+ getLastName() +", "+ getSocialSecurityNumber()
+                +", "+ getDepartment() +", "+ getRoomNumber() +", "+ getPhoneNumber();
     }
 }

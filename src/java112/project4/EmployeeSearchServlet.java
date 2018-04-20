@@ -32,10 +32,13 @@ public class EmployeeSearchServlet extends HttpServlet {
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
-        String  searchTerm = request.getParameter("searchTerm");
+        //String  searchTerm = request.getParameter("searchTerm");
 
-        if (searchTerm == null || searchTerm.isEmpty()){
+        //if (searchTerm == null || searchTerm.isEmpty()){
+        String url = "/employeeSearch.jsp";
 
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
+        dispatcher.forward(request, response);
         }
 
         //System.out.println("searchTerm: " + searchTerm);
@@ -45,8 +48,6 @@ public class EmployeeSearchServlet extends HttpServlet {
         //System.out.println("param2: " + param2);
 
     }
-
-}
 
 
 

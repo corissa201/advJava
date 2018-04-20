@@ -1,4 +1,4 @@
-
+<div>
 <h2>Employee Search Form</h2>
 
 <form action="/java112/employeeSearch-servlet" method="GET">
@@ -9,3 +9,4 @@
     <input type="radio" name="searchType" value="employeeId"/> Employee ID<br />
     <input type="submit" name="" value="Submit" />
 </form>
+</div>
