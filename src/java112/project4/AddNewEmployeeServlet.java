@@ -1,23 +1,24 @@
 package java112.project4;
 
-
 import java.io.*;
 import java.util.*;
 
 import javax.servlet.*;
-import javax.servlet.annotation.*;
 import javax.servlet.http.*;
-
+import javax.servlet.annotation.*;
 
 /**
  *
  *
- *@author    Corissa Engel
+ * @author    Corissa Engel
+ * @version   1.0
  */
 @WebServlet(
-name = "JSTLLab2Servlet",
-urlPatterns = {"/JSTL-lab2-servlet"}
-) public class JSTLLab2Servlet extends HttpServlet {
+    name = "addNewEmployee-Servlet",
+    urlPatterns = {"/addNewEmployee-servlet"}
+)
+
+public class AddNewEmployeeServlet extends HttpServlet {
 
     /**
      *  Handles HTTP GET requests.
@@ -30,22 +31,17 @@ urlPatterns = {"/JSTL-lab2-servlet"}
      *                              I/O exception
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
+        throws ServletException, IOException {
 
-        HttpSession session = request.getSession();
-
-        List flowers = new ArrayList();
-        flowers.add("Tulip");
-        flowers.add("Rose");
-        flowers.add("Daffodil");
-        flowers.add("Petunia");
-        flowers.add("Lily");
-
-        session.setAttribute("flowersList", flowers);
-
-        String url = "/jstl-lab2.jsp";
+        String url = "/addEmployee.jsp";
 
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
         dispatcher.forward(request, response);
+        }
+
     }
-}
+
+
+
+
+

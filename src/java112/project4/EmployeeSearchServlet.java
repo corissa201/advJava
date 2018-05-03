@@ -32,6 +32,11 @@ public class EmployeeSearchServlet extends HttpServlet {
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
+
+        //ServletContext context = getServletContext();
+
+        //context.getAtribute(directory);
+
         //String  searchTerm = request.getParameter("searchTerm");
 
         //if (searchTerm == null || searchTerm.isEmpty()){

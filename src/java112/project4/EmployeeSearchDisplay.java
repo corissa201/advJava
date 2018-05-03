@@ -1,23 +1,23 @@
 package java112.project4;
 
+
 import java.io.*;
 import java.util.*;
 
 import javax.servlet.*;
-import javax.servlet.http.*;
 import javax.servlet.annotation.*;
+import javax.servlet.http.*;
+
 
 /**
  *
  *
- *@author    Eric Knapp
+ *@author    Corissa Engel
  */
 @WebServlet(
-    name = "Lab41Servlet",
-    urlPatterns = {"/lab41-servlet"}
-)
-
-public class Lab41Servlet extends HttpServlet {
+name = "employeeSearchDisplay",
+urlPatterns = {"/search-display"}
+) public class EmployeeSearchDisplay extends HttpServlet {
 
     /**
      *  Handles HTTP GET requests.
@@ -30,24 +30,13 @@ public class Lab41Servlet extends HttpServlet {
      *                              I/O exception
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response)
-        throws ServletException, IOException {
-        String  param1 = request.getParameter("param1");
+    throws ServletException, IOException {
 
-        if (param1 == null || param1.isEmpty()){
+        // Create the url
+        String url = "/employeeSearch.jsp";
 
-        }
-
-        System.out.println("param1: " + param1);
-
-        String  param2 = request.getParameter("param2");
-
-        System.out.println("param2: " + param2);
-
+        // Forward to jsp page
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
+        dispatcher.forward(request, response);
     }
-
 }
-
-
-
-
-
