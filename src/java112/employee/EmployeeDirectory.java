@@ -13,7 +13,15 @@ import java.util.*;
 public class EmployeeDirectory {
 
     private Properties properties;
-    public Connection connection;
+
+
+    /**
+     * Empty constructor for EmployeeDirectory
+     *
+     */
+    public EmployeeDirectory() {
+    }
+
 
     /**
      * Constructor for EmployeeDirectory
@@ -25,13 +33,13 @@ public class EmployeeDirectory {
     }
 
 
-    public Connection getConnection() throws SQLException , ClassNotFoundException{
+    private Connection getConnection() {
         Connection connection = null;
 
         try {
             Class.forName(properties.getProperty("driver"));
 
-            connection = DriverManager.getConnection(properties.getProperty("url"));
+            connection = DriverManager.getConnection(properties.getProperty("url", "username", "password"));
         } catch (ClassNotFoundException classNotFound) {
             classNotFound.printStackTrace();
         } catch (SQLException sqlException) {
@@ -42,13 +50,12 @@ public class EmployeeDirectory {
     }
 
 
-    public void addNewEmployeeRecord(String firstName, String lastName,
-    String socialSecurityNumber, String department, String roomNumber, String phoneNumber) throws SQLException, ClassNotFoundException{
+    public String addNewEmployeeRecord(String firstName, String lastName,
+    String socialSecurityNumber, String department, String roomNumber, String phoneNumber) {
         Statement statement = null;
         ResultSet resultSet = null;
-        getConnection();
+        Connection connection = getConnection();
 
-        // int rowsAffected = "";
         try {
 
             statement = connection.createStatement();
@@ -61,15 +68,20 @@ public class EmployeeDirectory {
             + "     roomNumber,"
             + "     phoneNumber"
             + " ) values ("
-            + "     ? ,"
-            + "     ? ,"
-            + "     ? ,"
-            + "     ? ,"
-            + "     ? ,"
-            + "     ? ,"
+            + "     '" + firstName + "' ,"
+            + "     '" + lastName + "' ,"
+            + "     '" + socialSecurityNumber + "' ,"
+            + "     '" + department + "' ,"
+            + "     '" + roomNumber + "' ,"
+            + "     '" + phoneNumber + "' ,"
             + " )";
 
-            int rowsAffected = statement.executeUpdate(insertSql);
+            statement.executeUpdate(insertSql);
+
+        } catch (ClassNotFoundException classNotFound) {
+            classNotFound.printStackTrace();
+        } catch (SQLException sqlException) {
+            sqlException.printStackTrace();
         } catch (Exception exception) {
             System.err.println("General Error");
             exception.printStackTrace();
@@ -97,8 +109,10 @@ public class EmployeeDirectory {
     }
 
 
-    public Search searchEmployeeDatabase(String enteredSearchType, String enteredSearchTerm) {
-        Search search = null;
+    public Search searchEmployeeDatabase(String searchTerm, String searchType) {
+        Search search = new search();
+        searchTerm = search.set.searchTerm();
+        searchType = search.set.searchType();
 
         return search;
     }
