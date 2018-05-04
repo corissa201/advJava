@@ -2,6 +2,7 @@ package java112.project4;
 
 
 import java.io.*;
+import java.sql.*;
 import java.util.*;
 
 import java112.employee.*;
@@ -33,11 +34,11 @@ urlPatterns = {"/employeeAddAction-servlet"}
      *                              I/O exception
      */
     public void doPost(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException{
+    throws ServletException, IOException {
 
         ServletContext context = request.getServletContext();
 
-        EmployeeDirectory empDirectory = (EmployeeDirectory) context.getAttribute("directory");
+        EmployeeDirectory empDirectory = (EmployeeDirectory)context.getAttribute("directory");
 
         String firstName = request.getParameter("firstName");
         String lastName = request.getParameter("lastName");
@@ -46,7 +47,18 @@ urlPatterns = {"/employeeAddAction-servlet"}
         String roomNumber = request.getParameter("roomNumber");
         String phoneNumber = request.getParameter("phoneNumber");
 
-        empDirectory.addNewEmployeeRecord(firstName, lastName, socialSecurityNumber,
-        department, roomNumber, phoneNumber);
+        try {
+            empDirectory.addNewEmployeeRecord(firstName, lastName, socialSecurityNumber,
+            department, roomNumber, phoneNumber);
+        } catch (SQLException sqlException) {
+            sqlException.printStackTrace();
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+
+        String url = "/addEmployee.jsp";
+
+        response.sendRedirect(url);
+
     }
 }
