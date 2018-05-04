@@ -26,6 +26,8 @@ public class Search {
     }
 
 
+
+
     /**
      * This method will add the employee object to the List of found Employee
      * objects.
@@ -80,7 +82,7 @@ public class Search {
      * @return databaseQueryResult An ArrayList that holds the results from the
      * database query.
      */
-    public ArrayList<Employee> getDatabaseQueryResult() {
+    public List<Employee> getDatabaseQueryResult() {
         return databaseQueryResult;
     }
 

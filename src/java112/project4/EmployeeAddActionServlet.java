@@ -47,14 +47,9 @@ urlPatterns = {"/employeeAddAction-servlet"}
         String roomNumber = request.getParameter("roomNumber");
         String phoneNumber = request.getParameter("phoneNumber");
 
-        try {
-            employeeDirectory.addNewEmployeeRecord(firstName, lastName, socialSecurityNumber,
+
+        employeeDirectory.addNewEmployeeRecord(firstName, lastName, socialSecurityNumber,
             department, roomNumber, phoneNumber);
-        } catch (SQLException sqlException) {
-            sqlException.printStackTrace();
-        } catch (Exception exception) {
-            exception.printStackTrace();
-        }
 
         String url = "java112/addNewEmployee-servlet";
 

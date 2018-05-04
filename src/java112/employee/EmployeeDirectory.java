@@ -39,7 +39,8 @@ public class EmployeeDirectory {
         try {
             Class.forName(properties.getProperty("driver"));
 
-            connection = DriverManager.getConnection(properties.getProperty("url", "username", "password"));
+            connection = DriverManager.getConnection(properties.getProperty("url"),
+                properties.getProperty("username"), properties.getProperty("password"));
         } catch (ClassNotFoundException classNotFound) {
             classNotFound.printStackTrace();
         } catch (SQLException sqlException) {
@@ -55,10 +56,11 @@ public class EmployeeDirectory {
         Statement statement = null;
         ResultSet resultSet = null;
         Connection connection = getConnection();
+        String message = null;
 
         try {
 
-            statement = connection.createStatement();
+
 
             String insertSql = "insert into employees ("
             + "    firstName,"
@@ -75,13 +77,16 @@ public class EmployeeDirectory {
             + "     '" + roomNumber + "' ,"
             + "     '" + phoneNumber + "' ,"
             + " )";
-
+            statement = connection.createStatement();
             statement.executeUpdate(insertSql);
 
-        } catch (ClassNotFoundException classNotFound) {
-            classNotFound.printStackTrace();
-        } catch (SQLException sqlException) {
-            sqlException.printStackTrace();
+            message = firstName + " has been added as a new employee";
+
+
+        //} catch (ClassNotFoundException classNotFound) {
+          //  classNotFound.printStackTrace();
+       // } catch (SQLException sqlException) {
+         //   sqlException.printStackTrace();
         } catch (Exception exception) {
             System.err.println("General Error");
             exception.printStackTrace();
@@ -106,13 +111,14 @@ public class EmployeeDirectory {
                 exception.printStackTrace();
             }
         }
+        return message;
     }
 
 
     public Search searchEmployeeDatabase(String searchTerm, String searchType) {
-        Search search = new search();
-        searchTerm = search.set(searchTerm);
-        searchType = search.set(searchType);
+        Search search = new Search();
+        //searchTerm = search.set(searchTerm);
+        //searchType = search.set(searchType);
 
         return search;
     }
