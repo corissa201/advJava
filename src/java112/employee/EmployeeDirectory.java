@@ -111,8 +111,8 @@ public class EmployeeDirectory {
 
     public Search searchEmployeeDatabase(String searchTerm, String searchType) {
         Search search = new search();
-        searchTerm = search.set.searchTerm();
-        searchType = search.set.searchType();
+        searchTerm = search.set(searchTerm);
+        searchType = search.set(searchType);
 
         return search;
     }

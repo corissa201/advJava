@@ -14,7 +14,7 @@ public class Search {
 
     private String enteredSearchType;
     private String enteredSearchTerm;
-    private ArrayList<Employee> databaseQueryResult;
+    private List<Employee> databaseQueryResult;
     private boolean queryFoundEmployee;
 
 
@@ -22,6 +22,7 @@ public class Search {
      *  Constructor for the Search object
      */
     public Search() {
+        databaseQueryResult = new ArrayList<>();
     }
 
 
@@ -32,8 +33,8 @@ public class Search {
      */
     public void addFoundEmployee(Employee employee) {
 
-        // if we get to this point a record has been found
-        // databaseQueryResult.add(employee);
+
+        databaseQueryResult.add(employee);
         queryFoundEmployee = true;
     }
 

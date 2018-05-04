@@ -38,7 +38,7 @@ urlPatterns = {"/employeeAddAction-servlet"}
 
         ServletContext context = request.getServletContext();
 
-        EmployeeDirectory empDirectory = (EmployeeDirectory)context.getAttribute("directory");
+        EmployeeDirectory employeeDirectory = (EmployeeDirectory)context.getAttribute("directory");
 
         String firstName = request.getParameter("firstName");
         String lastName = request.getParameter("lastName");
@@ -48,7 +48,7 @@ urlPatterns = {"/employeeAddAction-servlet"}
         String phoneNumber = request.getParameter("phoneNumber");
 
         try {
-            empDirectory.addNewEmployeeRecord(firstName, lastName, socialSecurityNumber,
+            employeeDirectory.addNewEmployeeRecord(firstName, lastName, socialSecurityNumber,
             department, roomNumber, phoneNumber);
         } catch (SQLException sqlException) {
             sqlException.printStackTrace();
@@ -56,7 +56,7 @@ urlPatterns = {"/employeeAddAction-servlet"}
             exception.printStackTrace();
         }
 
-        String url = "/addEmployee.jsp";
+        String url = "java112/addNewEmployee-servlet";
 
         response.sendRedirect(url);
 
