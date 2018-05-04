@@ -1,6 +1,10 @@
 <div id="content">
 <h2>Add New Employee</h2>
-<form action="/java112/addNewEmployee-servlet" method="POST">
+
+<h3>${project4Message}<h3>
+<c:remove var="project4Message"/>
+
+<form action="/java112/employeeAddAction-servlet" method="POST">
     First Name <input type="text" name="firstName"/><br />
     Last Name <input type="text" name="lastName"/> <br />
     Social Security Number <input type="text" name="socialSecurityNumber"/> <br />
