@@ -13,9 +13,7 @@ import java.util.*;
 public class EmployeeDirectory {
 
     private Properties properties;
-
-
-    // private Connection connection;
+    public Connection connection;
 
     /**
      * Constructor for EmployeeDirectory
@@ -27,25 +25,41 @@ public class EmployeeDirectory {
     }
 
 
-    private Connection establishDatabaseConnection() {
+    public Connection getConnection() throws SQLException , ClassNotFoundException{
         Connection connection = null;
-        Statement statement = null;
-        ResultSet resultSet = null;
 
         try {
             Class.forName(properties.getProperty("driver"));
 
             connection = DriverManager.getConnection(properties.getProperty("url"));
+        } catch (ClassNotFoundException classNotFound) {
+            classNotFound.printStackTrace();
+        } catch (SQLException sqlException) {
+            sqlException.printStackTrace();
+        }
+
+        return connection;
+    }
+
+
+    public void addNewEmployeeRecord(String firstName, String lastName,
+    String socialSecurityNumber, String department, String roomNumber, String phoneNumber) throws SQLException, ClassNotFoundException{
+        Statement statement = null;
+        ResultSet resultSet = null;
+        getConnection();
+
+        // int rowsAffected = "";
+        try {
 
             statement = connection.createStatement();
 
             String insertSql = "insert into employees ("
-            + "    first_name,"
-            + "     last_name,"
-            + "     ssn,"
-            + "     dept,"
-            + "     room,"
-            + "     phone"
+            + "    firstName,"
+            + "     lastName,"
+            + "     socialSecurityNumber,"
+            + "     department,"
+            + "     roomNumber,"
+            + "     phoneNumber"
             + " ) values ("
             + "     ? ,"
             + "     ? ,"
@@ -56,11 +70,6 @@ public class EmployeeDirectory {
             + " )";
 
             int rowsAffected = statement.executeUpdate(insertSql);
-
-        } catch (ClassNotFoundException classNotFound) {
-            classNotFound.printStackTrace();
-        } catch (SQLException sqlException) {
-            sqlException.printStackTrace();
         } catch (Exception exception) {
             System.err.println("General Error");
             exception.printStackTrace();
@@ -70,9 +79,11 @@ public class EmployeeDirectory {
                     resultSet.close();
                 }
 
+
                 if (statement != null) {
                     statement.close();
                 }
+
 
                 if (connection != null) {
                     connection.close();
@@ -83,14 +94,6 @@ public class EmployeeDirectory {
                 exception.printStackTrace();
             }
         }
-
-        return connection;
-    }
-
-
-    public void addNewEmployeeRecord() {
-
-        establishDatabaseConnection();
     }
 
 
