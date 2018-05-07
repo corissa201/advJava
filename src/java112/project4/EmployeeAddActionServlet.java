@@ -38,6 +38,8 @@ urlPatterns = {"/employeeAddAction-servlet"}
 
         ServletContext context = request.getServletContext();
 
+        HttpSession session = request.getSession();
+
         EmployeeDirectory employeeDirectory = (EmployeeDirectory)context.getAttribute("directory");
 
         String firstName = request.getParameter("firstName");
@@ -47,13 +49,25 @@ urlPatterns = {"/employeeAddAction-servlet"}
         String roomNumber = request.getParameter("roomNumber");
         String phoneNumber = request.getParameter("phoneNumber");
 
+        /*String firstName = (String)session.getAttribute("firstName");
+        String lastName = (String)session.getAttribute("lastName");
+        String socialSecurityNumber = (String)session.getAttribute("socialSecurityNumber");
+        String department = (String)session.getAttribute("department");
+        String roomNumber = (String)session.getAttribute("roomNumber");
+        String phoneNumber = (String)session.getAttribute("phoneNumber");
+
+        session.setAttribute("firstName", firstName);
+        session.setAttribute("lastName", lastName);
+        session.setAttribute("socialSecurityNumber", socialSecurityNumber);
+        session.setAttribute("department", department);
+        session.setAttribute("roomNumber", roomNumber);
+        session.setAttribute("phoneNumber", phoneNumber);*/
 
         employeeDirectory.addNewEmployeeRecord(firstName, lastName, socialSecurityNumber,
-            department, roomNumber, phoneNumber);
+        department, roomNumber, phoneNumber);
 
         String url = "/java112/AddNewEmployeeServlet.java";
 
         response.sendRedirect(url);
-
     }
 }
