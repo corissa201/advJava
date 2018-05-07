@@ -37,6 +37,11 @@ public class EmployeeDirectory {
         Connection connection = null;
 
         try {
+            /*Class.forName("com.mysql.jdbc.Driver");
+
+            connection = DriverManager.getConnection(
+                    "jdbc:mysql://localhost/student", "student", "student");*/
+
             Class.forName(properties.getProperty("driver"));
 
             connection = DriverManager.getConnection(properties.getProperty("url"),
@@ -56,20 +61,24 @@ public class EmployeeDirectory {
     String socialSecurityNumber, String department, String roomNumber, String phoneNumber) {
         Statement statement = null;
         ResultSet resultSet = null;
+
         Connection connection = getConnection();
+
         String message = null;
 
         try {
             statement = connection.createStatement();
 
-            String insertSql = "insert into employees ("
-            + "    firstName,"
-            + "     lastName,"
-            + "     socialSecurityNumber,"
-            + "     department,"
-            + "     roomNumber,"
-            + "     phoneNumber"
-            + " ) values ("
+           // String insertSql = "insert into employees (firstName, lastName, socialSecurityNumber, department, roomNumber, phoneNumber) values('"+firstName+"', '"+lastName+"', '"+socialSecurityNumber+"', '"+department+"', '"+roomNumber+"', '"+phoneNumber+"')";
+
+            String insertSql = "INSERT INTO employees ("
+            + "    first_name,"
+            + "     last_name,"
+            + "     ssn,"
+            + "     dept,"
+            + "     room,"
+            + "     phone"
+            + " ) VALUES ("
             + "     '" + firstName + "' ,"
             + "     '" + lastName + "' ,"
             + "     '" + socialSecurityNumber + "' ,"
@@ -78,7 +87,7 @@ public class EmployeeDirectory {
             + "     '" + phoneNumber + "' ,"
             + " )";
 
-            resultSet = statement.executeQuery(insertSql);
+            statement.executeUpdate(insertSql);
 
             message = firstName + " has been added as a new employee";
             // } catch (ClassNotFoundException classNotFound) {
