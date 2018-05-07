@@ -51,7 +51,7 @@ urlPatterns = {"/employeeAddAction-servlet"}
         employeeDirectory.addNewEmployeeRecord(firstName, lastName, socialSecurityNumber,
             department, roomNumber, phoneNumber);
 
-        String url = "java112/addNewEmployee-servlet";
+        String url = "/java112/AddNewEmployeeServlet.java";
 
         response.sendRedirect(url);
 
