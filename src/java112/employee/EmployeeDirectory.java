@@ -37,16 +37,14 @@ public class EmployeeDirectory {
         Connection connection = null;
 
         try {
-            /*Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.jdbc.Driver");
 
             connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost/student", "student", "student");*/
-
-            Class.forName(properties.getProperty("driver"));
-
-            connection = DriverManager.getConnection(properties.getProperty("url"),
-                properties.getProperty("username"), properties.getProperty("password"));
-
+            "jdbc:mysql:///student", "student", "student");
+        /*Class.forName(properties.getProperty("driver"));
+         *
+         * connection = DriverManager.getConnection(properties.getProperty("url"),
+         * properties.getProperty("username"), properties.getProperty("password"));*/
         } catch (ClassNotFoundException classNotFound) {
             classNotFound.printStackTrace();
         } catch (SQLException sqlException) {
@@ -67,8 +65,8 @@ public class EmployeeDirectory {
         String message = null;
 
         try {
-            statement = connection.createStatement();
 
+            statement = connection.createStatement();
 
             String insertSql = "INSERT INTO employees ("
             + "    first_name,"

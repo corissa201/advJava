@@ -33,6 +33,8 @@ urlPatterns = {"/employeeAddAction-servlet"}
      *@exception  IOException       if there is a general
      *                              I/O exception
      */
+
+
     public void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
 
@@ -40,7 +42,7 @@ urlPatterns = {"/employeeAddAction-servlet"}
 
         HttpSession session = request.getSession();
 
-        EmployeeDirectory employeeDirectory = (EmployeeDirectory)context.getAttribute("directory");
+        EmployeeDirectory directory = (EmployeeDirectory)context.getAttribute("project4Directory");
 
         String firstName = request.getParameter("firstName");
         String lastName = request.getParameter("lastName");
@@ -50,23 +52,24 @@ urlPatterns = {"/employeeAddAction-servlet"}
         String phoneNumber = request.getParameter("phoneNumber");
 
         /*String firstName = (String)session.getAttribute("firstName");
-        String lastName = (String)session.getAttribute("lastName");
-        String socialSecurityNumber = (String)session.getAttribute("socialSecurityNumber");
-        String department = (String)session.getAttribute("department");
-        String roomNumber = (String)session.getAttribute("roomNumber");
-        String phoneNumber = (String)session.getAttribute("phoneNumber");
+         * String lastName = (String)session.getAttribute("lastName");
+         * String socialSecurityNumber = (String)session.getAttribute("socialSecurityNumber");
+         * String department = (String)session.getAttribute("department");
+         * String roomNumber = (String)session.getAttribute("roomNumber");
+         * String phoneNumber = (String)session.getAttribute("phoneNumber");
 
-        session.setAttribute("firstName", firstName);
-        session.setAttribute("lastName", lastName);
-        session.setAttribute("socialSecurityNumber", socialSecurityNumber);
-        session.setAttribute("department", department);
-        session.setAttribute("roomNumber", roomNumber);
-        session.setAttribute("phoneNumber", phoneNumber);*/
+        request.setAttribute("firstName", firstName);
+        request.setAttribute("lastName", lastName);
+        request.setAttribute("socialSecurityNumber", socialSecurityNumber);
+        request.setAttribute("department", department);
+        request.setAttribute("roomNumber", roomNumber);
+        request.setAttribute("phoneNumber", phoneNumber);*/
 
-        employeeDirectory.addNewEmployeeRecord(firstName, lastName, socialSecurityNumber,
+        directory.addNewEmployeeRecord(firstName, lastName, socialSecurityNumber,
         department, roomNumber, phoneNumber);
 
-        String url = "/java112/AddNewEmployeeServlet.java";
+
+        String url = "/java112/addNewEmployee-servlet";
 
         response.sendRedirect(url);
     }
