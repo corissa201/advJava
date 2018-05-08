@@ -33,8 +33,6 @@ urlPatterns = {"/employeeAddAction-servlet"}
      *@exception  IOException       if there is a general
      *                              I/O exception
      */
-
-
     public void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
 
@@ -51,23 +49,8 @@ urlPatterns = {"/employeeAddAction-servlet"}
         String roomNumber = request.getParameter("roomNumber");
         String phoneNumber = request.getParameter("phoneNumber");
 
-        /*String firstName = (String)session.getAttribute("firstName");
-         * String lastName = (String)session.getAttribute("lastName");
-         * String socialSecurityNumber = (String)session.getAttribute("socialSecurityNumber");
-         * String department = (String)session.getAttribute("department");
-         * String roomNumber = (String)session.getAttribute("roomNumber");
-         * String phoneNumber = (String)session.getAttribute("phoneNumber");
-
-        request.setAttribute("firstName", firstName);
-        request.setAttribute("lastName", lastName);
-        request.setAttribute("socialSecurityNumber", socialSecurityNumber);
-        request.setAttribute("department", department);
-        request.setAttribute("roomNumber", roomNumber);
-        request.setAttribute("phoneNumber", phoneNumber);*/
-
         directory.addNewEmployeeRecord(firstName, lastName, socialSecurityNumber,
         department, roomNumber, phoneNumber);
-
 
         String url = "/java112/addNewEmployee-servlet";
 

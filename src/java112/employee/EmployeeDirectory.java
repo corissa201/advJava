@@ -39,14 +39,9 @@ public class EmployeeDirectory {
 
         try {
 
-            /*Class.forName("com.mysql.jdbc.Driver");
-             *
-             * connection = DriverManager.getConnection(
-             * "jdbc:mysql:///student", "student", "student");*/
             Class.forName(properties.getProperty("driver"));
 
             connection = DriverManager.getConnection(properties.getProperty("url"), properties.getProperty("username"), properties.getProperty("password"));
-
         } catch (ClassNotFoundException classNotFound) {
             classNotFound.printStackTrace();
         } catch (SQLException sqlException) {
@@ -76,10 +71,6 @@ public class EmployeeDirectory {
             statement.executeUpdate(insertSql);
 
             message = firstName + " has been added as a new employee";
-            // } catch (ClassNotFoundException classNotFound) {
-            // classNotFound.printStackTrace();
-            // } catch (SQLException sqlException) {
-            // sqlException.printStackTrace();
         } catch (Exception exception) {
             System.err.println("General Error");
             exception.printStackTrace();
