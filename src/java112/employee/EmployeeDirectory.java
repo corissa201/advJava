@@ -29,7 +29,8 @@ public class EmployeeDirectory {
      * @param properties The properties file for project 4.
      */
     public EmployeeDirectory(Properties properties) {
-        properties = properties;
+        this();
+        this.properties = properties;
     }
 
 
@@ -37,14 +38,15 @@ public class EmployeeDirectory {
         Connection connection = null;
 
         try {
-            Class.forName("com.mysql.jdbc.Driver");
 
-            connection = DriverManager.getConnection(
-            "jdbc:mysql:///student", "student", "student");
-        /*Class.forName(properties.getProperty("driver"));
-         *
-         * connection = DriverManager.getConnection(properties.getProperty("url"),
-         * properties.getProperty("username"), properties.getProperty("password"));*/
+            /*Class.forName("com.mysql.jdbc.Driver");
+             *
+             * connection = DriverManager.getConnection(
+             * "jdbc:mysql:///student", "student", "student");*/
+            Class.forName(properties.getProperty("driver"));
+
+            connection = DriverManager.getConnection(properties.getProperty("url"), properties.getProperty("username"), properties.getProperty("password"));
+
         } catch (ClassNotFoundException classNotFound) {
             classNotFound.printStackTrace();
         } catch (SQLException sqlException) {
