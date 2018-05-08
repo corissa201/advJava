@@ -68,21 +68,8 @@ public class EmployeeDirectory {
 
             statement = connection.createStatement();
 
-            String insertSql = "INSERT INTO employees ("
-            + "    first_name,"
-            + "     last_name,"
-            + "     ssn,"
-            + "     dept,"
-            + "     room,"
-            + "     phone"
-            + " ) VALUES ("
-            + "     '" + firstName + "' ,"
-            + "     '" + lastName + "' ,"
-            + "     '" + socialSecurityNumber + "' ,"
-            + "     '" + department + "' ,"
-            + "     '" + roomNumber + "' ,"
-            + "     '" + phoneNumber + "' ,"
-            + " )";
+            String insertSql = "INSERT INTO employees (first_name, last_name, ssn, dept, room, phone)"
+            + " VALUES ('" + firstName + "' ,'" + lastName + "' ,'" + socialSecurityNumber + "' ,'" + department + "' ,'" + roomNumber + "' ,'" + phoneNumber + "')";
 
             statement.executeUpdate(insertSql);
 
