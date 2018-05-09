@@ -102,8 +102,13 @@ public class EmployeeDirectory {
     public Search searchEmployeeDatabase(String searchTerm, String searchType) {
         Search search = new Search();
 
-        // searchTerm = search.set(searchTerm);
-        // searchType = search.set(searchType);
+        search.setSearchTerm(searchTerm);
+        search.setSearchType(searchType);
+
+        if (search.getSearchType().equals("firstName")) {
+            //search = "First name search type";
+
+        }
         return search;
     }
 }
