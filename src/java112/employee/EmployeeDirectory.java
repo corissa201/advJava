@@ -105,11 +105,11 @@ public class EmployeeDirectory {
         search.setSearchTerm(searchTerm);
         search.setSearchType(searchType);
 
-        if (searchType.equals("firstName")) {
+        if (search.getSearchType().equals("firstName")) {
             searchFirstName(search);
-        } else if (searchType.equals("lastName")) {
+        } else if (search.getSearchType().equals("lastName")) {
             searchLastName(search);
-        } else if (searchType.equals("employeeId")) {
+        } else if (search.getSearchType().equals("employeeId")) {
             searchEmployeeId(search);
         }
 
@@ -160,8 +160,10 @@ public class EmployeeDirectory {
 
             resultSet = statement.executeQuery(queryString);
 
-            if (resultSet != null) {
-                search.setQueryFoundEmployee(true);
+            if (!resultSet.next()) {
+
+                search.setQueryFoundEmployee(false);
+            } else {
                 while (resultSet.next()) {
                     Employee employee = new Employee();
 
@@ -182,8 +184,6 @@ public class EmployeeDirectory {
                     employee.setPhoneNumber(phoneNumber);
                     search.addFoundEmployee(employee);
                 }
-            } else {
-                search.setQueryFoundEmployee(false);
             }
         } catch (Exception exception) {
             System.err.println("General Error");

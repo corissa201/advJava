@@ -52,6 +52,9 @@ urlPatterns = {"/employeeAddAction-servlet"}
         directory.addNewEmployeeRecord(firstName, lastName, socialSecurityNumber,
         department, roomNumber, phoneNumber);
 
+        //String project4message = (String) session.getAttribute("project4message");
+        //session.setAttibute("project4message", message);
+
         String url = "/java112/addNewEmployee-servlet";
 
         response.sendRedirect(url);
