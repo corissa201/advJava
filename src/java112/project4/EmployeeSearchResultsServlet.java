@@ -59,7 +59,7 @@ public class EmployeeSearchResultsServlet extends HttpServlet {
 
         directory.searchEmployeeDatabase(searchTerm, searchType);
 
-        String url = "/content-employeeSearch.jsp";
+        String url = "/employeeSearchResults.jsp";
 
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
         dispatcher.forward(request, response);
