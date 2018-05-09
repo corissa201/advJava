@@ -12,8 +12,8 @@ import java.util.*;
  */
 public class Search {
 
-    private String enteredSearchType;
-    private String enteredSearchTerm;
+    private String searchType;
+    private String searchTerm;
     private List<Employee> databaseQueryResult;
     private boolean queryFoundEmployee;
 
@@ -43,37 +43,37 @@ public class Search {
 
     /**
      * Returns the value of enteredSearchType.
-     * @return enteredSearchType A string that holds the entered search type.
+     * @return searchType A string that holds the entered search type.
      */
-    public String getEnteredSearchType() {
-        return enteredSearchType;
+    public String getSearchType() {
+        return searchType;
     }
 
 
     /**
-     * Sets the value of enteredSearchType.
-     * @param enteredSearchType The value to assign enteredSearchType.
+     * Sets the value of searchType.
+     * @param searchType The value to assign searchType.
      */
-    public void setEnteredSearchType(String enteredSearchType) {
-        this.enteredSearchType = enteredSearchType;
+    public void setSearchType(String searchType) {
+        this.searchType = searchType;
     }
 
 
     /**
-     * Returns the value of enteredSearchTerm.
-     * @return enteredSearchTerm A string that holds the entered search term.
+     * Returns the value of searchTerm.
+     * @return searchTerm A string that holds the entered search term.
      */
-    public String getEnteredSearchTerm() {
-        return enteredSearchTerm;
+    public String getSearchTerm() {
+        return searchTerm;
     }
 
 
     /**
-     * Sets the value of enteredSearchTerm.
-     * @param enteredSearchTerm The value to assign enteredSearchTerm.
+     * Sets the value of searchTerm.
+     * @param searchTerm The value to assign searchTerm.
      */
-    public void setEnteredSearchTerm(String enteredSearchTerm) {
-        this.enteredSearchTerm = enteredSearchTerm;
+    public void setSearchTerm(String searchTerm) {
+        this.searchTerm = searchTerm;
     }
 
 
@@ -116,6 +116,6 @@ public class Search {
 
 
     public String toString() {
-        return getEnteredSearchType();
+        return getSearchType();
     }
 }
