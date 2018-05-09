@@ -105,10 +105,109 @@ public class EmployeeDirectory {
         search.setSearchTerm(searchTerm);
         search.setSearchType(searchType);
 
-        if (search.getSearchType().equals("firstName")) {
-            //search = "First name search type";
-
+        if (searchType.equals("firstName")) {
+            searchFirstName(search);
+        } else if (searchType.equals("lastName")) {
+            searchLastName(search);
+        } else if (searchType.equals("employeeId")) {
+            searchEmployeeId(search);
         }
+
+
         return search;
+    }
+
+
+    private void searchFirstName(Search search) {
+
+        String queryString = "SELECT emp_id, first_name, last_name, ssn, dept, room, phone"
+        + " FROM employees " + "WHERE first_name like '"
+        + search.getSearchTerm() + "%'";
+
+        queryDatabase(queryString, search);
+    }
+
+
+    private void searchLastName(Search search) {
+
+        String queryString = "SELECT emp_id, first_name, last_name, ssn, dept, room, phone"
+        + " FROM employees " + "WHERE last_name like '"
+        + search.getSearchTerm() + "%'";
+
+        queryDatabase(queryString, search);
+    }
+
+
+    private void searchEmployeeId(Search search) {
+
+        String queryString = "SELECT emp_id, first_name, last_name, ssn, dept, room, phone"
+        + " FROM employees " + "WHERE emp_id = '"
+        + search.getSearchTerm() + "%'";
+
+        queryDatabase(queryString, search);
+    }
+
+
+    private void queryDatabase(String queryString, Search search) {
+        Statement statement = null;
+        ResultSet resultSet = null;
+
+        // String queryString = null;
+        Connection connection = getConnection();
+        try {
+
+            statement = connection.createStatement();
+
+            resultSet = statement.executeQuery(queryString);
+
+            if (resultSet != null) {
+                search.setQueryFoundEmployee(true);
+                while (resultSet.next()) {
+                    Employee employee = new Employee();
+
+                    String employeeId = resultSet.getString("emp_id");
+                    String firstName = resultSet.getString("first_name");
+                    String lastName = resultSet.getString("last_name");
+                    String socialSecurityNumber = resultSet.getString("ssn");
+                    String department = resultSet.getString("dept");
+                    String roomNumber = resultSet.getString("room");
+                    String phoneNumber = resultSet.getString("phone");
+
+                    employee.setEmployeeId(employeeId);
+                    employee.setFirstName(firstName);
+                    employee.setLastName(lastName);
+                    employee.setSocialSecurityNumber(socialSecurityNumber);
+                    employee.setDepartment(department);
+                    employee.setRoomNumber(roomNumber);
+                    employee.setPhoneNumber(phoneNumber);
+                    search.addFoundEmployee(employee);
+                }
+            } else {
+                search.setQueryFoundEmployee(false);
+            }
+        } catch (Exception exception) {
+            System.err.println("General Error");
+            exception.printStackTrace();
+        } finally {
+            try {
+                if (resultSet != null) {
+                    resultSet.close();
+                }
+
+
+                if (statement != null) {
+                    statement.close();
+                }
+
+
+                if (connection != null) {
+                    connection.close();
+                }
+            } catch (SQLException sqlException) {
+                sqlException.printStackTrace();
+            } catch (Exception exception) {
+                exception.printStackTrace();
+            }
+        }
     }
 }

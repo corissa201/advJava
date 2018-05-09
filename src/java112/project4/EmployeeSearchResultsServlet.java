@@ -59,8 +59,8 @@ public class EmployeeSearchResultsServlet extends HttpServlet {
 
         directory.searchEmployeeDatabase(searchTerm, searchType);
 
-        String search = (String) session.getAttribute("search");
-        session.setAttribute("searchResults", search);
+        Search search = (Search)session.getAttribute("search");
+        session.setAttribute("search", search);
 
         String url = "/employeeSearchResults.jsp";
 

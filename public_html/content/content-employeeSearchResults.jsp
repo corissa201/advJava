@@ -1,5 +1,7 @@
 <div>
 <h2>Employee Search Results</h2>
+                <h3>${search}</h3>
+
 <c:choose>
     <c:when test="${search!= null}">
         <c:forEach var="search" items="${searchResults}">
