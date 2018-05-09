@@ -1,8 +1,8 @@
 <div>
 <h2>Employee Search Form</h2>
 
-<form action="/java112/employeeSearch-servlet" method="GET">
-    <input type="text" name="searchTerm" value="Enter search value"/><br />
+<form action="/java112/searchResults-servlet" method="GET">
+    Enter search value <input type="text" name="searchTerm" value=""/><br />
     <p>Select a search type:</p>
     <input type="radio" name="searchType" value="firstName"/> First Name<br />
     <input type="radio" name="searchType" value="lastName"/> Last Name<br />
