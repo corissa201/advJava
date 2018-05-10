@@ -2,9 +2,12 @@ package java112.employee;
 
 
 /**
+ * The employee class for project 4 will hold all the employee information with
+ * getters and setters.
+ *
  * @author Corissa Engel
  * @version 1.0
- * class Employee
+ *
  */
 public class Employee {
 
@@ -18,7 +21,7 @@ public class Employee {
 
 
     /**
-     * Constructor for Employee
+     * Emplty constructor for Employee class
      */
     public Employee() {
     }
