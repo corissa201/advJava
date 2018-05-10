@@ -52,7 +52,7 @@ urlPatterns = {"/employeeAddAction-servlet"}
 
         if (firstName.equals("") || lastName.equals("") || socialSecurityNumber.equals("") ||
         department.equals("") || roomNumber.equals("") || phoneNumber.equals("")) {
-            String noValueEntered = "Employee information not added. Please fill in all form fields";
+            String noValueEntered = "Employee information was not added. Please fill in all form fields";
 
             session.setAttribute("project4message", noValueEntered);
 

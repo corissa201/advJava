@@ -2,9 +2,9 @@
 <div id="content">
 <h2>Add New Employee</h2>
 
-<h3>${project4message}<h3>
+<h3 id="project4message">${project4message}<h3>
 <c:remove var="project4message"/>
-
+<br />
 <form action="/java112/employeeAddAction-servlet" method="post">
     <label>First Name</label> <input type="text" name="firstName"/><br />
     <label>Last Name</label> <input type="text" name="lastName"/> <br />
