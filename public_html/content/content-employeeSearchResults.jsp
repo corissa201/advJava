@@ -4,7 +4,7 @@
 <h3>${noTermMessage}<h3>
 <c:remove var="noTermMessage"/>
 
-<c:if test="${!noTermMessage.equals(null)}">
+<%--<c:if test="${noTermMessage.equals(null)}">--%>
 <c:choose>
     <c:when test="${searchResult.queryFoundEmployee.equals(true)}">
 
@@ -36,7 +36,7 @@
         <h3>No employee was found</h3>
     </c:otherwise>
 </c:choose>
-</c:if>
+<%--</c:if>--%>
 
 
 </div>
