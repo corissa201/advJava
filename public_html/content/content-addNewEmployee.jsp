@@ -6,12 +6,14 @@
 <c:remove var="project4message"/>
 
 <form action="/java112/employeeAddAction-servlet" method="post">
-    First Name <input type="text" name="firstName"/><br />
-    Last Name <input type="text" name="lastName"/> <br />
-    Social Security Number <input type="text" name="socialSecurityNumber"/> <br />
-    Department <input type="text" name="department"/> <br />
-    Room Number <input type="text" name="roomNumber"/> <br />
-    Phone Number <input type="text" name="phoneNumber"/> <br />
+    <label>First Name</label> <input type="text" name="firstName"/><br />
+    <label>Last Name</label> <input type="text" name="lastName"/> <br />
+    <label>Social Security Number</label> <input type="text" name="socialSecurityNumber"/> <br />
+    <label>Department</label> <input type="text" name="department"/> <br />
+    <label>Room Number</label> <input type="text" name="roomNumber"/> <br />
+    <label>Phone Number</label> <input type="text" name="phoneNumber"/> <br />
     <input type="submit" name="" value="Submit" />
 </form>
+
+
 </div>

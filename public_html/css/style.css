@@ -55,5 +55,11 @@ li { color: #036DA7; list-style-type: none; margin-bottom: 6px; }
 
 tr:nth-child(odd){
     background-color:#248f8f;
-     color:white;
+    color:white;
+}
+
+label{
+       display: inline-block;
+    width:200px;
+    text-align: right;
 }
