@@ -3,7 +3,7 @@
 <h2>Add New Employee</h2>
 
 <h3>${project4message}<h3>
-<%--<c:remove var="project4Message"/>--%>
+<c:remove var="project4message"/>
 
 <form action="/java112/employeeAddAction-servlet" method="post">
     First Name <input type="text" name="firstName"/><br />
