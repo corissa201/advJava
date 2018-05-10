@@ -109,7 +109,7 @@ public class EmployeeDirectory {
             searchFirstName(search);
         } else if (search.getSearchType().equals("lastName")) {
             searchLastName(search);
-        } else if (search.getSearchType().equals("employeeId")) {
+        } else {
             searchEmployeeId(search);
         }
 

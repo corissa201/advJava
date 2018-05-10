@@ -49,11 +49,13 @@ urlPatterns = {"/employeeAddAction-servlet"}
         String roomNumber = request.getParameter("roomNumber");
         String phoneNumber = request.getParameter("phoneNumber");
 
-        directory.addNewEmployeeRecord(firstName, lastName, socialSecurityNumber,
+        String message = directory.addNewEmployeeRecord(firstName, lastName, socialSecurityNumber,
         department, roomNumber, phoneNumber);
 
-        //String project4message = (String) session.getAttribute("project4message");
-        //session.setAttibute("project4message", message);
+        session.setAttribute("project4message", message);
+
+        //String message = (String) session.getAttribute("message");
+
 
         String url = "/java112/addNewEmployee-servlet";
 
