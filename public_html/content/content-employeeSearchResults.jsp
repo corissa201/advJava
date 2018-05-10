@@ -1,9 +1,9 @@
 <div>
 <h2>Employee Search Results</h2>
 
-                <h3>Test: ${search["databaseQueryResult"]}</h3>
-                   <h3>Term: ${search.searchTerm}</h3>
-                      <h3>Type: ${search.searchType}</h3>
+                <h3>Test: ${searchResult.databaseQueryResult}</h3>
+                   <h3>Term: ${searchResult.searchTerm}</h3>
+                      <h3>Type: ${searchResult.searchType}</h3>
 
 <%--<c:choose>
     <c:when test="${search!= null}">

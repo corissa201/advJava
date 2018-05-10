@@ -54,8 +54,6 @@ urlPatterns = {"/employeeAddAction-servlet"}
 
         session.setAttribute("project4message", message);
 
-        //String message = (String) session.getAttribute("message");
-
 
         String url = "/java112/addNewEmployee-servlet";
 
