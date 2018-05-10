@@ -4,8 +4,8 @@
 <c:choose>
     <c:when test="${searchResult.databaseQueryResult!= null}">
 
-        <table>
-        <tr>
+        <table border="3px solid black" border-collapse="collapse">
+        <tr bgcolor="blue" height="25">
             <th>ID</th>
             <th>First Name</th>
             <th>Last Name</th>
