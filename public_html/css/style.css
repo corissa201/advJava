@@ -22,3 +22,30 @@ li { color: #036DA7; list-style-type: none; margin-bottom: 6px; }
 #footer a { color : #ddd; text-decoration: none; }
 .post-span {color:#ccc; font-size:12px;}
 .post-img{margin-top:10px;}
+
+
+.searchTable {
+    border:3px solid black;
+    table-layout: fixed;
+    white-space: nowrap;
+    text-align:left;
+    background-color:#e6ffff;
+}
+.searchTable th {
+    background-color:#004d4d;
+    color:white;
+    height:40px;
+    padding-left:5px;
+    padding-right:5px;
+    text-align:center;
+    text-transformation:uppercase;
+}
+.searchTable td {
+    padding-left:5px;
+    padding-right:5px;
+}
+
+tr:nth-child(odd){
+    background-color:#248f8f;
+     color:white;
+}

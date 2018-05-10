@@ -8,8 +8,8 @@
 <c:choose>
     <c:when test="${searchResult.queryFoundEmployee.equals(true)}">
 
-        <table border="3px solid black" border-collapse="collapse">
-        <tr bgcolor="blue" height="25">
+        <table class="searchTable">
+        <tr>
             <th>ID</th>
             <th>First Name</th>
             <th>Last Name</th>
@@ -19,7 +19,7 @@
             <th>Phone #</th>
         </tr>
         <c:forEach var="employee" items="${searchResult.databaseQueryResult}">
-        <tr>
+        <tr class="employeeTable">
                 <td>${employee.employeeId}</td>
                 <td>${employee.firstName}</td>
                 <td>${employee.lastName}</td>
@@ -29,7 +29,8 @@
                 <td>${employee.phoneNumber}</td>
             </tr>
         </c:forEach>
-        </table
+        </table>
+
     </c:when>
     <c:otherwise>
         <h3>No employee was found</h3>
