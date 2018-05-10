@@ -1,5 +1,8 @@
 <div>
 <h2>Employee Search Results</h2>
+<h2>${searchResult.databaseQueryResult}</h2>
+<h2>${searchResult.searchTerm}</h2>
+<h2>${searchResult.searchType}</h2>
 
 <c:choose>
     <c:when test="${searchResult.databaseQueryResult.size() > 0}">

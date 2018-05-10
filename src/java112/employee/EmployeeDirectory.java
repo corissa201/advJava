@@ -109,7 +109,7 @@ public class EmployeeDirectory {
             searchFirstName(search);
         } else if (search.getSearchType().equals("lastName")) {
             searchLastName(search);
-        } else {
+        } else if (search.getSearchType().equals("employeeId")){
             searchEmployeeId(search);
         }
 
@@ -140,9 +140,10 @@ public class EmployeeDirectory {
 
     private void searchEmployeeId(Search search) {
 
+        String employeeID = search.searchTerm;
+
         String queryString = "SELECT emp_id, first_name, last_name, ssn, dept, room, phone"
-        + " FROM employees " + "WHERE emp_id = '"
-        + search.getSearchTerm() + "%'";
+        + " FROM employees " + "WHERE emp_id = employeeID";
 
         queryDatabase(queryString, search);
     }
