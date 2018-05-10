@@ -1,5 +1,6 @@
 package java112.project4;
 
+
 import java.io.*;
 import java.sql.*;
 import java.util.*;
@@ -8,8 +9,9 @@ import java112.employee.*;
 import java112.utilities.*;
 
 import javax.servlet.*;
-import javax.servlet.http.*;
 import javax.servlet.annotation.*;
+import javax.servlet.http.*;
+
 
 /**
  *The EmployeeSearchResultsServlet will perform searches for employees.
@@ -17,22 +19,18 @@ import javax.servlet.annotation.*;
  *@author    Corissa Engel
  */
 @WebServlet(
-    name = "searchResults",
-    urlPatterns = { "/searchResults-servlet" }
-)
+name = "searchResults",
+urlPatterns = {"/searchResults-servlet"}
+) public class EmployeeSearchResultsServlet extends HttpServlet {
 
-public class EmployeeSearchResultsServlet extends HttpServlet {
-
-
-     /**
+    /**
      * The init method ....
      *
      * @exception ServletException   If a servlet exception occurs.
      */
     public void init() throws ServletException {
-
-
     }
+
 
     /**
      *  Handles HTTP GET requests.
@@ -45,7 +43,7 @@ public class EmployeeSearchResultsServlet extends HttpServlet {
      *                              I/O exception
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response)
-        throws ServletException, IOException {
+    throws ServletException, IOException {
 
         ServletContext context = request.getServletContext();
 
@@ -56,20 +54,21 @@ public class EmployeeSearchResultsServlet extends HttpServlet {
         String searchTerm = request.getParameter("searchTerm");
         String searchType = request.getParameter("searchType");
 
+        if (searchTerm.equals("")) {
+            String noTermEntered = "Please type a term to search";
 
-        Search search = directory.searchEmployeeDatabase(searchTerm, searchType);
+            session.setAttribute("noTermMessage", noTermEntered);
 
-        session.setAttribute("searchResult", search);
+        } else {
+            Search search = directory.searchEmployeeDatabase(searchTerm, searchType);
+
+            session.setAttribute("searchResult", search);
+        }
+
 
         String url = "/employeeSearchResults.jsp";
 
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
         dispatcher.forward(request, response);
     }
-
 }
-
-
-
-
-
