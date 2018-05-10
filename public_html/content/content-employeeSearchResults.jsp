@@ -2,7 +2,7 @@
 <h2>Employee Search Results</h2>
 
 <c:choose>
-    <c:when test="${searchResult.databaseQueryResult!= null}">
+    <c:when test="${searchResult.databaseQueryResult.size() > 0}">
 
         <table border="3px solid black" border-collapse="collapse">
         <tr bgcolor="blue" height="25">
