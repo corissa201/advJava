@@ -1,8 +1,8 @@
 <div>
 <h2>Employee Search Results</h2>
-<h2>Array: ${searchResult.databaseQueryResult}</h2>
+<%--<h2>Array: ${searchResult.databaseQueryResult}</h2>
 <h2>Term: ${searchResult.searchTerm}</h2>
-<h2>Type: ${searchResult.searchType}</h2>
+<h2>Type: ${searchResult.searchType}</h2>--%>
 
 <c:choose>
     <c:when test="${searchResult.queryFoundEmployee.equals(true)}">

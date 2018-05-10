@@ -142,9 +142,7 @@ public class EmployeeDirectory {
 
         int employeeID = Integer.parseInt(search.getSearchTerm());
 
-        String queryString = "SELECT emp_id, first_name, last_name, ssn, dept, room, phone"
-        + " FROM employees" + "WHERE emp_id = '"
-        + search.getSearchTerm() + "'";
+        String queryString = "SELECT * FROM employees WHERE emp_id = '" + employeeID + "'";
 
         queryDatabase(queryString, search);
     }
