@@ -1,11 +1,11 @@
 <div>
 <h2>Employee Search Results</h2>
-<h2>${searchResult.databaseQueryResult}</h2>
-<h2>${searchResult.searchTerm}</h2>
-<h2>${searchResult.searchType}</h2>
+<h2>Array: ${searchResult.databaseQueryResult}</h2>
+<h2>Term: ${searchResult.searchTerm}</h2>
+<h2>Type: ${searchResult.searchType}</h2>
 
 <c:choose>
-    <c:when test="${searchResult.databaseQueryResult.size() > 0}">
+    <c:when test="${searchResult.queryFoundEmployee.equals(true)}">
 
         <table border="3px solid black" border-collapse="collapse">
         <tr bgcolor="blue" height="25">

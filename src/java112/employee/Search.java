@@ -34,10 +34,10 @@ public class Search {
      * @param employee A object of employee.
      */
     public void addFoundEmployee(Employee employee) {
-
+        queryFoundEmployee = true;
 
         databaseQueryResult.add(employee);
-        queryFoundEmployee = true;
+
     }
 
 

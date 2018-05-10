@@ -130,9 +130,9 @@ public class EmployeeDirectory {
 
     private void searchLastName(Search search) {
 
-        String queryString = "SELECT emp_id, first_name, last_name, ssn, dept, room, phone"
-        + " FROM employees " + "WHERE last_name like '"
-        + search.getSearchTerm() + "%'";
+        String employeeIDQueryString = search.getSearchTerm();
+
+        String queryString = "SELECT * FROM employees WHERE last_name like '" + employeeIDQueryString + "%'";
 
         queryDatabase(queryString, search);
     }
@@ -140,10 +140,11 @@ public class EmployeeDirectory {
 
     private void searchEmployeeId(Search search) {
 
-        String employeeID = search.searchTerm;
+        int employeeID = Integer.parseInt(search.getSearchTerm());
 
         String queryString = "SELECT emp_id, first_name, last_name, ssn, dept, room, phone"
-        + " FROM employees " + "WHERE emp_id = employeeID";
+        + " FROM employees" + "WHERE emp_id = '"
+        + search.getSearchTerm() + "'";
 
         queryDatabase(queryString, search);
     }
@@ -153,7 +154,6 @@ public class EmployeeDirectory {
         Statement statement = null;
         ResultSet resultSet = null;
 
-        // String queryString = null;
         Connection connection = getConnection();
         try {
 
@@ -161,7 +161,7 @@ public class EmployeeDirectory {
 
             resultSet = statement.executeQuery(queryString);
 
-            if (!resultSet.next()) {
+            if (resultSet.equals(null)) {
 
                 search.setQueryFoundEmployee(false);
             } else {
