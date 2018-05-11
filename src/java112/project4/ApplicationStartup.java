@@ -16,16 +16,20 @@ import javax.servlet.http.*;
  * The ApplicationStartup servlet will perform some initialization for the
  * project 4 web application.
  *
- *@author    Corissa Engel
+ * @author    Corissa Engel
+ * @version 1.0
+ *
  */
 @WebServlet(
 name = "applicationStartup",
 urlPatterns = {"/project4-startup"},
 loadOnStartup = 1
-) public class ApplicationStartup extends HttpServlet implements PropertiesLoader {
+)
+public class ApplicationStartup extends HttpServlet implements PropertiesLoader {
 
     /**
-     * The init method loads the properties file path into the properties instance.
+     * The init method will load the properties file path into the
+     * properties instance.
      *
      * @exception ServletException   If a servlet exception occurs.
      */
