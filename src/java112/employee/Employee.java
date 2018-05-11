@@ -2,8 +2,7 @@ package java112.employee;
 
 
 /**
- * The employee class for project 4 will hold all the employee information with
- * getters and setters.
+ * The employee class for project 4 will hold all the employee information.
  *
  * @author Corissa Engel
  * @version 1.0
@@ -21,7 +20,7 @@ public class Employee {
 
 
     /**
-     * Emplty constructor for Employee class
+     * Empty constructor for Employee class
      */
     public Employee() {
     }
@@ -152,9 +151,13 @@ public class Employee {
         this.phoneNumber = phoneNumber;
     }
 
-
+    /**
+     * Returns the String value.
+     * @return employeeString A String with the employee information.
+     */
     public String toString() {
-        return getEmployeeId() +", "+ getFirstName() +", "+ getLastName() +", "+ getSocialSecurityNumber()
-                +", "+ getDepartment() +", "+ getRoomNumber() +", "+ getPhoneNumber();
+        String employeeString = getEmployeeId() + ", " + getFirstName() + ", " + getLastName() + ", " + getSocialSecurityNumber()
+        + ", " + getDepartment() + ", " + getRoomNumber() + ", " + getPhoneNumber();
+        return employeeString;
     }
 }
