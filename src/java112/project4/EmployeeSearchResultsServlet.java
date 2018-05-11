@@ -22,8 +22,7 @@ import javax.servlet.http.*;
 @WebServlet(
 name = "searchResults",
 urlPatterns = {"/searchResults-servlet"}
-)
-public class EmployeeSearchResultsServlet extends HttpServlet {
+) public class EmployeeSearchResultsServlet extends HttpServlet {
 
     /**
      * The init method ....
@@ -57,14 +56,11 @@ public class EmployeeSearchResultsServlet extends HttpServlet {
 
         if (searchTerm.equals("")) {
             String searchResultsMessage = "Please type a term to search";
-
             session.setAttribute("searchMessage", searchResultsMessage);
         } else {
             Search search = directory.searchEmployeeDatabase(searchTerm, searchType);
             session.setAttribute("searchResult", search);
 
-            String searchResultsMessage = "No employee was found";
-            session.setAttribute("searchMessage", searchResultsMessage);
         }
 
         String url = "/employeeSearchResults.jsp";
@@ -73,3 +69,4 @@ public class EmployeeSearchResultsServlet extends HttpServlet {
         dispatcher.forward(request, response);
     }
 }
+
