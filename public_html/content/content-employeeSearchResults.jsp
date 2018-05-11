@@ -30,8 +30,8 @@
             </tr>
         </c:forEach>
         </table>
-
     </c:when>
+
     <c:otherwise>
         <h3>No employee was found</h3>
     </c:otherwise>
