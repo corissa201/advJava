@@ -23,19 +23,18 @@ import javax.servlet.http.*;
 name = "EmployeeSearch-Servlet",
 urlPatterns = {"/employeeSearch-servlet"}
 )
-
 public class EmployeeSearchServlet extends HttpServlet {
 
     /**
      *  Handles HTTP GET requests.
      *
-     *@param  request               the HttpRequest
-     *@param  response              the HttpResponse
-     *@exception  ServletException  if there is a general servlet exception
-     *@exception  IOException       if there is a general
-     *                              I/O exception
+     *@param      request               the HttpRequest
+     *@param      response              the HttpResponse
+     *
+     *@exception  ServletException      if there is a general servlet exception
+     *@exception  IOException           if there is a general I/O exception
+     *
      */
-
     public void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
 
