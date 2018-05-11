@@ -5,10 +5,12 @@ import java.util.*;
 
 
 /**
- *  This is a JavaBean class for the search
+ * The Search class is a JavaBean that contains the application search
+ * information.
  *
  * @author       Corissa Engel
  * @version     1.0
+ *
  */
 public class Search {
 
@@ -26,18 +28,15 @@ public class Search {
     }
 
 
-
-
     /**
      * This method will add the employee object to the List of found Employee
-     * objects.
+     * objects and set the queryFoundEmployee to true.
      * @param employee A object of employee.
      */
     public void addFoundEmployee(Employee employee) {
         queryFoundEmployee = true;
 
         databaseQueryResult.add(employee);
-
     }
 
 
