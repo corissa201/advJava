@@ -56,13 +56,15 @@ public class EmployeeSearchResultsServlet extends HttpServlet {
         String searchType = request.getParameter("searchType");
 
         if (searchTerm.equals("")) {
-            String noTermEntered = "Please type a term to search";
+            String searchResultsMessage = "Please type a term to search";
 
-            session.setAttribute("noTermMessage", noTermEntered);
+            session.setAttribute("searchMessage", searchResultsMessage);
         } else {
             Search search = directory.searchEmployeeDatabase(searchTerm, searchType);
-
             session.setAttribute("searchResult", search);
+
+            String searchResultsMessage = "No employee was found";
+            session.setAttribute("searchMessage", searchResultsMessage);
         }
 
         String url = "/employeeSearchResults.jsp";

@@ -1,8 +1,8 @@
 <div>
 <h2>Employee Search Results</h2>
 
-<h3>${noTermMessage}<h3>
-<c:remove var="noTermMessage"/>
+<h3>${searchMessage}<h3>
+<c:remove var="searchMessage"/>
 
 <%--<c:if test="${noTermMessage.equals(null)}">--%>
 <c:choose>
@@ -33,7 +33,8 @@
     </c:when>
 
     <c:otherwise>
-        <h3>No employee was found</h3>
+      <h3>${searchMessage}<h3>
+      <c:remove var="searchMessage"/>
     </c:otherwise>
 </c:choose>
 <%--</c:if>--%>
