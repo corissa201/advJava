@@ -11,3 +11,7 @@
 - 4/20/2018
     - Very good work and I'm glad you stuck to it and got it done. We're almost done.
     - Project 3 accecpted for 45 points (-5 late point for 3 days late.)
+
+- 5/11/2018
+    - Really good work all semester. It's been a pleasure.
+    - Project 4 accepted for full credit.
