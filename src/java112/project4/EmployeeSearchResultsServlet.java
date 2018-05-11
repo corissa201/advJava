@@ -25,15 +25,6 @@ urlPatterns = {"/searchResults-servlet"}
 ) public class EmployeeSearchResultsServlet extends HttpServlet {
 
     /**
-     * The init method ....
-     *
-     * @exception ServletException   If a servlet exception occurs.
-     */
-    public void init() throws ServletException {
-    }
-
-
-    /**
      *  Handles HTTP GET requests.
      *
      *@param        request             the HttpRequest
@@ -54,10 +45,13 @@ urlPatterns = {"/searchResults-servlet"}
         String searchTerm = request.getParameter("searchTerm");
         String searchType = request.getParameter("searchType");
 
-        if (searchTerm.equals("")) {
+        if (searchTerm == null || searchTerm.equals("")) {
+
             String searchResultsMessage = "Please type a term to search";
             session.setAttribute("searchMessage", searchResultsMessage);
+
         } else {
+
             Search search = directory.searchEmployeeDatabase(searchTerm, searchType);
             session.setAttribute("searchResult", search);
 

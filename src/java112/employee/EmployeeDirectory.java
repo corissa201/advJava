@@ -35,6 +35,7 @@ public class EmployeeDirectory {
         this.properties = properties;
     }
 
+
     /**
      * The getConnection method will establish a connection to the database.
      *
@@ -47,7 +48,6 @@ public class EmployeeDirectory {
             Class.forName(properties.getProperty("driver"));
 
             connection = DriverManager.getConnection(properties.getProperty("url"), properties.getProperty("username"), properties.getProperty("password"));
-
         } catch (ClassNotFoundException classNotFound) {
             classNotFound.printStackTrace();
         } catch (SQLException sqlException) {
@@ -56,6 +56,7 @@ public class EmployeeDirectory {
 
         return connection;
     }
+
 
     /**
      * The addNewEmployeeRecord method will add a new record to the Employee
@@ -73,7 +74,6 @@ public class EmployeeDirectory {
     public String addNewEmployeeRecord(String firstName, String lastName,
     String socialSecurityNumber, String department, String roomNumber, String phoneNumber) {
         Statement statement = null;
-        ResultSet resultSet = null;
 
         Connection connection = getConnection();
 
@@ -88,19 +88,17 @@ public class EmployeeDirectory {
             statement.executeUpdate(insertSql);
 
             message = firstName + " has been added as a new employee";
-
+        } catch (SQLException sqlException) {
+            sqlException.printStackTrace();
         } catch (Exception exception) {
             System.err.println("General Error");
             exception.printStackTrace();
         } finally {
             try {
-                if (resultSet != null) {
-                    resultSet.close();
-                }
-
                 if (statement != null) {
                     statement.close();
                 }
+
 
                 if (connection != null) {
                     connection.close();
@@ -113,6 +111,7 @@ public class EmployeeDirectory {
         }
         return message;
     }
+
 
     /**
      * The searchEmployeeDatabase will call a method determined by the search type
@@ -131,16 +130,16 @@ public class EmployeeDirectory {
 
         if (search.getSearchType().equals("firstName")) {
             searchFirstName(search);
-
         } else if (search.getSearchType().equals("lastName")) {
             searchLastName(search);
-
-        } else if (search.getSearchType().equals("employeeId")){
+        } else if (search.getSearchType().equals("employeeId")) {
             searchEmployeeId(search);
         }
 
+
         return search;
     }
+
 
     /**
      * The searchFirstName method is called from the searchEmployeeDatabase method
@@ -158,6 +157,7 @@ public class EmployeeDirectory {
         queryDatabase(queryString, search);
     }
 
+
     /**
      * The searchLastName method is called from the searchEmployeeDatabase method
      * and will search the database using the searchTerm.
@@ -174,6 +174,7 @@ public class EmployeeDirectory {
         queryDatabase(queryString, search);
     }
 
+
     /**
      * The searchEmployeeId method is called from the searchEmployeeDatabase method
      * and will search the database using the searchTerm.
@@ -189,6 +190,7 @@ public class EmployeeDirectory {
 
         queryDatabase(queryString, search);
     }
+
 
     /**
      * The queryDatabase method will connect and query the database. Then create
@@ -209,30 +211,25 @@ public class EmployeeDirectory {
 
             resultSet = statement.executeQuery(queryString);
 
-            if (resultSet.equals(null)) {
-                search.setQueryFoundEmployee(false);
+            while (resultSet.next()) {
+                Employee employee = new Employee();
 
-            } else {
-                while (resultSet.next()) {
-                    Employee employee = new Employee();
+                String employeeId = resultSet.getString("emp_id");
+                String firstName = resultSet.getString("first_name");
+                String lastName = resultSet.getString("last_name");
+                String socialSecurityNumber = resultSet.getString("ssn");
+                String department = resultSet.getString("dept");
+                String roomNumber = resultSet.getString("room");
+                String phoneNumber = resultSet.getString("phone");
 
-                    String employeeId = resultSet.getString("emp_id");
-                    String firstName = resultSet.getString("first_name");
-                    String lastName = resultSet.getString("last_name");
-                    String socialSecurityNumber = resultSet.getString("ssn");
-                    String department = resultSet.getString("dept");
-                    String roomNumber = resultSet.getString("room");
-                    String phoneNumber = resultSet.getString("phone");
-
-                    employee.setEmployeeId(employeeId);
-                    employee.setFirstName(firstName);
-                    employee.setLastName(lastName);
-                    employee.setSocialSecurityNumber(socialSecurityNumber);
-                    employee.setDepartment(department);
-                    employee.setRoomNumber(roomNumber);
-                    employee.setPhoneNumber(phoneNumber);
-                    search.addFoundEmployee(employee);
-                }
+                employee.setEmployeeId(employeeId);
+                employee.setFirstName(firstName);
+                employee.setLastName(lastName);
+                employee.setSocialSecurityNumber(socialSecurityNumber);
+                employee.setDepartment(department);
+                employee.setRoomNumber(roomNumber);
+                employee.setPhoneNumber(phoneNumber);
+                search.addFoundEmployee(employee);
             }
         } catch (Exception exception) {
             System.err.println("General Error");
@@ -243,9 +240,11 @@ public class EmployeeDirectory {
                     resultSet.close();
                 }
 
+
                 if (statement != null) {
                     statement.close();
                 }
+
 
                 if (connection != null) {
                     connection.close();

@@ -1,13 +1,15 @@
 <div>
 <h2>Employee Search Results</h2>
 
-<h3 id="project4message">${searchMessage}<h3>
-<c:remove var="searchMessage"/>
-
-<%--<c:if test="${noTermMessage.equals(null)}">--%>
 <c:choose>
-    <c:when test="${searchResult.queryFoundEmployee.equals(true)}">
 
+    <c:when test="${searchMessage != null}">
+      <h3 id="project4message">${searchMessage}</h3>
+      <c:remove var="searchMessage"/>
+    </c:when>
+
+
+    <c:when test="${searchResult.queryFoundEmployee}">
         <table class="searchTable">
         <tr>
             <th>ID</th>
@@ -34,11 +36,12 @@
 
     <c:otherwise>
       <c:set var="searchMessage" value="No Employee returned" scope="session" />
-      <h3 id="project4message">${searchMessage}<h3>
+      <h3 id="project4message">${searchMessage}</h3>
       <c:remove var="searchMessage"/>
     </c:otherwise>
+
 </c:choose>
-<%--</c:if>--%>
+
 
 
 </div>
