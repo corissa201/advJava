@@ -14,14 +14,16 @@ import javax.servlet.http.*;
 
 
 /**
- *The EmployeeSearchResultsServlet will perform searches for employees.
+ * The EmployeeSearchResultsServlet will perform searches for employees.
  *
- *@author    Corissa Engel
+ * @author      Corissa Engel
+ * @version     1.0
  */
 @WebServlet(
 name = "searchResults",
 urlPatterns = {"/searchResults-servlet"}
-) public class EmployeeSearchResultsServlet extends HttpServlet {
+)
+public class EmployeeSearchResultsServlet extends HttpServlet {
 
     /**
      * The init method ....
@@ -35,12 +37,11 @@ urlPatterns = {"/searchResults-servlet"}
     /**
      *  Handles HTTP GET requests.
      *
-     *@param  request               the HttpRequest
-     *@param  response              the HttpResponse
-     *@exception  ServletException  if there is a general
-     *                              servlet exception
-     *@exception  IOException       if there is a general
-     *                              I/O exception
+     *@param        request             the HttpRequest
+     *@param        response            the HttpResponse
+     *@exception    ServletException    if there is a general servlet exception
+     *@exception    IOException         if there is a general I/O exception
+     *
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
@@ -58,13 +59,11 @@ urlPatterns = {"/searchResults-servlet"}
             String noTermEntered = "Please type a term to search";
 
             session.setAttribute("noTermMessage", noTermEntered);
-
         } else {
             Search search = directory.searchEmployeeDatabase(searchTerm, searchType);
 
             session.setAttribute("searchResult", search);
         }
-
 
         String url = "/employeeSearchResults.jsp";
 
